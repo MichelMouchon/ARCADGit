@@ -1,0 +1,59 @@
+000100121796     A*******************************************************
+000200000727     A*                 LOGICAL FILE                        *
+000300121796     A* log. BPFALZA : AAMMJJ LIV, APP,CNUL,CIF,NCDE,RAC    *
+000400121796     A*                                                     *
+000500121796     A*******************************************************
+000600121796     A                                      FIFO
+000700121796     A          R BLRALZA1                  PFILE(BPFALZA)
+000800121796     A                                      TEXT('log. BPFALZA : AAMMJJ LIV, A-
+000900121796     A                                      PP,CNUL,CIF,NCDE,RAC')
+001000121796     A            AZCNFE
+001100121796     A            AZCIFE
+001200121796     A            AZNCMD
+001300121796     A            AZNORD
+001400121796     A            AZCNDD
+001500121796     A            AZCIDD
+001600121796     A            AZCNDL
+001700121796     A            AZCIDL
+001800121796     A            AZAAEM
+001900121796     A            AZMMEM
+002000121796     A            AZJJEM
+002100121796     A            AZAALV
+002200121796     A            AZMMLV
+002300121796     A            AZJJLV
+002400121796     A            AZHHLV
+002500121796     A            AZMNLV
+002600121796     A            AZSPCB
+002700121796     A            AZPCB
+002800121796     A            AZEAN
+002900121796     A            AZKEAN
+003000121796     A            AZVL
+003100121796     A            AZVA
+003200121796     A            AZQT
+003300121796     A            AZPA
+003400121796     A            AZPVM
+003500121796     A            AZRAC
+003600121796     A            AZCCC
+003700121796     A            AZVPV
+003800121796     A            AZMOD
+003900121796     A            AZDES
+004000121796     A            AZEMPL
+004100121796     A            AZAACR
+004200121796     A            AZMMCR
+004300121796     A            AZJJCR
+004400121796     A            AZHHCR
+004500121796     A            AZMNCR
+004600121796     A            AZSSCR
+004700121796     A            AZRVAL
+004800121796     A            AZCAPP
+004900121796     A            AZDATA
+005000121796     A          K AZAALV
+005100121796     A          K AZMMLV
+005200121796     A          K AZJJLV
+005300121796     A          K AZCAPP
+005400121796     A          K AZCNFE
+005500121796     A          K AZCIFE
+005600121796     A          K AZNCMD
+005700121796     A          K AZRAC
+005800121796     A          K AZCCC
+005900121796     A          K AZVPV

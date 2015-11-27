@@ -1,0 +1,382 @@
+000100000000      **************************************************************
+000200000000      *  Created By :  Intec Systems Limited.                      *
+000300000000      *                                                            *
+000400990105      *  Program    :  HSR341                                      *
+000500000000      *                                                            *
+000600990105      *  Description:  F4 search window                            *
+000700000000      *                                                            *
+000800990105      *  Author     :  Robert Lee                                 *
+000900000000      *                                                            *
+001000990105      *  Date       :  January 1999                                *
+001100000000      *                                                            *
+001200000000      **************************************************************
+001300990105      *  Function: To allow user to select a record from a file         by    *
+001400990105      *            displaying records from the file in a window               *
+001500990105      *            subfile list.                                              *
+001600990105      *                                                                       *
+001700990105      *            The actual window takes an area of                         *
+001800990105      *                 48 columns                                            *
+001900990105      *                 13 lines                                              *
+002000990105      *                                                                       *
+002100990105      *........................................................        .......*
+002200990105      *........................................................        .......*
+002300990105      *                                                                       *
+002400990105      *  Program Parameters                                                   *
+002500990105      *                                                                       *
+002600990105      *  Field  Use  Type    Description                                      *
+002700990105      *  ¯¯¯¯¯¯ ¯¯¯ ¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+002800990105      *  RTNC@  O   CHAR 1   The return code                                  *
+002900990105      *                          '0' - valid number returned                  *
+003000990105      *                          '1' - CMD12 to return without         number *
+003100990105      *  NUMR@  O   CHAR 15  Selected number                                  *
+003200990105      *  @FILE  I   CHAR 10  The file to be displayed                         *
+003300990105      *  @NAME  I   CHAR 6   The name of the field in FILE@ tha        t holds*
+003400990105      *                      the description text                             *
+003500990105      *  @NUMBR I   CHAR 6   The name of the field in FILE@ tha        t holds*
+003600990105      *                      the number code                                  *
+003700990105      *  @LIN   I   DEC 3,0  The line number to position window               *
+003800990105      *  @COL   I   DEC 3,0  The column number to position wind        ow     *
+003900990105      *                                                                       *
+004000990105      *........................................................        .......*
+004100990105      *                                                                       *
+004200990105      *  Subroutine Summary                                                   *
+004300990105      *                                                                       *
+004400990105      *  Subroutine   Description                                             *
+004500990105      *  ¯¯¯¯¯¯¯¯¯¯   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+004600990105      *  £BLD         Build first page of subfile of selected r        ecords.*
+004700990105      *  £NEXT        Build next page of subfile of selected re        cords. *
+004800990105      *  £FRMT        Format the OPNQRYF command.                             *
+004900990105      *  *INZSR       Initialisation.                                         *
+005000990105      *  £DEFN        Program definitions.                                    *
+005100990105      *........................................................        .......*
+005200990105      *  Indicator Summary                                                    *
+005300990105      *                                                                       *
+005400990105      *  Indicator    Description                                             *
+005500990105      *  ¯¯¯¯¯¯¯¯¯    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+005600990105      *  *INKL        F12 - Return to calling program without s        elect. *
+005700990105      *  *IN27        ROLLUP                                                  *
+005800990105      *  *IN73        SFLCLR                                                  *
+005900990105      *  *IN73        SFLDSPCTL                                               *
+006000990105      *  *IN74        SFLDSP                                                  0
+006100990105      *  *IN75        SFLEND                                                  *
+006200990105      *  *IN79        General file I/O work indicator.                        *
+006300990105      *                                                                       *
+006400990105      *                                                                       *
+006500990105      *  Amendments                                                           *
+006600990105      *                                                                       *
+006700990105      *  Number Author       Date   Description                               *
+006800990105      *  ¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯  *
+006900990105      *  XX01   X.X.Xxxxxx XX/XX/XX Xxxxxx xxxxxx xxxxxx xxxxxx         xxxx  *
+007000990105      *                                                                       *
+007100990105      *........................................................        .......*
+007200990105     H        1   D
+007300990105     FHSQ341  IF  E           K        DISK                           UC
+007400990105     FHSS341  CF  E                    WORKSTN      KINFDS INFDS
+007500990105     F                                        RRNC  KSFILE SFLB
+007600990105      *  OPNQRY command
+007700990105     E                    ARA     1   5 50
+007800990105      *
+007900990105      *  OVRDBF, CLOF commands
+008000990105      *
+008100990105     E                    ARB     1   3 50
+008200990105      *
+008300990105      *  Subset area of OPNQRYF
+008400990105      *
+008500990105     E                    SUBA       18  1
+008600990105      *********************************************************        *******
+008700990105      *                  CONSTANT SPECIFICATIONS                             *
+008800990105      *********************************************************        *******
+008900990105      *
+009000990105     I              4                     C         PAGSIZ
+009100990105     I              15                    C         DSPLEN
+009200990105     I              'ABCDEFGHIJKLMNOPQRST-C         ALPHA
+009300990105     I              'UVWXYZ0123456789* '
+009400990106     I              'NBR  *GE      '      C         NMBRGE
+009500990106     I              'NAM  = %WLDCRD'      C         NAMEWC
+009600990105      *********************************************************        *******
+009700990105      *                     INPUT SPECIFICATIONS                             *
+009800990105      *********************************************************        *******
+009900990105      *
+010000990105      * File information data structure of Workstation Display         file.
+010100990105      * RECFMT - Current screen format ID
+010200990105      * CSRLOC - Current cursor location
+010300990105      * TOPRRN - Current top subfile record
+010400990105      *
+010500990105     IINFDS       DS
+010600000728     I                                     *STATUS  XSTAT
+010700990105     I                                      261 270 RECFMT
+010800990105     I                                    B 370 3710CSRLOC
+010900990105     I                                    B 378 3790TOPRRN
+011000990105      *
+011100990105      * OPNQRY command layout for parameter substitution
+011200990105      *
+011300990105     ICMA         DS
+011400990105     I                                        1 250 ARA
+011500990105     I                                       13  23 FILA
+011600990105     I                                       59  72 FIELD
+011700990105     I                                       75  92 SUBA
+011800990105     I                                      165 171 NAMA
+011900990105     I                                      181 187 NUMA
+012000990105      *
+012100990105      * OVRDBF, CLOF commands layout for parameter substitution
+012200990105      *
+012300990105     ICMB         DS
+012400990105     I                                        1 150 ARB
+012500990105     I                                        1 100 OVRB
+012600990105     I                                       28  37 FILB
+012700990105     I                                      112 121 FILC
+012800990105      *
+012900990105      *********************************************************        *******
+013000990105      *  The MAINLINE section of the code.                                   *
+013100990105      *********************************************************        *******
+013200990105      *
+013300990105      * Display window until selection made or CMD12
+013400990105      *
+013500990105     C                     WRITEFMTC
+013600990105     C           *INKL     DOUEQ*ON
+013700990105     C                     EXFMTSFLCB
+013800990105     C           *INKL     IFEQ *OFF
+013900990105      *
+014000990105      *  ROLLUP
+014100990105      *
+014200990105     C           *IN27     IFEQ *ON
+014300000728     C                     EXSR XNEXT
+014400990105     C                     ELSE
+014500990105      *
+014600990105      *  If the subset name is change check that it does not co        ntain
+014700990105      *  illegal characters. Rebuild subfile.
+014800990105      *
+014900990106      * Check for # (and extract) - denotes search on NBR
+015000990105     C                     MOVELDFNAME    AST     1
+015100000728     C           AST       IFEQ 'X'
+015200990105     C                     MOVE DFNAME    DF14   14
+015300990105     C                     MOVELDF14      DFNAME
+015400990105     C                     MOVE ' '       DFNAME
+015500990105     C                     ENDIF
+015600990105      *
+015700990105     C           DFNAME    IFNE SVNAME
+015800000728     C           ALPHA     CHECKDFNAME    X
+015900000728     C           X         IFEQ *ZERO
+016000990105     C                     MOVE DFNAME    SVNAME
+016100000728     C                     EXSR XBLD
+016200990105     C                     ELSE
+016300990105     C                     MOVE SVNAME    DFNAME
+016400990105     C                     ENDIF
+016500990105     C                     ELSE
+016600990105      *
+016700990105      * Get selection code and return
+016800990105      *
+016900990105     C                     READCSFLB                     79
+017000990105     C           *IN79     IFEQ *OFF
+017100990105     C           SELC      ANDNE*BLANK
+017200000728     C                     MOVE *OFF      RTNCY
+017300000728     C                     MOVE NBR       NUMBRY
+017400990105     C                     LEAVE
+017500990105     C                     ENDIF
+017600990105     C                     Z-ADDTOPRRN    RECNO
+017700990105     C                     ENDIF
+017800990105     C                     ENDIF
+017900990105      *
+018000990105     C                     ENDIF
+018100990105     C                     ENDDO
+018200990105      *
+018300990105      *  Close the open qry file
+018400990105      *
+018500990105     C                     MOVELARB,3     CMD   256 P
+018600990105     C                     CALL 'QCMDEXC'              99
+018700990105     C                     PARM           CMD
+018800990105     C                     PARM 256       LEN    155
+018900990105      *
+019000990105      *  Close the program file
+019100990105      *
+019200990105     C                     CLOSEHSQ341                 99
+019300990105      *
+019400990105      * Return to the calling Program
+019500990105      *
+019600990105     C                     SETON                     LR
+019700990105     C                     RETRN
+019800990105      *********************************************************        *******
+019900990105      *  This subroutine performs the following functions :                  *
+020000990105      *      Build the first page of the subfile of records tha        t     *
+020100990105      *      conform to the subset.                                          *
+020200990105      *********************************************************        *******
+020300990105      *
+020400000728     C           XBLD      BEGSR
+020500990105      *
+020600990105      *  Close and reopen driving file
+020700990105      *
+020800000728     C                     EXSR XFRMT
+020900990105      *
+021000990105      *  Clear subfile
+021100990105      *
+021200990105     C                     Z-ADD*ZERO     RRNC
+021300990105     C                     MOVE *OFF      *IN73
+021400990105     C                     MOVE *OFF      *IN74
+021500990105     C                     MOVE *OFF      *IN75
+021600990105     C                     WRITESFLCB
+021700990105     C                     MOVE *ON       *IN73
+021800990105     C                     CLEARSELC
+021900990105      *
+022000990105      *  Build first page and check that records exist to displ        ay
+022100990105      *
+022200000728     C                     EXSR XNEXT
+022300990105     C           RRNC      COMP *ZERO                7474
+022400990105      *
+022500990105     C                     ENDSR
+022600990105      *********************************************************        *******
+022700990105      *  This subroutine performs the following functions :                  *
+022800990105      *      Build the next page of the subfile of records that              *
+022900990105      *      conform to the subset.                                          *
+023000990105      *********************************************************        *******
+023100990105      *
+023200000728     C           XNEXT     BEGSR
+023300990105     C                     CLEARSELC
+023400990105      *
+023500990105      *  Read and process a subfile page of records
+023600990105      *
+023700000728     C                     DO   PAGSIZ    X
+023800990105     C                     READ FHSQ341                  79
+023900990105     C           *IN79     IFEQ *ON
+024000990105     C                     MOVE *ON       *IN75
+024100990105     C                     LEAVE
+024200990105     C                     ENDIF
+024300990105     C                     ADD  1         RRNC
+024400990105     C                     WRITESFLB
+024500990105     C                     ENDDO
+024600990105     C                     Z-ADDRRNC      RECNO
+024700990105      *
+024800990105      *  See if last record read was the last record in the fil        e
+024900990105      *
+025000990105     C           *IN79     IFEQ *OFF
+025100990105     C                     READ FHSQ341                  75
+025200990105     C  N75                READPFHSQ341                  79
+025300990105     C                     ENDIF
+025400990105      *
+025500990105     C                     ENDSR
+025600990105      *********************************************************        *******
+025700990105      *  This subroutine performs the following functions :                  *
+025800990105      *      Formats the subset into the OPNQRYF command.                    *
+025900990105      *********************************************************        *******
+026000990105      *
+026100000728     C           XFRMT     BEGSR
+026200990105      *
+026300990105      *  Close the open qry file
+026400990105      *
+026500990105     C                     MOVELARB,3     CMD   256 P
+026600990105     C                     CALL 'QCMDEXC'              99
+026700990105     C                     PARM           CMD
+026800990105     C                     PARM 256       LEN    155
+026900990105      *
+027000990105      *  Close the program file
+027100990105      *
+027200990105     C                     CLOSEHSQ341                 99
+027300990105      *
+027400990105      *  Add an * onto the beginning and end of the subset text
+027500990105      *  to get the wild card format
+027600990105      *
+027700000728     C           ' '       CHECKDFNAME    X       30
+027800000728     C           X         IFEQ *ZERO
+027900000728     C                     Z-ADD1         X
+028000990105     C                     ELSE
+028100000728     C                     SUBSTDFNAME:X  WRK1   50 P
+028200000728     C           ' '       CHEKRWRK1      X
+028300000728     C                     ADD  2         X
+028400000728     C           AST       IFNE 'X'
+028500990105     C                     MOVEA'*'       SUBA,1    P
+028600990105     C                     MOVEAWRK1      SUBA,2    P
+028700990105     C                     ELSE
+028800990105     C                     MOVEAWRK1      SUBA,1    P
+028900990105     C                     ENDIF
+029000990105     C                     ENDIF
+029100000728     C           AST       IFNE 'X'
+029200000728     C                     MOVEA'*"'      SUBA,X    P
+029300990105     C                     ELSE
+029400000728     C           X         SUB  1         A       30
+029500990105     C           A         IFLE 0
+029600990105     C                     Z-ADD1         A
+029700990105     C                     ENDIF
+029800990105     C                     MOVEA'"'       SUBA,A    P
+029900990105     C                     ENDIF
+030000990105      *
+030100990105      *  Open the query file
+030200990105      *
+030300000728     C           AST       IFEQ 'X'
+030400990105     C                     MOVELNMBRGE    FIELD
+030500990105     C                     ELSE
+030600990105     C                     MOVELNAMEWC    FIELD
+030700990105     C                     ENDIF
+030800990105      *
+030900990105     C                     MOVELCMA       CMD   256
+031000990105     C                     CALL 'QCMDEXC'              99
+031100990105     C                     PARM           CMD
+031200990105     C                     PARM 256       LEN    155
+031300990105     C                     OPEN HSQ341
+031400990105      *
+031500990105     C                     ENDSR
+031600990105      *********************************************************        *******
+031700990105      *  This subroutine performs the following functions :                  *
+031800990105      *      Initialization.                                                 *
+031900990105      *********************************************************        *******
+032000990105      *
+032100990105     C           *INZSR    BEGSR
+032200990105      *
+032300990105      *  Plant file name in OVRDBF, CLOF commands
+032400990105      *
+032500000728     C                     MOVE YFILE     FILB
+032600000728     C                     MOVE YFILE     FILC
+032700990105      *
+032800990105      *  Set up override to selected file
+032900990105      *
+033000990105     C                     MOVELOVRB      CMD   256 P
+033100990105     C                     CALL 'QCMDEXC'              99
+033200990105     C                     PARM           CMD
+033300990105     C                     PARM 256       LEN    155
+033400990105      *
+033500990105      *  Set up OPNQRY mappings
+033600990105      *
+033700000728     C                     MOVE YFILE     FILA
+033800000728     C           YNAME     CAT  '"':0     NAMA      P
+033900000728     C           YNUMBR    CAT  '"':0     NUMA      P
+034000990105      *
+034100990105      *  Set up screen subset
+034200990105      *
+034300990105     C                     CLEARDFNAME
+034400990105     C                     MOVE DFNAME    SVNAME
+034500000728     C                     MOVE *ON       RTNCY
+034600000728     C                     CLEARNUMBRY
+034700990105      *
+034800990105      *  Build first page
+034900990105      *
+035000000728     C                     EXSR XBLD
+035100990105      *
+035200990105     C                     ENDSR
+035300990105      *********************************************************        *******
+035400990105      *  This subroutine performs the following functions :                  *
+035500990105      *      Definition.                                                     *
+035600990105      *********************************************************        *******
+035700990105      *
+035800000728     C           XDEFN     BEGSR
+035900990105      *
+036000990105     C           *ENTRY    PLIST
+036100000728     C                     PARM           RTNCY   1
+036200000728     C                     PARM           NUMBRY 15
+036300000728     C                     PARM           YFILE  10
+036400000728     C                     PARM           YNAME   6
+036500000728     C                     PARM           YNUMBR  6
+036600000728     C                     PARM           YLIN    30
+036700000728     C                     PARM           YCOL    30
+036800990105      *
+036900990105     C                     Z-ADDRRNC      RRNC    50
+037000990105     C           *LIKE     DEFN DFNAME    SVNAME
+037100990105      *
+037200990105     C                     ENDSR
+037300990105**
+037400990105OPNQRYF FILE(0123456789) FORMAT(HSQ341)
+037500990106QRYSLT('NAM  = %WLDCRD("12345678901234567")')
+037600990106KEYFLD((NBR))
+037700990106MAPFLD((NAM  "123456") (NBR  "123456"))
+037800990105SEQONLY(*NO  ) OPTIMIZE(*FIRSTIO 4 )
+037900990105**
+038000990105OVRDBF FILE(HSQ341) TOFILE(0123456789) SHARE(*YES)
+038100990105 SEQONLY(*NO)
+038200990105CLOF OPNID(0123456789)

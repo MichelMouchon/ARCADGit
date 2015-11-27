@@ -1,0 +1,446 @@
+000100000000     H        1   Y
+000200000000      *****************************************************************
+000300000000      *                                                               *
+000400990219      *  Program Id. . : HSR215                                       *
+000500000000      *                                                               *
+000600990219      *  Description . : Agency Sales   Processing                    *
+000700000000      *                                                               *
+000800990105      *  System  . . . : High Street Vouchers Control & Tracking      *
+000900000000      *                                                               *
+001000980923      *  Author  . . . : Colin N. Jones   (Intec Systems Limited)     *
+001100000000      *                                                               *
+001200990219      *  Date Written  : Febuary 1999                                 *
+001300000000      *                                                               *
+001400000000      *****************************************************************
+001500990114      * Indicator usage:
+001600990217      *  65 - Overflow Indicator
+001700990203      *  90 - Main driving file.
+001800990203      *  91 - Customer Validation.
+001900990203      *  92 - Product Code Validation.
+002000990203      *  93 - Agency Product Code Found.
+002100990203      *  94 - Serial Number Range result.
+002200990203      *  95 - Update Inventory Master File.
+002300990114      *
+002400990203      *  LR - Last Record indicator.
+002500990114      *****************************************************************
+002600990114      * Maintenance   :
+002700990114      * Fix/Chg Ref. Date       Description.
+002800990114      * ------------ ---------- -----------------------------------
+002900990114      *================================================================
+003000000000      *
+003100990219      * Sales Agency Input File
+003200990222     FHSPAREQ UF  E           K        DISK
+003300990126      *
+003400990126      * Voucher Tracking File
+003500990127     FHSLTRACAO   E           K        DISK                      A
+003600990126      *
+003700990126      * Voucher Control File
+003800990219     FHSLACTLAUF  E           K        DISK
+003900990126      *
+004000990126      * Voucher Cross-Reference File
+004100990126     FHSLVXRFAIF  E           K        DISK
+004200990126      *
+004300990126      * Sales Order Header File
+004400990127     FHSLORDHAO   E           K        DISK                      A
+004500990126      *
+004600990126      * Sales Order Detail File
+004700990222     FHSLORDDAUF  E           K        DISK                      A
+004800990222      *
+004900990222      * Sales Discount File
+005000990224     FHSLDISCBIF  E           K        DISK
+005100990126      *
+005200990126      * Sales Order Delivery Detail File
+005300990127     FHSLODELAO   E           K        DISK                      A
+005400990126      *
+005500990126      * Customer Master File
+005600990126     FHSLCUSTAIF  E           K        DISK
+005700990126      *
+005800990126      * Inventory Master File
+005900990126     FHSLINVMAUF  E           K        DISK
+006000990126      *
+006100990126      * Product Master File
+006200990126     FHSLPRODAIF  E           K        DISK
+006300990126      *
+006400990126      * Inventory transaction File
+006500990127     FHSLINVTAO   E           K        DISK                      A
+006600990126      *
+006700990126      * Error Log report
+006800990219     FHSW215  O   E             65     PRINTER
+006900000000      *
+007000990224      * Sales Order Parameters.
+007100990224     FHSLORDPAIF  E           K        DISK
+007200990224      *
+007300000000      *****************************************************************
+007400990114      *----------------------------------------------------------------
+007500990127      *
+007600000728     IXDATE       DS
+007700990127     I                                        1   80CYMD
+007800990127     I                                        1   20CC
+007900990127     I                                        3   80YMD
+008000990127     I                                        3   40YY
+008100990127      *
+008200000728     IXXXSDS     SDS                            429
+008300000728     I                                     *PROGRAM XPGMID
+008400000728     I                                      244 253 XJOBNO
+008500000728     I                                      254 263 XUSRID
+008600990108      *  Main Line Processing
+008700990108      *************************************************************
+008800990126      *
+008900990106b1   C           *INLR     DOUEQ*ON
+009000990119      *
+009100990219     C                     READ HSPAREQ                  90
+009200990126      *
+009300990126      * If no more records found then quit program
+009400990126      * otherwise process read record.
+009500990126      *
+009600990127     C           *IN90     IFEQ *ON
+009700990126     C                     MOVE *ON       *INLR
+009800990126     C                     ELSE
+009900990222      * Ignore deleted records.
+010000990222     C           AADELT    IFEQ 'D'
+010100990222     C                     ITER
+010200990222     C                     ENDIF
+010300990222      * if any errors found on record then the 'd' will be removed.
+010400990222     C                     MOVE 'D'       AADELT
+010500990217      *
+010600990217     C           *IN65     IFEQ *ON
+010700990217     C                     WRITEHEADER1
+010800990217     C                     WRITEHEADER2
+010900990217     C                     ENDIF
+011000990217      *
+011100990105     C                     EXSR SR01
+011200990222      * update delete flag.
+011300990222     C                     UPDATHSFAREQ
+011400990126     C                     ENDIF
+011500990106      *
+011600990222      *
+011700990126e1   C                     ENDDO
+011800990222      *
+011900990222      * Calculate discount for pervious order & apply to all detail
+012000990222      * lines.
+012100990222     C                     EXSR DISC
+012200990222      *
+012300990217     C                     ADD  1         BATCH
+012400990127     C                     WRITEFOOTER
+012500990106      ****************************************************************
+012600990126      *  Process Record
+012700990107      *****************************************************************
+012800990126     C           SR01      BEGSR
+012900990217      *          ***************
+013000990126      *
+013100990126      * Validate Customer No. If customer No is invalid do not process
+013200990126      * record.
+013300990126      *
+013400990219     C           AACUST    CHAINHSLCUSTA             91
+013500990126     C           *IN91     IFEQ *ON
+013600990127     C                     MOVE 'Y'       RPT     1
+013700990222     C                     MOVE ' '       AADELT
+013800990217     C                     ADD  1         COUN
+013900990127     C                     WRITEDETL
+014000990126     C                     ENDIF
+014100990126      *
+014200990127      * Validate Product Code against agency code, if code exist then
+014300990127      * use alternative product code.
+014400990126      *
+014500990219     C           AAPROD    CHAINHSLVXRFA             93
+014600990222     C           *IN93     IFEQ *OFF
+014700990219     C                     MOVE HPROD     AAPROD
+014800990222     C                     ELSE
+014900990222     C                     MOVE AAPROD    KPROD
+015000990127     C                     ENDIF
+015100990127      *
+015200990127      * Validate Product Code. If Product is invalid do not process
+015300990127      * record.
+015400990127      *
+015500990219     C           AAPROD    CHAINHSLPRODA             92
+015600990208     C                     MOVE NSUBC     WKSUBC
+015700990222     C           *IN92     IFEQ *OFF
+015800990222     C                     MOVE AAPROD    KPROD
+015900990222     C                     MOVELNDESC     KDESC
+016000990126     C                     ENDIF
+016100990126      *
+016200990126      * Get Next Order Number and update Data area only if different
+016300990126      * customer claims.
+016400990126      *
+016500000728     C           AACUST    IFNE CUSTX
+016600990126      *
+016700990222      * Calculate discount for pervious order & apply to all detail
+016800990222      * lines.
+016900990222     C                     EXSR DISC
+017000990222      *
+017100000728     C           *NAMVAR   DEFN HSAORDERNOORDERX  80
+017200000728     C           *LOCK     IN   ORDERX
+017300000728     C                     ADD  1         ORDERX
+017400000728     C                     OUT  ORDERX
+017500000728     C                     MOVE AACUST    CUSTX
+017600990126      *
+017700990127     C                     EXSR ORDER
+017800990224      *
+017900990224      * Print Delivery Note.
+018000990224     C                     EXSR PRTDEL
+018100990224      *
+018200990126     C                     ENDIF
+018300990126      *
+018400990127      * Execute Sales Order Detail Processing
+018500990126      *
+018600990127     C                     EXSR ORDET
+018700990107      *          ***************
+018800990107     C                     ENDSR
+018900990127      *****************************************************************
+019000990127      *  Orders  Header Lines Subroutine.
+019100990127      *****************************************************************
+019200990127     C           ORDER     BEGSR
+019300990127      *          ***************
+019400990127      *
+019500990127      * Set up default Delivery details
+019600990127      *
+019700990219     C                     MOVE AATYPE    VTYPE
+019800000728     C                     MOVE ORDERX    VSORD
+019900990127     C                     MOVE ENAM1     VNAM1
+020000990127     C                     MOVE EADR1     VADR1
+020100990127     C                     MOVE EADR2     VADR2
+020200990127     C                     MOVE EADR3     VADR3
+020300990127     C                     MOVE EPCDE     VPCDE
+020400990222     C                     WRITEHSFODEL
+020500990127      *
+020600990127      * Set up default header values
+020700990127      *
+020800990219     C                     MOVE AACUST    JCUST
+020900990219     C                     MOVE AATYPE    JTYPE
+021000000728     C                     MOVE ORDERX    JSORD
+021100990222     C                     MOVE 'A'       JSTAT
+021200990127     C                     MOVE CYMD      JORDD
+021300990127     C                     MOVE CYMD      JCRTD
+021400990127     C                     TIME           JCRTT
+021500990127     C                     MOVE 'ZZ'      JCRTS
+021600000728     C                     MOVE XUSRID    JCRTU
+021700990219     C                     MOVEL'HSR215'  JCRTP
+021800990127      *
+021900990127      * Write Sales Order Record.
+022000990127      *
+022100990217     C                     MOVE BATCH     JBATC
+022200990127     C                     WRITEHSFORDH
+022300990201     C                     Z-ADD0         KLINE
+022400990127     C                     ENDSR
+022500981001      *****************************************************************
+022600990127      *  Orders  Detail Lines Subroutine.
+022700000000      *****************************************************************
+022800990127     C           ORDET     BEGSR
+022900990127      *          ***************
+023000990108      *
+023100990127      * Set up default values
+023200990126      *
+023300990201     C                     ADD  1         KLINE
+023400990201     C                     MOVE JCUST     KCUST
+023500990219     C                     MOVE AATYPE    KTYPE
+023600990126     C                     MOVE 'S'       KLTYP
+023700000728     C                     MOVE ORDERX    KSORD
+023800990222     C                     Z-ADDNCOST     KCOST
+023900990222     C                     Z-ADDNPRIC     KPRIC
+024000990219     C                     MOVE AAQTYN    KQTYN
+024100990222     C           KQTYN     MULT NPRIC     KVALU
+024200990222     C                     ADD  KVALU     ORDVAL 152
+024300990126     C                     MOVE CYMD      KCRTD
+024400990126     C                     TIME           KCRTT
+024500990126     C                     MOVE 'ZZ'      KCRTS
+024600000728     C                     MOVE XUSRID    KCRTU
+024700990219     C                     MOVEL'HSR215'  KCRTP
+024800990126      *
+024900990127      * Get Serial number range.
+025000990127      *
+025100990222     C                     MOVE *BLANKS   KSERC
+025200990222     C                     Z-ADD0         KSERNF
+025300990222     C                     Z-ADD0         KSERNT
+025400990222     C           VCHKEY    SETLLHSLACTLA
+025500990222     C                     MOVE *OFF      *IN94
+025600990222     C           *IN94     DOUEQ*ON
+025700990222     C                     READ HSLACTLA                 94
+025800990222     C           *IN94     IFEQ *OFF
+025900990222     C           AACUST    IFEQ BCUST
+026000990222     C           AAPROD    ANDEQBPROD
+026100990222     C           BDELT     ANDNE'D'
+026200990126     C                     MOVE BSERCC    KSERC
+026300990219     C                     Z-ADDBSERNS    KSERNF
+026400990219     C           AAQTYN    ADD  BSERNS    KSERNT
+026500990219     C           KSERNT    ADD  1         BSERNS
+026600990219     C                     UPDATHSFACTL
+026700990219     C                     ENDIF
+026800990222     C                     ENDIF
+026900990222     C                     ENDDO
+027000990127      *
+027100990127      * Write Sales Order Record.
+027200990127      *
+027300990126     C                     WRITEHSFORDD
+027400990127      *
+027500990127      * Update Inventory Master file
+027600990127      *
+027700990208     C           IVMKEY    CHAINHSLINVMA             95
+027800990203     C           *IN95     IFNE *ON
+027900990219     C           DQTYR     ADD  AAQTYN    DQTYR
+028000990219     C           DQTYF     SUB  AAQTYN    DQTYF
+028100990127     C                     UPDATHSFINVM
+028200990127     C                     ENDIF
+028300990127      *
+028400990127      * Update Inventory Transaction file
+028500990127      *
+028600990219     C                     MOVE AAPROD    CPROD
+028700990222     C                     MOVE AATYPE    CTYPE
+028800990127     C                     MOVE KSERC     CSERC
+028900990127     C                     MOVE KSERNF    CSERNF
+029000990127     C                     MOVE KSERNT    CSERNT
+029100990219     C                     MOVE AAQTYN    CQTYN
+029200990127     C                     MOVE CYMD      CTDAT
+029300990219     C                     MOVE AACUST    CCUST
+029400990127     C                     MOVE CYMD      CCRTD
+029500990127     C                     TIME           CCRTT
+029600990127     C                     MOVE 'ZZ'      CCRTS
+029700000728     C                     MOVE XUSRID    CCRTU
+029800990222     C                     MOVEL'HSR215'  CCRTP
+029900990127     C                     WRITEHSFINVT
+030000990127      *
+030100990127      * Set up default Voucher Tracking Details.
+030200990127      *
+030300990219     C                     MOVE AAPROD    APROD
+030400990219     C                     MOVE AATYPE    AVTYP
+030500990127     C                     MOVE KSERC     ASERC
+030600990127     C                     MOVE KSERNF    ASERN
+030700990219     C                     MOVE AACUST    ACUST
+030800000728     C                     MOVE ORDERX    ASORD
+030900990127      *
+031000990127      * Write Voucher Tracking Record.
+031100990127      *
+031200990127     C                     WRITEHSFTRAC
+031300990126      *          ***************
+031400000000     C                     ENDSR
+031500990222      *****************************************************************
+031600990222      *  Discount Subroutine.
+031700990222      *****************************************************************
+031800990222     C           DISC      BEGSR
+031900990224      *
+032000990224      * Get customer discount if it is applicable to order.
+032100990224     C                     Z-ADDORDVAL    WKVAL
+032200990224     C                     Z-ADD0         WKDISC
+032300990224      *
+032400990224      * Is customer type 'On account' or 'Cash payment'.
+032500990224     C                     Z-ADD0         WKDYS
+032600990224     C                     SELEC
+032700990224     C           WKATYP    WHEQ 'A'
+032800990224     C                     Z-ADD28        WKDYS   20
+032900990224     C           WKATYP    WHEQ 'C'
+033000990224     C                     Z-ADD0         WKDYS
+033100990224     C                     ENDSL
+033200990224      *
+033300990224     C                     CLEARPCTYP
+033400990224     C                     CLEARPDAYS
+033500990224      *
+033600990224     C           DSCKEY    SETLLHSLDISCB                 67
+033700990224      *
+033800990224      * Read previous record if necessary.
+033900990224     C           *IN67     IFEQ *OFF
+034000990224     C                     READPHSLDISCB                 67
+034100990224     C                     ELSE
+034200990224     C                     READ HSLDISCB                 67
+034300990224     C                     ENDIF
+034400990224      *
+034500990224      * If not end of file.
+034600990224     C           *IN67     IFEQ *OFF
+034700990224     C           PCTYP     ANDEQECTYP
+034800990224     C           PDAYS     ANDEQWKDYS
+034900990224      *
+035000990224      * within range?
+035100990224     C           WKVAL     IFGE PFAMT
+035200990224     C           WKVAL     ANDLEPTAMT
+035300990224     C                     Z-ADDPDISC     WKDISC
+035400990224     C                     ENDIF
+035500990224      *
+035600990224     C                     ENDIF
+035700990222      *
+035800990222      * if there is discount apply discount %age to previous order
+035900990222      * detail lines.
+036000990222      *
+036100990222     C                     MOVE *OFF      *IN68
+036200990222     C           WKDISC    IFNE 0
+036300000728     C           ORDERX    SETLLHSLORDDA
+036400990222      *
+036500990222     C           *IN68     DOUEQ*ON
+036600000728     C           ORDERX    READEHSLORDDA                 68
+036700990222     C           *IN68     IFEQ *ON
+036800990222     C                     LEAVE
+036900990222     C                     ENDIF
+037000990222     C                     Z-ADDWKDISC    KDISP
+037100990222     C                     UPDATHSFORDD
+037200990222     C                     ENDDO
+037300990222      *
+037400990222     C                     ENDIF
+037500990222      *
+037600990222     C                     Z-ADD0         ORDVAL
+037700990222     C                     ENDSR
+037800990126      *****************************************************************
+037900990126      *  Initial Subroutine.
+038000990126      *****************************************************************
+038100990126     C           *INZSR    BEGSR
+038200990126      *
+038300990224      * Parameter list.
+038400990224     C           *ENTRY    PLIST
+038500990224     C                     PARM           OTYPE   3
+038600990126      *
+038700990224      * Prepare message subfile.
+038800990127     C           VCHKEY    KLIST
+038900990219     C                     KFLD           AACUST
+039000990219     C                     KFLD           AAPROD
+039100990301     C                     KFLD           KASERC  3
+039200990126      *
+039300990208      * Key List for Inventory Masterfile.
+039400990208     C           IVMKEY    KLIST
+039500990219     C                     KFLD           AAPROD
+039600990208     C                     KFLD           WKSUBC
+039700990208     C                     MOVE *BLANKS   WKSUBC
+039800990222      *
+039900990222      * Key List for Discount Masterfile.
+040000990222     C           DSCKEY    KLIST
+040100990222     C                     KFLD           ECTYP
+040200990224     C                     KFLD           WKDYS
+040300990222     C                     KFLD           WKVAL
+040400990208      *
+040500000728     C           *LIKE     DEFN AACUST    CUSTX
+040600990222     C           *LIKE     DEFN PFAMT     WKVAL
+040700000728     C           *LIKE     DEFN AAPROD    PRODX
+040800990208     C           *LIKE     DEFN NSUBC     WKSUBC
+040900990222     C           *LIKE     DEFN PDISC     WKDISC
+041000990126      * Default Fields....
+041100990126      *
+041200990126      * Set up current CCYYMMDD
+041300990126      *
+041400990126     C                     MOVE UDATE     YMD     60
+041500990126     C           YY        IFGE 40
+041600990126     C           YY        ANDLE99
+041700990126     C                     Z-ADD19        CC
+041800990126     C                     ELSE
+041900990126     C                     Z-ADD20        CC
+042000990126     C                     ENDIF
+042100990126      *
+042200990217     C                     WRITEHEADER1
+042300990217     C                     WRITEHEADER2
+042400990217      *
+042500990217     C           *NAMVAR   DEFN HSACLAM   BATCH   50
+042600990217     C           *LOCK     IN   BATCH
+042700000728     C                     MOVE BATCH     XBATCH  50
+042800000728     C                     ADD  1         XBATCH
+042900000728     C                     MOVE XBATCH    BATCH
+043000990217     C                     OUT  BATCH
+043100990224      *
+043200990224      * Access Order Parameter record.
+043300990224     C           OTYPE     CHAINHSLORDPA             77
+043400990224     C           *IN77     IFEQ *OFF
+043500990224     C                     MOVELMASCG     WKATYP  1
+043600990224     C                     ENDIF
+043700990126     C                     ENDSR
+043800990224      *----------------------------------------------------------------
+043900990224      * Print delivery note.
+044000990224      *----------------------------------------------------------------
+044100990224     C           PRTDEL    BEGSR
+044200000728     C                     MOVELORDERX    ORDPRM  8
+044300990224     C                     CALL 'HSR230'
+044400990224     C                     PARM           ORDPRM
+044500990224     C                     ENDSR
+044600990224      *

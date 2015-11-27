@@ -1,0 +1,9 @@
+000100000713                                            REF(SMPREF)
+000200000713                R FCUST
+000300000713                  CUID      R               REFFLD(CUSTID)
+000400000713                  CUSTNM    R
+000500000713                  CUSTA1    R               REFFLD(CUSTAD)
+000600000713                  CUSTA2    R               REFFLD(CUSTAD)
+000700000713                  CUSTA3    R               REFFLD(CUSTAD)
+000800000713                  CUZIP     R               REFFLD(ZIPCOD)
+000900000713                  CUCOUN    R               REFFLD(COUNTR)

@@ -1,0 +1,32 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990219      *  File Name  :  HSPACTL                                     *
+000400000000      *                                                            *
+000500990219      *  Description:  Agent Voucher Control                       *
+000600000000      *                                                            *
+000700990219      *  Date       :  February 1999                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990219     A          R HSFACTL
+001200990219      *  Description:  Agent Voucher Control
+001300990115     A            BCOMP     R               REFFLD(COMP)
+001400990115     A            BWHSE     R               REFFLD(WHSE)
+001500990219     A            BCUST     R               REFFLD(CUST)
+001600990219     A                                      COLHDG('Agent Code')
+001700990115     A            BPROD     R               REFFLD(PROD)
+001800990115     A            BVTYP     R               REFFLD(VTYP)
+001900990219     A            BSERCC    R               REFFLD(SERC)
+002000990219     A                                      COLHDG('Curr.Series Code')
+002100990115     A            BSERNS    R               REFFLD(SERN)
+002200990115     A                                      COLHDG('Start Serial No.')
+002300990115     A            BSERNE    R               REFFLD(SERN)
+002400990115     A                                      COLHDG('End Serial No.')
+002500990219     A*           BSERNN    R               REFFLD(SERN)
+002600990219     A*                                     COLHDG('Next Serial No.')
+002700990219     A*           BSERCN    R               REFFLD(SERC)
+002800990219     A*                                     COLHDG('Next Series Code')
+002900990219     A*           BELEM     R               REFFLD(ELEM)
+003000990219     A*                                     COLHDG('No. of Elements')
+003100990115     A            BDELT     R               REFFLD(A1)
+003200990115     A                                      COLHDG('Deletion Flag')

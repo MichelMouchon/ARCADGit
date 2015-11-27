@@ -1,0 +1,13 @@
+000100000726     A          R APRIN
+000200000726     A            INFCLE     00020A  B
+000300000726     A                                      CCSID(00297)
+000400000726     A                                      TEXT('CLE INFODI')
+000500000726     A            INFDON     00223A  B
+000600000726     A                                      CCSID(00297)
+000700000726     A                                      TEXT('DONNEES INFODI')
+000800000726     A            DATAMJ     00006A  B
+000900000726     A                                      CCSID(00297)
+001000000726     A                                      TEXT('DATE AAMMJJ')
+001100000726     A            NOMESS     00007A  B
+001200000726     A                                      CCSID(00297)
+001300000726     A                                      TEXT('NUMERO MESSAGE')

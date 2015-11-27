@@ -1,0 +1,21 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPVXRF                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Voucher Cross-Reference                     *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFVXRF
+001200990115      *  Description:  Voucher Cross-Reference
+001300990115     A            HCOMP     R               REFFLD(COMP)
+001400990115     A            HCATL     R               REFFLD(CATL)
+001500990219     A            HAGEN     R               REFFLD(CUST)
+001600990219     A                                      COLHDG('Agency Code')
+001700990115     A            HAGPR     R               REFFLD(PROD)
+001800990115     A                                      COLHDG('Agency Product')
+001900990115     A            HPROD     R               REFFLD(PROD)
+002000990115     A            HDELT     R               REFFLD(A1)
+002100990115     A                                      COLHDG('Deletion Flag')

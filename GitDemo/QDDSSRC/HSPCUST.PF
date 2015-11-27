@@ -1,0 +1,88 @@
+000001888888      *%CSTD===========================================================*       *
+000002888888      ** Application. : SAM        Arcad Sample Application            *       *
+000003888888      ** Component. . : HSPCUST                       Type: PF         *       *
+000004888888      **===============================================================*       *
+000005888888      ** Sub-system . :                                                *       *
+000006888888      ** Function . . :                                                *       *
+000007888888      ** Sub-function :                                                *       *
+000008888888      **%S=============================================================*       *
+000009888888      ** Description of functions:                                     *       *
+000010888888      **                                                               *       *
+000011888888      **                                                               *       *
+000012888888      **                                                               *       *
+000013888888      **%E=============================================================*       *
+000014888888      ** AUTHOR:                          00:00                        *       *
+000015888888      ** MODIFS: 01 ARCAD_PGMR 06/26/2015 11:11  01.00.01    00/       *       *
+000016888888      *%ECSTD==========================================================*       *
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPCUST                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Customer Details                            *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900150626      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFCUST
+001200990115      *  Description:  Customer Details
+001300990115     A            ECOMP     R               REFFLD(COMP)
+001400990115     A            ECUST     R               REFFLD(CUST)
+001500990115     A            ECGRP     R               REFFLD(CGRP)
+001600990115     A            ENAM1     R               REFFLD(NAME)
+001700990115     A                                      COLHDG('Customer Name')
+001800990115     A            ENAM2     R               REFFLD(NAME)
+001900990115     A                                      COLHDG('Customer Name')
+002000990115     A            EADR1     R               REFFLD(ADR1)
+002100990115     A                                      COLHDG('Address Line 1')
+002200990115     A            EADR2     R               REFFLD(ADR1)
+002300990115     A                                      COLHDG('Address Line 2')
+002400990115     A            EADR3     R               REFFLD(ADR1)
+002500990115     A                                      COLHDG('Address Line 3')
+002600990115     A            EADR4     R               REFFLD(ADR1)
+002700990115     A                                      COLHDG('Address Line 4')
+002800990115     A            EPCDE     R               REFFLD(PCDE)
+002900990115     A            ECTYP     R               REFFLD(VTYP)
+003000990115     A                                      COLHDG('Customer Type')
+003100990121     A            ECVAT     R               REFFLD(A1)
+003200990121     A                                      COLHDG('VAT Code')
+003300990115     A            ECRAT     R               REFFLD(CRAT)
+003400990115     A                                      COLHDG('Credit Rating')
+003500990115     A            ECLIM     R               REFFLD(CLIM)
+003600990115     A            EINVP     R               REFFLD(INVP)
+003700990115     A            ESCDE     R               REFFLD(SCDE)
+003800990115     A            ECONT     R               REFFLD(CONT)
+003900990115     A            EPHON     R               REFFLD(CONT)
+004000990115     A                                      COLHDG('Telephone No.')
+004100990115     A            EFAXN     R               REFFLD(CONT)
+004200990115     A                                      COLHDG('Fax No.')
+004300990115     A            ECORG     R               REFFLD(CONT)
+004400990115     A                                      COLHDG('Company Reg No.')
+004500990115     A            ELYSL     R               REFFLD(PRIC)
+004600990115     A                                      COLHDG('Last Year Sales')
+004700990115     A            ETYSL     R               REFFLD(PRIC)
+004800990115     A                                      COLHDG('This Year Sales')
+004900990115     A            ELSDT     R               REFFLD(DATE)
+005000990115     A                                      COLHDG('Last Statemnt Dte')
+005100990115     A            ELSNO     R               REFFLD(LAST)
+005200990115     A                                      COLHDG('Last Statemnt No.')
+005300990212     A            EEDI1     R               REFFLD(A1)
+005400990212     A                                      COLHDG('EDI flag 1')
+005500990212     A            EEDI2     R               REFFLD(A1)
+005600990212     A                                      COLHDG('EDI flag 2')
+005700990212     A            EEDI3     R               REFFLD(A1)
+005800990212     A                                      COLHDG('EDI flag 3')
+005900990212     A            EEDI4     R               REFFLD(A1)
+006000990212     A                                      COLHDG('EDI flag 4')
+006100990212     A            EEDI5     R               REFFLD(A1)
+006200990212     A                                      COLHDG('EDI flag 5')
+006300990212     A            EEDI6     R               REFFLD(A1)
+006400990212     A                                      COLHDG('EDI flag 6')
+006500990212     A            EEDI7     R               REFFLD(A1)
+006600990212     A                                      COLHDG('EDI flag 7')
+006700990212     A            EEDI8     R               REFFLD(A1)
+006800990212     A                                      COLHDG('EDI flag 8')
+006900990212     A            EEDI9     R               REFFLD(A1)
+007000990212     A                                      COLHDG('EDI flag 9')
+007100990115     A            EDELT     R               REFFLD(A1)
+007200990212     A                                      COLHDG('Deletion Flag')

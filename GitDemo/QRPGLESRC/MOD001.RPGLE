@@ -1,0 +1,12 @@
+000100000527      /COPY MOD002_P
+000200000724      /COPY MOD004_P
+000300000527     DValeur           S             15P 5
+000400000527     D V1              S             15P 5
+000500000527     D V2              S             15P 5
+000600000527     C                   eval      V1 = 15
+000700000527     C                   eval      V2 = 45
+000800000527     C                   eval      Valeur = addition(V1:V2)
+000900000527     C     Valeur        DSPLY
+001000000724     C                   eval      Valeur = Multiplica(V1:V2)
+001100000724     C     Valeur        DSPLY
+001200000527     C                   Move      '1'           *INLR

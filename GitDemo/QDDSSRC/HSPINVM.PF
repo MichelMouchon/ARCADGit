@@ -1,0 +1,28 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPINVM                                     *
+000400000000      *                                                            *
+000500990112      *  Description:  Inventory Master                            *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFINVM
+001200990115      *  Description:  Inventory Master
+001300990115     A            DCOMP     R               REFFLD(COMP)
+001400990115     A            DWHSE     R               REFFLD(WHSE)
+001500990115     A            DPROD     R               REFFLD(PROD)
+001600990128     A            DSUBC     R               REFFLD(SUBC)
+001700990115     A            DQTYO     R               REFFLD(QTYN)
+001800990115     A                                      COLHDG('Quantity On-hand')
+001900990115     A            DQTYR     R               REFFLD(QTYN)
+002000990115     A                                      COLHDG('Quantity Alloc.')
+002100990115     A            DQTYF     R               REFFLD(QTYN)
+002200990115     A                                      COLHDG('Quantity Avail.')
+002300990115     A            DAREA     R               REFFLD(AREA)
+002400990115     A            DAISL     R               REFFLD(AISL)
+002500990115     A            DBAYR     R               REFFLD(BAYR)
+002600990115     A            DLEVL     R               REFFLD(LEVL)
+002700990115     A            DDELT     R               REFFLD(A1)
+002800990115     A                                      COLHDG('Deletion Flag')

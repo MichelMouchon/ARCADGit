@@ -1,0 +1,1864 @@
+000100000726     A                                      UNIQUE
+000200000726     A          R BPRAR1
+000300000726     A            ARECRA     00010A  B
+000400000727     A
+000500000727     A                                      TEXT('SCREEN LOCK')
+000600000726     A                                      COLHDG( +
+000700000726     A                                      'NOM ECRAN' +
+000800000726     A                                      )
+000900000726     A            ARSTTS     00001A  B
+001000000727     A
+001100000727     A                                      TEXT('STATUS RECORD 0 = INACTIVE')
+001200000726     A                                      COLHDG( +
+001300000726     A                                      'ST' +
+001400000726     A                                      )
+001500000726     A            ARCTLE     00001A  B
+001600000727     A
+001700000727     A                                      TEXT('1=YES 0=NO')
+001800000726     A                                      COLHDG( +
+001900000726     A                                      'CTL' +
+002000000726     A                                      'LE' +
+002100000726     A                                      )
+002200000726     A            ARCTLD     00001A  B
+002300000727     A
+002400000726     A                                      TEXT('1=OUI 0=NON')
+002500000726     A                                      COLHDG( +
+002600000726     A                                      'CTL' +
+002700000726     A                                      'LD' +
+002800000726     A                                      )
+002900000726     A            ARENTR     00005A  B
+003000000727     A
+003100000727     A                                      TEXT('WAREHOUSE NBR')
+003200000726     A                                      COLHDG( +
+003300000726     A                                      'ENTREPOT' +
+003400000726     A                                      )
+003500000726     A            ARNENT     00002A  B
+003600000727     A
+003700000727     A                                      TEXT('SECOND WAREHOUSE NUMBER')
+003800000726     A                                      COLHDG( +
+003900000726     A                                      'NO' +
+004000000726     A                                      'ENT' +
+004100000726     A                                      'SEC' +
+004200000726     A                                      )
+004300000726     A            ARRAC      00006A  B
+004400000727     A
+004500000727     A                                      TEXT('ART COMMAND: ROOT')
+004600000726     A                                      COLHDG( +
+004700000726     A                                      'RACINE' +
+004800000726     A                                      )
+004900000726     A            ARCCC      00001A  B
+005000000727     A
+005100000727     A                                      TEXT('ART COMMAND: CONDT CMD M')
+005200000726     A                                      COLHDG( +
+005300000726     A                                      'COND' +
+005400000726     A                                      'CMDE' +
+005500000726     A                                      'MAG' +
+005600000726     A                                      )
+005700000726     A            ARVPV      00002A  B
+005800000727     A
+005900000727     A                                      TEXT('ART COMMAND: LOT SALE')
+006000000726     A                                      COLHDG( +
+006100000726     A                                      'LOT' +
+006200000726     A                                      'PROMO' +
+006300000726     A                                      )
+006400000726     A            ARMOD      00001A  B
+006500000727     A
+006600000727     A                                      TEXT('MODULE')
+006700000726     A                                      COLHDG( +
+006800000726     A                                      'MOD' +
+006900000726     A                                      )
+007000000726     A            ARAPP      00003A  B
+007100000727     A
+007200000727     A                                      TEXT('SUPPLIER CODE')
+007300000726     A                                      COLHDG( +
+007400000726     A                                      'APP' +
+007500000726     A                                      )
+007600000726     A            ARACH      00003A  B
+007700000727     A
+007800000727     A                                      TEXT('BUYER CODE')
+007900000726     A                                      COLHDG( +
+008000000726     A                                      'ACHETEUR' +
+008100000726     A                                      )
+008200000726     A            ARCNUL     00006A  B
+008300000727     A
+008400000727     A                                      TEXT('CNUF DELIVERER')
+008500000726     A                                      COLHDG( +
+008600000726     A                                      'CNUL' +
+008700000726     A                                      )
+008800000726     A            ARCIF      00003A  B
+008900000727     A
+009000000727     A                                      TEXT('INTERNAL SUPPLIER CODE')
+009100000726     A                                      COLHDG( +
+009200000726     A                                      'CIF' +
+009300000726     A                                      )
+009400000726     A            ARNSL      00012A  B
+009500000727     A
+009600000727     A                                      TEXT('SIMPLIFIED DEL CODE')
+009700000726     A                                      COLHDG( +
+009800000726     A                                      'NSL' +
+009900000726     A                                      )
+010000000726     A            ARCNUF     00006A  B
+010100000727     A
+010200000727     A                                      TEXT('GENCOD: CNUF MANUFACT.')
+010300000726     A                                      COLHDG( +
+010400000726     A                                      'CNUF' +
+010500000726     A                                      )
+010600000726     A            ARCIP      00006A  B
+010700000727     A
+010800000727     A                                      TEXT('GENCOD: INTERNAL PROD. CODE')
+010900000726     A                                      COLHDG( +
+011000000726     A                                      'CIP' +
+011100000726     A                                      )
+011200000726     A            ARVA       00002A  B
+011300000727     A
+011400000727     A                                      TEXT('GENCOD: SALE VARIANT')
+011500000726     A                                      COLHDG( +
+011600000726     A                                      'VA' +
+011700000726     A                                      )
+011800000726     A            ARPCB      00004S00B
+011900000727     A                                      TEXT('GENCOD: CONDITIONING FO')
+012000000726     A                                      COLHDG( +
+012100000726     A                                      'PCB' +
+012200000726     A                                      )
+012300000726     A            ARSPCB     00004S00B
+012400000727     A                                      TEXT('SUB-CONDITIONING SUPPLIER')
+012500000726     A                                      COLHDG( +
+012600000726     A                                      'SPCB' +
+012700000726     A                                      )
+012800000726     A            ARVL       00002A  B
+012900000727     A
+013000000727     A                                      TEXT('VARIANT LOGISTICS')
+013100000726     A                                      COLHDG( +
+013200000726     A                                      'VL' +
+013300000726     A                                      )
+013400000726     A            ARCDLE     00004S00B
+013500000727     A                                      TEXT('CONDITIONING DELIVERY')
+013600000726     A                                      COLHDG( +
+013700000726     A                                      'CDLE' +
+013800000726     A                                      )
+013900000726     A            ARUCS      00004S00B
+014000000727     A                                      TEXT('BRANCH COMMAND PROCESSING')
+014100000726     A                                      COLHDG( +
+014200000726     A                                      'UCS' +
+014300000726     A                                      )
+014400000726     A            ARQTLO     00004S00B
+014500000727     A                                      TEXT('QUANTITY BY BATCH')
+014600000726     A                                      COLHDG( +
+014700000726     A                                      'QTLO' +
+014800000726     A                                      )
+014900000726     A            ARLOVT     00004S00B
+015000000727     A                                      TEXT('BATCH SOLD INDIVIDUALLY')
+015100000726     A                                      COLHDG( +
+015200000726     A                                      'DETAIL' +
+015300000726     A                                      'LOT' +
+015400000726     A                                      )
+015500000726     A            ARNSF      00012A  B
+015600000727     A
+015700000727     A                                      TEXT('MANUFACTURER SHORT NAME')
+015800000726     A                                      COLHDG( +
+015900000726     A                                      'NSF' +
+016000000726     A                                      )
+016100000726     A            ARDES      00030A  B
+016200000727     A
+016300000726     A                                      TEXT('DESIGNATION')
+016400000726     A                                      COLHDG( +
+016500000726     A                                      'DES' +
+016600000726     A                                      )
+016700000726     A            ARDESC     00030A  B
+016800000727     A
+016900000727     A                                      TEXT('ADDITIONAL DESIGNATION')
+017000000726     A                                      COLHDG( +
+017100000726     A                                      'DESIGNATION COMPLEM.' +
+017200000726     A                                      )
+017300000726     A            ARLCAI     00012A  B
+017400000727     A
+017500000727     A                                      TEXT('CRATE LABEL')
+017600000726     A                                      COLHDG( +
+017700000726     A                                      'LCAI' +
+017800000726     A                                      )
+017900000726     A            ARSYMB     00002A  B
+018000000727     A
+018100000727     A                                      TEXT('CODE SYMBOLIC')
+018200000726     A                                      COLHDG( +
+018300000726     A                                      'SYMB' +
+018400000726     A                                      )
+018500000726     A            AREAN      00012A  B
+018600000727     A
+018700000726     A                                      TEXT('E.A.N.')
+018800000726     A                                      COLHDG( +
+018900000726     A                                      'EAN' +
+019000000726     A                                      )
+019100000726     A            ARKEAN     00001A  B
+019200000727     A
+019300000727     A                                      TEXT('EAN KEY')
+019400000726     A                                      COLHDG( +
+019500000726     A                                      'KEAN' +
+019600000726     A                                      )
+019700000726     A            ARPLU      00004A  B
+019800000727     A
+019900000726     A                                      TEXT('PLU')
+020000000726     A                                      COLHDG( +
+020100000726     A                                      'PLU' +
+020200000726     A                                      )
+020300000726     A            ARDEP      00002A  B
+020400000727     A
+020500000727     A                                      TEXT('DEPARTMENT')
+020600000726     A                                      COLHDG( +
+020700000726     A                                      'DEP' +
+020800000726     A                                      )
+020900000726     A            ARRAY      00002A  B
+021000000727     A
+021100000727     A                                      TEXT('SECTION')
+021200000726     A                                      COLHDG( +
+021300000726     A                                      'RAY' +
+021400000726     A                                      )
+021500000726     A            ARSEC      00002A  B
+021600000727     A
+021700000727     A                                      TEXT('SECTOR')
+021800000726     A                                      COLHDG( +
+021900000726     A                                      'SECT' +
+022000000726     A                                      )
+022100000726     A            ARFAM      00003A  B
+022200000727     A
+022300000727     A                                      TEXT('FAMILY')
+022400000726     A                                      COLHDG( +
+022500000726     A                                      'FAM' +
+022600000726     A                                      )
+022700000726     A            ARSFA      00003A  B
+022800000727     A
+022900000727     A                                      TEXT('SUB FAMILY')
+023000000726     A                                      COLHDG( +
+023100000726     A                                      'SFA' +
+023200000726     A                                      )
+023300000726     A            ARCAT      00002A  B
+023400000727     A
+023500000727     A                                      TEXT('CATEGORY')
+023600000726     A                                      COLHDG( +
+023700000726     A                                      'CAT' +
+023800000726     A                                      )
+023900000726     A            AREMMV     00002A  B
+024000000727     A
+024100000727     A                                      TEXT('GLASS PACKAGING')
+024200000726     A                                      COLHDG( +
+024300000726     A                                      'EMBV' +
+024400000726     A                                      )
+024500000726     A            AREMMC     00002A  B
+024600000727     A
+024700000727     A                                      TEXT('CRATE PACKAGING')
+024800000726     A                                      COLHDG( +
+024900000726     A                                      'EMBC' +
+025000000726     A                                      )
+025100000726     A            AREMMT     00002A  B
+025200000727     A
+025300000727     A                                      TEXT('WHOLE PACKAGING')
+025400000726     A                                      COLHDG( +
+025500000726     A                                      'EMBT' +
+025600000726     A                                      )
+025700000726     A            AREMSV     00002A  B
+025800000727     A
+025900000727     A                                      TEXT('BRANCH GLASS PACKAGING')
+026000000726     A                                      COLHDG( +
+026100000726     A                                      'EMBALLAGES' +
+026200000726     A                                      'VERRES' +
+026300000726     A                                      'SLE' +
+026400000726     A                                      )
+026500000726     A            AREMSC     00002A  B
+026600000727     A
+026700000727     A                                      TEXT('BRANCH CRATE PACKAGING')
+026800000726     A                                      COLHDG( +
+026900000726     A                                      'EMBALLAGES' +
+027000000726     A                                      'CASIERS' +
+027100000726     A                                      'SLE' +
+027200000726     A                                      )
+027300000726     A            AREMST     00002A  B
+027400000727     A
+027500000727     A                                      TEXT('BRANCH WHOLE PACKAGING')
+027600000726     A                                      COLHDG( +
+027700000726     A                                      'EMBALLAGES' +
+027800000726     A                                      'TROUS' +
+027900000726     A                                      'SLE' +
+028000000726     A                                      )
+028100000726     A            ARKL       00002A  B
+028200000727     A
+028300000727     A                                      TEXT('PRICE PER KG OR LITER')
+028400000726     A                                      COLHDG( +
+028500000726     A                                      'KL' +
+028600000726     A                                      )
+028700000726     A            ARCKL      00007P04B
+028800000727     A                                      TEXT('COEFFICIENT KILO LITER')
+028900000726     A                                      COLHDG( +
+029000000726     A                                      'CKL' +
+029100000726     A                                      )
+029200000726     A            ARRGCD     00002A  B
+029300000727     A
+029400000727     A                                      TEXT('CODE BOARD')
+029500000726     A                                      COLHDG( +
+029600000726     A                                      'RGCD' +
+029700000726     A                                      )
+029800000726     A            ARRGVO     00005P02B
+029900000726     A                                      TEXT('CONTENANCE')
+030000000726     A                                      COLHDG( +
+030100000726     A                                      'RGVO' +
+030200000726     A                                      )
+030300000726     A            ARRGDG     00005P02B
+030400000727     A                                      TEXT('DEGREE')
+030500000726     A                                      COLHDG( +
+030600000726     A                                      'RGDG' +
+030700000726     A                                      )
+030800000726     A            ARRGDR     00007P03B
+030900000727     A                                      TEXT('BOARD AUTHORITY')
+031000000726     A                                      COLHDG( +
+031100000726     A                                      'DROITS' +
+031200000726     A                                      'REGIE' +
+031300000726     A                                      )
+031400000726     A            ARRGVI     00007P03B
+031500000727     A                                      TEXT('LABEL')
+031600000726     A                                      COLHDG( +
+031700000726     A                                      'VIGNETTE' +
+031800000726     A                                      )
+031900000726     A            ARTVA      00002A  B
+032000000727     A
+032100000727     A                                      TEXT('TAX CODE')
+032200000726     A                                      COLHDG( +
+032300000726     A                                      'TVA' +
+032400000726     A                                      )
+032500000726     A            ARTAXP     00009P03B
+032600000727     A                                      TEXT('TAX PARAFISCAL')
+032700000726     A                                      COLHDG( +
+032800000726     A                                      'TAXE' +
+032900000726     A                                      'PARAFISCALE' +
+033000000726     A                                      )
+033100000726     A            ARCTXP     00001A  B
+033200000727     A
+033300000727     A                                      TEXT('TAX CODE: SPACE=%, 1=FRAN')
+033400000726     A                                      COLHDG( +
+033500000726     A                                      'CODE' +
+033600000726     A                                      'TAXE' +
+033700000726     A                                      'PARA' +
+033800000726     A                                      )
+033900000726     A            ARTAX1     00009P03B
+034000000726     A                                      TEXT('TAXE')
+034100000726     A                                      COLHDG( +
+034200000726     A                                      'TAX' +
+034300000726     A                                      )
+034400000726     A            ARCTX1     00001A  B
+034500000727     A
+034600000726     A                                      TEXT('CODE TAXE: SPACE=%, 1=FRAN')
+034700000726     A                                      COLHDG( +
+034800000726     A                                      'CTX' +
+034900000726     A                                      )
+035000000726     A            ARTAX2     00009P03B
+035100000727     A                                      TEXT('TAX')
+035200000726     A                                      COLHDG( +
+035300000726     A                                      'TAX' +
+035400000726     A                                      )
+035500000726     A            ARCTX2     00001A  B
+035600000727     A
+035700000727     A                                      TEXT('TAX CODE: SPACE=%, 1=FRAN')
+035800000726     A                                      COLHDG( +
+035900000726     A                                      'CTX' +
+036000000726     A                                      )
+036100000726     A            ARTAX3     00009P03B
+036200000727     A                                      TEXT('TAX')
+036300000726     A                                      COLHDG( +
+036400000726     A                                      'TAX' +
+036500000726     A                                      )
+036600000726     A            ARCTX3     00001A  B
+036700000727     A
+036800000727     A                                      TEXT('TAX CODE: SPACE=%, 1=FRAN')
+036900000726     A                                      COLHDG( +
+037000000726     A                                      'CTX' +
+037100000726     A                                      )
+037200000726     A            ARFRIT     00007P02B
+037300000726     A                                      TEXT('FREINTE')
+037400000726     A                                      COLHDG( +
+037500000726     A                                      'FRIT' +
+037600000726     A                                      )
+037700000726     A            ARCFRI     00001A  B
+037800000727     A
+037900000726     A                                      TEXT('FREINTE: SPACE=%, 1=FRANCS')
+038000000726     A                                      COLHDG( +
+038100000726     A                                      'CFRI' +
+038200000726     A                                      )
+038300000726     A            ARTYTP     00001A  B
+038400000727     A
+038500000726     A                                      TEXT('0=PAS DE TPL 1=TPL/SECT 2=')
+038600000726     A                                      COLHDG( +
+038700000726     A                                      'TYPE' +
+038800000726     A                                      'TPL' +
+038900000726     A                                      )
+039000000726     A            ARTPL      00007P03B
+039100000726     A                                      TEXT('T.P.L')
+039200000726     A                                      COLHDG( +
+039300000726     A                                      'TPL' +
+039400000726     A                                      )
+039500000726     A            ARCTPL     00001A  B
+039600000727     A
+039700000726     A                                      TEXT('TPL: SPACE=%, 1=FRANCS')
+039800000726     A                                      COLHDG( +
+039900000726     A                                      'CTPL' +
+040000000726     A                                      )
+040100000726     A            ARCCAD     00001A  B
+040200000727     A
+040300000726     A                                      TEXT('EDIT CADENCIER: 0=NON 1=OU')
+040400000726     A                                      COLHDG( +
+040500000726     A                                      'CCAD' +
+040600000726     A                                      )
+040700000726     A            ARETT1     00002A  B
+040800000727     A
+040900000726     A                                      TEXT('TYPE ETIQ')
+041000000726     A                                      COLHDG( +
+041100000726     A                                      'ETQT' +
+041200000726     A                                      )
+041300000726     A            ARETN1     00003P00B
+041400000726     A                                      TEXT('NB ETIQ')
+041500000726     A                                      COLHDG( +
+041600000726     A                                      'ETQN' +
+041700000726     A                                      )
+041800000726     A            ARETT2     00002A  B
+041900000727     A
+042000000726     A                                      TEXT('TYPE ETIQ SUCCURSALE')
+042100000726     A                                      COLHDG( +
+042200000726     A                                      'ETQT' +
+042300000726     A                                      )
+042400000726     A            ARETN2     00003P00B
+042500000726     A                                      TEXT('NB ETIQ SUCCURSALE')
+042600000726     A                                      COLHDG( +
+042700000726     A                                      'ETQN' +
+042800000726     A                                      )
+042900000726     A            ARASS      00002A  B
+043000000727     A
+043100000726     A                                      TEXT('ASSORTIMENT')
+043200000726     A                                      COLHDG( +
+043300000726     A                                      'ASS' +
+043400000726     A                                      )
+043500000726     A            ARTYAR     00002A  B
+043600000727     A
+043700000726     A                                      TEXT('TYPE ARTICLE')
+043800000726     A                                      COLHDG( +
+043900000726     A                                      'TYAR' +
+044000000726     A                                      )
+044100000726     A            ARLCON     00002A  B
+044200000727     A
+044300000726     A                                      TEXT('LISTE CONCURENCE')
+044400000726     A                                      COLHDG( +
+044500000726     A                                      'LCON' +
+044600000726     A                                      )
+044700000726     A            ARCLOP     00002A  B
+044800000727     A
+044900000726     A                                      TEXT('CODE RELEVE PRIX')
+045000000726     A                                      COLHDG( +
+045100000726     A                                      'CODE' +
+045200000726     A                                      'RELEVE' +
+045300000726     A                                      'PRIX' +
+045400000726     A                                      )
+045500000726     A            ARTSER     00002A  B
+045600000727     A
+045700000726     A                                      TEXT('TAUX DE SERVICE')
+045800000726     A                                      COLHDG( +
+045900000726     A                                      'TSER' +
+046000000726     A                                      )
+046100000726     A            ARSORT     00001A  B
+046200000727     A
+046300000726     A                                      TEXT('CTRL SORTIES ARTICLES: 0=N')
+046400000726     A                                      COLHDG( +
+046500000726     A                                      'CTRL' +
+046600000726     A                                      'SORTIES' +
+046700000726     A                                      'ARTICLES' +
+046800000726     A                                      )
+046900000726     A            ARTFAC     00001A  B
+047000000727     A
+047100000726     A                                      TEXT('FACTURABLE : 0=NON 1=OUI')
+047200000726     A                                      COLHDG( +
+047300000726     A                                      'FACTURABLE ?' +
+047400000726     A                                      )
+047500000726     A            ARCTBR     00001A  B
+047600000727     A
+047700000726     A                                      TEXT('CONTROLE BR : 0=NON 1=OUI')
+047800000726     A                                      COLHDG( +
+047900000726     A                                      'CTRL' +
+048000000726     A                                      'BR' +
+048100000726     A                                      )
+048200000726     A            ARLIVQ     00001A  B
+048300000727     A
+048400000726     A                                      TEXT('LIVRE QUI?')
+048500000726     A                                      COLHDG( +
+048600000726     A                                      'LIVRE' +
+048700000726     A                                      'QUI?' +
+048800000726     A                                      )
+048900000726     A            ARPROM     00001A  B
+049000000727     A
+049100000726     A                                      TEXT('PROMO: 0=NON 1=OUI')
+049200000726     A                                      COLHDG( +
+049300000726     A                                      'PROMO ?' +
+049400000726     A                                      )
+049500000726     A            ARPVBL     00001A  B
+049600000727     A
+049700000726     A                                      TEXT('PV BLOQUE: 0=NON 1=OUI')
+049800000726     A                                      COLHDG( +
+049900000726     A                                      'PVBL' +
+050000000726     A                                      )
+050100000726     A            ARMARQ     00002A  B
+050200000727     A
+050300000726     A                                      TEXT('MARQUE')
+050400000726     A                                      COLHDG( +
+050500000726     A                                      'MARQ' +
+050600000726     A                                      )
+050700000726     A            ARPVM      00001A  B
+050800000727     A
+050900000726     A                                      TEXT('PV MARQUE: 0=NON 1=OUI')
+051000000726     A                                      COLHDG( +
+051100000726     A                                      'PVM' +
+051200000726     A                                      )
+051300000726     A            ARCEE      00002A  B
+051400000727     A
+051500000726     A                                      TEXT('ORIGINE')
+051600000726     A                                      COLHDG( +
+051700000726     A                                      'CEE' +
+051800000726     A                                      )
+051900000726     A            ARCLST     00001A  B
+052000000727     A
+052100000726     A                                      TEXT('COLIS STD FRAIS: 0=NON 1=O')
+052200000726     A                                      COLHDG( +
+052300000726     A                                      'CLST' +
+052400000726     A                                      )
+052500000726     A            ARPUCS     00009P04B
+052600000726     A                                      TEXT('FRAIS: POIDS COLIS STD  UC')
+052700000726     A                                      COLHDG( +
+052800000726     A                                      'POIDS' +
+052900000726     A                                      'COLIS' +
+053000000726     A                                      'UCS' +
+053100000726     A                                      )
+053200000726     A            ARPSPC     00009P04B
+053300000726     A                                      TEXT('FRAIS: POIDS COLIS STD  SP')
+053400000726     A                                      COLHDG( +
+053500000726     A                                      'POIDS' +
+053600000726     A                                      'COLIS' +
+053700000726     A                                      'SPCB' +
+053800000726     A                                      )
+053900000726     A            ARPPCB     00009P04B
+054000000726     A                                      TEXT('FRAIS: POIDS COLIS STD  PC')
+054100000726     A                                      COLHDG( +
+054200000726     A                                      'POIDS' +
+054300000726     A                                      'COLIS' +
+054400000726     A                                      'PCB' +
+054500000726     A                                      )
+054600000726     A            ARFACT     00001A  B
+054700000727     A
+054800000726     A                                      TEXT('UNITE FACT FRAIS')
+054900000726     A                                      COLHDG( +
+055000000726     A                                      'FACT' +
+055100000726     A                                      )
+055200000726     A            ARGART     00005A  B
+055300000727     A
+055400000726     A                                      TEXT('GROUPE ARTICLE FRAIS')
+055500000726     A                                      COLHDG( +
+055600000726     A                                      'GART' +
+055700000726     A                                      )
+055800000726     A            ARUC       00002A  B
+055900000727     A
+056000000726     A                                      TEXT('UNITE CESSION FRAIS')
+056100000726     A                                      COLHDG( +
+056200000726     A                                      'UC' +
+056300000726     A                                      )
+056400000726     A            ARPVON     00001A  B
+056500000727     A
+056600000726     A                                      TEXT('PV FRAIS: 0=NON 1=OUI')
+056700000726     A                                      COLHDG( +
+056800000726     A                                      'P.V.' +
+056900000726     A                                      'OUI/NON' +
+057000000726     A                                      )
+057100000726     A            ARTOP1     00002A  B
+057200000727     A
+057300000726     A                                      TEXT('TOP')
+057400000726     A                                      COLHDG( +
+057500000726     A                                      'TOP' +
+057600000726     A                                      )
+057700000726     A            ARTOP2     00002A  B
+057800000727     A
+057900000726     A                                      TEXT('TOP')
+058000000726     A                                      COLHDG( +
+058100000726     A                                      'TOP' +
+058200000726     A                                      )
+058300000726     A            ARTOP3     00002A  B
+058400000727     A
+058500000726     A                                      TEXT('TOP')
+058600000726     A                                      COLHDG( +
+058700000726     A                                      'TOP' +
+058800000726     A                                      )
+058900000726     A            ARTOP4     00002A  B
+059000000727     A
+059100000726     A                                      TEXT('TOP')
+059200000726     A                                      COLHDG( +
+059300000726     A                                      'TOP' +
+059400000726     A                                      )
+059500000726     A            ARTOP5     00002A  B
+059600000727     A
+059700000726     A                                      TEXT('TOP')
+059800000726     A                                      COLHDG( +
+059900000726     A                                      'TOP' +
+060000000726     A                                      )
+060100000726     A            ARTOP6     00002A  B
+060200000727     A
+060300000726     A                                      TEXT('TOP')
+060400000726     A                                      COLHDG( +
+060500000726     A                                      'TOP' +
+060600000726     A                                      )
+060700000726     A            ARAAC      00002A  B
+060800000727     A
+060900000726     A                                      TEXT('ANNEE CREATION')
+061000000726     A                                      COLHDG( +
+061100000726     A                                      'AAC' +
+061200000726     A                                      )
+061300000726     A            ARMMC      00002A  B
+061400000727     A
+061500000726     A                                      TEXT('MOIS CREATION')
+061600000726     A                                      COLHDG( +
+061700000726     A                                      'MMC' +
+061800000726     A                                      )
+061900000726     A            ARJJC      00002A  B
+062000000727     A
+062100000726     A                                      TEXT('JOUR CREATION')
+062200000726     A                                      COLHDG( +
+062300000726     A                                      'JJC' +
+062400000726     A                                      )
+062500000726     A            ARAAM      00002A  B
+062600000727     A
+062700000726     A                                      TEXT('ANNEE MODIF')
+062800000726     A                                      COLHDG( +
+062900000726     A                                      'ANNEE' +
+063000000726     A                                      'MODIF' +
+063100000726     A                                      )
+063200000726     A            ARMMM      00002A  B
+063300000727     A
+063400000726     A                                      TEXT('MOIS MODIF')
+063500000726     A                                      COLHDG( +
+063600000726     A                                      'MOIS' +
+063700000726     A                                      'MODIF' +
+063800000726     A                                      )
+063900000726     A            ARJJM      00002A  B
+064000000727     A
+064100000726     A                                      TEXT('JOUR MODIF')
+064200000726     A                                      COLHDG( +
+064300000726     A                                      'JOUR' +
+064400000726     A                                      'MODIF' +
+064500000726     A                                      )
+064600000726     A            ARHHM      00002A  B
+064700000727     A
+064800000726     A                                      TEXT('HEURE MODIF')
+064900000726     A                                      COLHDG( +
+065000000726     A                                      'HEURE' +
+065100000726     A                                      'MODIF' +
+065200000726     A                                      )
+065300000726     A            ARMNM      00002A  B
+065400000727     A
+065500000726     A                                      TEXT('MINUTE MODIF')
+065600000726     A                                      COLHDG( +
+065700000726     A                                      'MINUTE' +
+065800000726     A                                      'MODIF' +
+065900000726     A                                      )
+066000000726     A            ARSSM      00002A  B
+066100000727     A
+066200000726     A                                      TEXT('SECONDE MODIF')
+066300000726     A                                      COLHDG( +
+066400000726     A                                      'SECONDE' +
+066500000726     A                                      'MODIF' +
+066600000726     A                                      )
+066700000726     A            ARAAS      00002A  B
+066800000727     A
+066900000726     A                                      TEXT('ANNEE SUPPRESS')
+067000000726     A                                      COLHDG( +
+067100000726     A                                      'AAS' +
+067200000726     A                                      )
+067300000726     A            ARMMS      00002A  B
+067400000727     A
+067500000726     A                                      TEXT('MOIS SUPPRESS')
+067600000726     A                                      COLHDG( +
+067700000726     A                                      'MMS' +
+067800000726     A                                      )
+067900000726     A            ARJJS      00002A  B
+068000000727     A
+068100000726     A                                      TEXT('JOUR SUPPRESS')
+068200000726     A                                      COLHDG( +
+068300000726     A                                      'JJS' +
+068400000726     A                                      )
+068500000726     A            ARCCHB     00001A  B
+068600000727     A
+068700000726     A                                      TEXT('1=OUI 0=NON CREAT.IMMED B')
+068800000726     A                                      COLHDG( +
+068900000726     A                                      '1=LE 2=LD' +
+069000000726     A                                      )
+069100000726     A            ARHYCH     00001A  B
+069200000727     A
+069300000726     A                                      TEXT('1=OUI 0=NON HYPER CHAINAGE')
+069400000726     A                                      COLHDG( +
+069500000726     A                                      '1=LE 2=LD' +
+069600000726     A                                      )
+069700000726     A            AREDCH     00001A  B
+069800000727     A
+069900000726     A                                      TEXT('1=OUI 0=NON EDITION CHAINA')
+070000000726     A                                      COLHDG( +
+070100000726     A                                      '1=LE 2=LD' +
+070200000726     A                                      )
+070300000726     A            ARXR       00006A  B
+070400000727     A
+070500000726     A                                      TEXT('SLIM BASE: RACINE')
+070600000726     A                                      COLHDG( +
+070700000726     A                                      'RAC' +
+070800000726     A                                      'BASE' +
+070900000726     A                                      )
+071000000726     A            ARXC       00001A  B
+071100000727     A
+071200000726     A                                      TEXT('SLIM BASE: CCC')
+071300000726     A                                      COLHDG( +
+071400000726     A                                      'CCC' +
+071500000726     A                                      'BASE' +
+071600000726     A                                      )
+071700000726     A            ARXV       00002A  B
+071800000727     A
+071900000726     A                                      TEXT('SLIM BASE: VPV')
+072000000726     A                                      COLHDG( +
+072100000726     A                                      'VPV' +
+072200000726     A                                      'BASE' +
+072300000726     A                                      )
+072400000726     A            ARXM       00001A  B
+072500000727     A
+072600000726     A                                      TEXT('SLIM BASE: MODULO')
+072700000726     A                                      COLHDG( +
+072800000726     A                                      'MOD' +
+072900000726     A                                      'BASE' +
+073000000726     A                                      )
+073100000726     A            ARXAR      00006A  B
+073200000727     A
+073300000726     A                                      TEXT('CHAINAGE A: RACINE')
+073400000726     A                                      COLHDG( +
+073500000726     A                                      'RAC A' +
+073600000726     A                                      'EN COURS' +
+073700000726     A                                      )
+073800000726     A            ARXAC      00001A  B
+073900000727     A
+074000000726     A                                      TEXT('CHAINAGE A: CCC')
+074100000726     A                                      COLHDG( +
+074200000726     A                                      'CCC A' +
+074300000726     A                                      'EN COURS' +
+074400000726     A                                      )
+074500000726     A            ARXAV      00002A  B
+074600000727     A
+074700000726     A                                      TEXT('CHAINAGE A: VPV')
+074800000726     A                                      COLHDG( +
+074900000726     A                                      'VPV A' +
+075000000726     A                                      'EN COURS' +
+075100000726     A                                      )
+075200000726     A            ARXAM      00001A  B
+075300000727     A
+075400000726     A                                      TEXT('CHAINAGE A: MODULO')
+075500000726     A                                      COLHDG( +
+075600000726     A                                      'MOD A' +
+075700000726     A                                      'EN COURS' +
+075800000726     A                                      )
+075900000726     A            ARXADA     00002A  B
+076000000727     A
+076100000726     A                                      TEXT('CHAINAGE A: AA DEBUT CHAIN')
+076200000726     A                                      COLHDG( +
+076300000726     A                                      'AA' +
+076400000726     A                                      'DEB' +
+076500000726     A                                      'CHAIN' +
+076600000726     A                                      )
+076700000726     A            ARXADM     00002A  B
+076800000727     A
+076900000726     A                                      TEXT('CHAINAGE A: MM DEBUT CHAIN')
+077000000726     A                                      COLHDG( +
+077100000726     A                                      'MM' +
+077200000726     A                                      'DEB' +
+077300000726     A                                      'CHAIN' +
+077400000726     A                                      )
+077500000726     A            ARXADJ     00002A  B
+077600000727     A
+077700000726     A                                      TEXT('CHAINAGE A: JJ DEBUT CHAIN')
+077800000726     A                                      COLHDG( +
+077900000726     A                                      'JJ' +
+078000000726     A                                      'DEB' +
+078100000726     A                                      'CHAIN' +
+078200000726     A                                      )
+078300000726     A            ARXAFA     00002A  B
+078400000727     A
+078500000726     A                                      TEXT('CHAINAGE A: AA FIN CHAINAG')
+078600000726     A                                      COLHDG( +
+078700000726     A                                      'AA' +
+078800000726     A                                      'FIN' +
+078900000726     A                                      'CHAIN' +
+079000000726     A                                      )
+079100000726     A            ARXAFM     00002A  B
+079200000727     A
+079300000726     A                                      TEXT('CHAINAGE A: MM FIN CHAINAG')
+079400000726     A                                      COLHDG( +
+079500000726     A                                      'MM' +
+079600000726     A                                      'FIN' +
+079700000726     A                                      'CHAIN' +
+079800000726     A                                      )
+079900000726     A            ARXAFJ     00002A  B
+080000000727     A
+080100000726     A                                      TEXT('CHAINAGE A: JJ FIN CHAINAG')
+080200000726     A                                      COLHDG( +
+080300000726     A                                      'JJ' +
+080400000726     A                                      'FIN' +
+080500000726     A                                      'CHAIN' +
+080600000726     A                                      )
+080700000726     A            ARXBR      00006A  B
+080800000727     A
+080900000726     A                                      TEXT('CHAINAGE B: RACINE')
+081000000726     A                                      COLHDG( +
+081100000726     A                                      'RAC B' +
+081200000726     A                                      'EN COURS' +
+081300000726     A                                      )
+081400000726     A            ARXBC      00001A  B
+081500000727     A
+081600000726     A                                      TEXT('CHAINAGE B: CCC')
+081700000726     A                                      COLHDG( +
+081800000726     A                                      'CCC B' +
+081900000726     A                                      'EN COURS' +
+082000000726     A                                      )
+082100000726     A            ARXBV      00002A  B
+082200000727     A
+082300000726     A                                      TEXT('CHAINAGE B: VPV')
+082400000726     A                                      COLHDG( +
+082500000726     A                                      'VPV B' +
+082600000726     A                                      'EN COURS' +
+082700000726     A                                      )
+082800000726     A            ARXBM      00001A  B
+082900000727     A
+083000000726     A                                      TEXT('CHAINAGE B: MODULO')
+083100000726     A                                      COLHDG( +
+083200000726     A                                      'MOD B' +
+083300000726     A                                      'EN COURS' +
+083400000726     A                                      )
+083500000726     A            ARXBDA     00002A  B
+083600000727     A
+083700000726     A                                      TEXT('CHAINAGE B: AA DEBUT CHAIN')
+083800000726     A                                      COLHDG( +
+083900000726     A                                      'AA' +
+084000000726     A                                      'DEB' +
+084100000726     A                                      'CHAIN' +
+084200000726     A                                      )
+084300000726     A            ARXBDM     00002A  B
+084400000727     A
+084500000726     A                                      TEXT('CHAINAGE B: MM DEBUT CHAIN')
+084600000726     A                                      COLHDG( +
+084700000726     A                                      'MM' +
+084800000726     A                                      'DEB' +
+084900000726     A                                      'CHAIN' +
+085000000726     A                                      )
+085100000726     A            ARXBDJ     00002A  B
+085200000727     A
+085300000726     A                                      TEXT('CHAINAGE B: JJ DEBUT CHAIN')
+085400000726     A                                      COLHDG( +
+085500000726     A                                      'JJ' +
+085600000726     A                                      'DEB' +
+085700000726     A                                      'CHAIN' +
+085800000726     A                                      )
+085900000726     A            ARXBFA     00002A  B
+086000000727     A
+086100000726     A                                      TEXT('CHAINAGE B: AA FIN CHAINAG')
+086200000726     A                                      COLHDG( +
+086300000726     A                                      'AA' +
+086400000726     A                                      'FIN' +
+086500000726     A                                      'CHAIN' +
+086600000726     A                                      )
+086700000726     A            ARXBFM     00002A  B
+086800000727     A
+086900000726     A                                      TEXT('CHAINAGE B: MM FIN CHAINAG')
+087000000726     A                                      COLHDG( +
+087100000726     A                                      'MM' +
+087200000726     A                                      'FIN' +
+087300000726     A                                      'CHAIN' +
+087400000726     A                                      )
+087500000726     A            ARXBFJ     00002A  B
+087600000727     A
+087700000726     A                                      TEXT('CHAINAGE B: JJ FIN CHAINAG')
+087800000726     A                                      COLHDG( +
+087900000726     A                                      'JJ' +
+088000000726     A                                      'FIN' +
+088100000726     A                                      'CHAIN' +
+088200000726     A                                      )
+088300000726     A            ARXCR      00006A  B
+088400000727     A
+088500000726     A                                      TEXT('CHAINAGE C: RACINE')
+088600000726     A                                      COLHDG( +
+088700000726     A                                      'RAC C' +
+088800000726     A                                      'FUTUR' +
+088900000726     A                                      )
+089000000726     A            ARXCC      00001A  B
+089100000727     A
+089200000726     A                                      TEXT('CHAINAGE C: CCC')
+089300000726     A                                      COLHDG( +
+089400000726     A                                      'CCC C' +
+089500000726     A                                      'FUTUR' +
+089600000726     A                                      )
+089700000726     A            ARXCV      00002A  B
+089800000727     A
+089900000726     A                                      TEXT('CHAINAGE C: VPV')
+090000000726     A                                      COLHDG( +
+090100000726     A                                      'VPV C' +
+090200000726     A                                      'FUTUR' +
+090300000726     A                                      )
+090400000726     A            ARXCM      00001A  B
+090500000727     A
+090600000726     A                                      TEXT('CHAINAGE C: MODULO')
+090700000726     A                                      COLHDG( +
+090800000726     A                                      'MOD C' +
+090900000726     A                                      'FUTUR' +
+091000000726     A                                      )
+091100000726     A            ARXCDA     00002A  B
+091200000727     A
+091300000726     A                                      TEXT('CHAINAGE C: AA DEBUT CHAIN')
+091400000726     A                                      COLHDG( +
+091500000726     A                                      'AA' +
+091600000726     A                                      'DEB' +
+091700000726     A                                      'CHAIN' +
+091800000726     A                                      )
+091900000726     A            ARXCDM     00002A  B
+092000000727     A
+092100000726     A                                      TEXT('CHAINAGE C: MM DEBUT CHAIN')
+092200000726     A                                      COLHDG( +
+092300000726     A                                      'MM' +
+092400000726     A                                      'DEB' +
+092500000726     A                                      'CHAIN' +
+092600000726     A                                      )
+092700000726     A            ARXCDJ     00002A  B
+092800000727     A
+092900000726     A                                      TEXT('CHAINAGE C: JJ DEBUT CHAIN')
+093000000726     A                                      COLHDG( +
+093100000726     A                                      'JJ' +
+093200000726     A                                      'DEB' +
+093300000726     A                                      'CHAIN' +
+093400000726     A                                      )
+093500000726     A            ARXCFA     00002A  B
+093600000727     A
+093700000726     A                                      TEXT('CHAINAGE C: AA FIN CHAINAG')
+093800000726     A                                      COLHDG( +
+093900000726     A                                      'AA' +
+094000000726     A                                      'FIN' +
+094100000726     A                                      'CHAIN' +
+094200000726     A                                      )
+094300000726     A            ARXCFM     00002A  B
+094400000727     A
+094500000726     A                                      TEXT('CHAINAGE C: MM FIN CHAINAG')
+094600000726     A                                      COLHDG( +
+094700000726     A                                      'MM' +
+094800000726     A                                      'FIN' +
+094900000726     A                                      'CHAIN' +
+095000000726     A                                      )
+095100000726     A            ARXCFJ     00002A  B
+095200000727     A
+095300000726     A                                      TEXT('CHAINAGE C: JJ FIN CHAINAG')
+095400000726     A                                      COLHDG( +
+095500000726     A                                      'JJ' +
+095600000726     A                                      'FIN' +
+095700000726     A                                      'CHAIN' +
+095800000726     A                                      )
+095900000726     A            ARXDR      00006A  B
+096000000727     A
+096100000726     A                                      TEXT('CHAINAGE D: RACINE')
+096200000726     A                                      COLHDG( +
+096300000726     A                                      'RAC D' +
+096400000726     A                                      'FUTUR' +
+096500000726     A                                      )
+096600000726     A            ARXDC      00001A  B
+096700000727     A
+096800000726     A                                      TEXT('CHAINAGE D: CCC')
+096900000726     A                                      COLHDG( +
+097000000726     A                                      'CCC D' +
+097100000726     A                                      'FUTUR' +
+097200000726     A                                      )
+097300000726     A            ARXDV      00002A  B
+097400000727     A
+097500000726     A                                      TEXT('CHAINAGE D: VPV')
+097600000726     A                                      COLHDG( +
+097700000726     A                                      'VPV D' +
+097800000726     A                                      'FUTUR' +
+097900000726     A                                      )
+098000000726     A            ARXDM      00001A  B
+098100000727     A
+098200000726     A                                      TEXT('CHAINAGE D: MODULO')
+098300000726     A                                      COLHDG( +
+098400000726     A                                      'MOD D' +
+098500000726     A                                      'FUTUR' +
+098600000726     A                                      )
+098700000726     A            ARXDDA     00002A  B
+098800000727     A
+098900000726     A                                      TEXT('CHAINAGE D: AA DEBUT CHAIN')
+099000000726     A                                      COLHDG( +
+099100000726     A                                      'AA' +
+099200000726     A                                      'DEB' +
+099300000726     A                                      'CHAIN' +
+099400000726     A                                      )
+099500000726     A            ARXDDM     00002A  B
+099600000727     A
+099700000726     A                                      TEXT('CHAINAGE D: MM DEBUT CHAIN')
+099800000726     A                                      COLHDG( +
+099900000726     A                                      'MM' +
+100000000726     A                                      'DEB' +
+100100000726     A                                      'CHAIN' +
+100200000726     A                                      )
+100300000726     A            ARXDDJ     00002A  B
+100400000727     A
+100500000726     A                                      TEXT('CHAINAGE D: JJ DEBUT CHAIN')
+100600000726     A                                      COLHDG( +
+100700000726     A                                      'JJ' +
+100800000726     A                                      'DEB' +
+100900000726     A                                      'CHAIN' +
+101000000726     A                                      )
+101100000726     A            ARXDFA     00002A  B
+101200000727     A
+101300000726     A                                      TEXT('CHAINAGE D: AA FIN CHAINAG')
+101400000726     A                                      COLHDG( +
+101500000726     A                                      'AA' +
+101600000726     A                                      'FIN' +
+101700000726     A                                      'CHAIN' +
+101800000726     A                                      )
+101900000726     A            ARXDFM     00002A  B
+102000000727     A
+102100000726     A                                      TEXT('CHAINAGE D: MM FIN CHAINAG')
+102200000726     A                                      COLHDG( +
+102300000726     A                                      'MM' +
+102400000726     A                                      'FIN' +
+102500000726     A                                      'CHAIN' +
+102600000726     A                                      )
+102700000726     A            ARXDFJ     00002A  B
+102800000727     A
+102900000726     A                                      TEXT('CHAINAGE D: JJ FIN CHAINAG')
+103000000726     A                                      COLHDG( +
+103100000726     A                                      'JJ' +
+103200000726     A                                      'FIN' +
+103300000726     A                                      'CHAIN' +
+103400000726     A                                      )
+103500000726     A            ARXETQ     00001A  B
+103600000727     A
+103700000726     A                                      TEXT('ETIQUETTE REMPLACEMENT ?')
+103800000726     A                                      COLHDG( +
+103900000726     A                                      'ETIQUETTE REMPL ?' +
+104000000726     A                                      )
+104100000726     A            ARMESS     00030A  B
+104200000727     A
+104300000726     A                                      TEXT('MESSAGE POUR MAGASIN')
+104400000726     A                                      COLHDG( +
+104500000726     A                                      'MESSAGE' +
+104600000726     A                                      'POUR' +
+104700000726     A                                      'MAGASIN' +
+104800000726     A                                      )
+104900000726     A            ARMDA      00002A  B
+105000000727     A
+105100000726     A                                      TEXT('AA DEB MESSG')
+105200000726     A                                      COLHDG( +
+105300000726     A                                      'AA' +
+105400000726     A                                      'DEB' +
+105500000726     A                                      'MESSG' +
+105600000726     A                                      )
+105700000726     A            ARMDM      00002A  B
+105800000727     A
+105900000726     A                                      TEXT('MM DEB MESSG')
+106000000726     A                                      COLHDG( +
+106100000726     A                                      'MM' +
+106200000726     A                                      'DEB' +
+106300000726     A                                      'MESSG' +
+106400000726     A                                      )
+106500000726     A            ARMDJ      00002A  B
+106600000727     A
+106700000726     A                                      TEXT('JJ DEB MESSG')
+106800000726     A                                      COLHDG( +
+106900000726     A                                      'JJ' +
+107000000726     A                                      'DEB' +
+107100000726     A                                      'MESSG' +
+107200000726     A                                      )
+107300000726     A            ARMFA      00002A  B
+107400000727     A
+107500000726     A                                      TEXT('AA FIN MESSG')
+107600000726     A                                      COLHDG( +
+107700000726     A                                      'AA' +
+107800000726     A                                      'FIN' +
+107900000726     A                                      'MESSG' +
+108000000726     A                                      )
+108100000726     A            ARMFM      00002A  B
+108200000727     A
+108300000726     A                                      TEXT('MM FIN MESSG')
+108400000726     A                                      COLHDG( +
+108500000726     A                                      'MM' +
+108600000726     A                                      'FIN' +
+108700000726     A                                      'MESSG' +
+108800000726     A                                      )
+108900000726     A            ARMFJ      00002A  B
+109000000727     A
+109100000726     A                                      TEXT('JJ FIN MESSG')
+109200000726     A                                      COLHDG( +
+109300000726     A                                      'JJ' +
+109400000726     A                                      'FIN' +
+109500000726     A                                      'MESSG' +
+109600000726     A                                      )
+109700000726     A            ARBLQI     00001A  B
+109800000727     A
+109900000726     A                                      TEXT('1=OUI 0=NON')
+110000000726     A                                      COLHDG( +
+110100000726     A                                      'BLOQUAGE' +
+110200000726     A                                      'INFO' +
+110300000726     A                                      )
+110400000726     A            ARHYAA     00002A  B
+110500000727     A
+110600000726     A                                      TEXT('AA DEPART MAJ EN HYPER')
+110700000726     A                                      COLHDG( +
+110800000726     A                                      'AA' +
+110900000726     A                                      'HYPER' +
+111000000726     A                                      )
+111100000726     A            ARHYMM     00002A  B
+111200000727     A
+111300000726     A                                      TEXT('MM DEPART MAJ EN HYPER')
+111400000726     A                                      COLHDG( +
+111500000726     A                                      'MM' +
+111600000726     A                                      'HYPER' +
+111700000726     A                                      )
+111800000726     A            ARHYJJ     00002A  B
+111900000727     A
+112000000726     A                                      TEXT('JJ DEPART MAJ EN HYPER')
+112100000726     A                                      COLHDG( +
+112200000726     A                                      'JJ' +
+112300000726     A                                      'HYPER' +
+112400000726     A                                      )
+112500000726     A            ARETAA     00002A  B
+112600000727     A
+112700000726     A                                      TEXT('AA DEBUT EDITION ETIQUETTE')
+112800000726     A                                      COLHDG( +
+112900000726     A                                      'AA' +
+113000000726     A                                      'ETIQ' +
+113100000726     A                                      )
+113200000726     A            ARETMM     00002A  B
+113300000727     A
+113400000726     A                                      TEXT('MM DEBUT EDITION ETIQUETTE')
+113500000726     A                                      COLHDG( +
+113600000726     A                                      'MM' +
+113700000726     A                                      'ETIQ' +
+113800000726     A                                      )
+113900000726     A            ARETJJ     00002A  B
+114000000727     A
+114100000726     A                                      TEXT('JJ DEBUT EDITION ETIQUETTE')
+114200000726     A                                      COLHDG( +
+114300000726     A                                      'JJ' +
+114400000726     A                                      'ETIQ' +
+114500000726     A                                      )
+114600000726     A            ARQMIN     00009P03B
+114700000726     A                                      TEXT('QTE MINIMUM CMDE CHEZ LE F')
+114800000726     A                                      COLHDG( +
+114900000726     A                                      'QMIN' +
+115000000726     A                                      )
+115100000726     A            ARNBPT     00007P03B
+115200000726     A                                      TEXT('NOMBRE POINTS')
+115300000726     A                                      COLHDG( +
+115400000726     A                                      'NOMBRE' +
+115500000726     A                                      'POINTS' +
+115600000726     A                                      )
+115700000726     A            ARNTPT     00002A  B
+115800000727     A
+115900000726     A                                      TEXT('NATURE POINTS')
+116000000726     A                                      COLHDG( +
+116100000726     A                                      'NATURE' +
+116200000726     A                                      'POINTS' +
+116300000726     A                                      )
+116400000726     A            ARETQC     00007P03B
+116500000726     A                                      TEXT('COUT ETIQ FOURN')
+116600000726     A                                      COLHDG( +
+116700000726     A                                      'COUT' +
+116800000726     A                                      'ETIQ' +
+116900000726     A                                      'FOURN' +
+117000000726     A                                      )
+117100000726     A            ARCETQ     00001A  B
+117200000727     A
+117300000726     A                                      TEXT('COUT ETIQ: SPACE=%, 1=FRAN')
+117400000726     A                                      COLHDG( +
+117500000726     A                                      'CETQ' +
+117600000726     A                                      )
+117700000726     A            ARACCE     00007P03B
+117800000726     A                                      TEXT('REVENUS ACCESSOIRES')
+117900000726     A                                      COLHDG( +
+118000000726     A                                      'ACCE' +
+118100000726     A                                      )
+118200000726     A            ARCACC     00001A  B
+118300000727     A
+118400000726     A                                      TEXT('REVENU ACC: SPACE=%, 1=FRA')
+118500000726     A                                      COLHDG( +
+118600000726     A                                      'CACC' +
+118700000726     A                                      )
+118800000726     A            ARPAI      00007P03B
+118900000726     A                                      TEXT('CONDITION PAIEMENT')
+119000000726     A                                      COLHDG( +
+119100000726     A                                      'CONDITION' +
+119200000726     A                                      'PAIEMENT' +
+119300000726     A                                      )
+119400000726     A            ARCPAI     00001A  B
+119500000727     A
+119600000726     A                                      TEXT('COND PAIEM: SPACE=%, 1=FRA')
+119700000726     A                                      COLHDG( +
+119800000726     A                                      'CREM' +
+119900000726     A                                      )
+120000000726     A            ARECC      00003P00B
+120100000726     A                                      TEXT('ENTR: NB COLIS PAR COUCHE')
+120200000726     A                                      COLHDG( +
+120300000726     A                                      'CC' +
+120400000726     A                                      )
+120500000726     A            ARECP      00003P00B
+120600000726     A                                      TEXT('ENTR: NB COUCHES PAR PALET')
+120700000726     A                                      COLHDG( +
+120800000726     A                                      'CP' +
+120900000726     A                                      )
+121000000726     A            AREHHT     00005P03B
+121100000726     A                                      TEXT('ENTR: HAUTEUR HORS TOUT')
+121200000726     A                                      COLHDG( +
+121300000726     A                                      'HHT' +
+121400000726     A                                      )
+121500000726     A            ARELON     00005P03B
+121600000726     A                                      TEXT('ENTR: LONGUEUR DU PCB')
+121700000726     A                                      COLHDG( +
+121800000726     A                                      'LON' +
+121900000726     A                                      )
+122000000726     A            ARELAR     00005P03B
+122100000726     A                                      TEXT('ENTR: LARGEUR DU PCB')
+122200000726     A                                      COLHDG( +
+122300000726     A                                      'LAR' +
+122400000726     A                                      )
+122500000726     A            AREHAU     00005P03B
+122600000726     A                                      TEXT('ENTR: HAUTEUR DU PCB')
+122700000726     A                                      COLHDG( +
+122800000726     A                                      'HAU' +
+122900000726     A                                      )
+123000000726     A            AREPLQ     00007P00B
+123100000726     A                                      TEXT('ENTR: QUANTITE PAR PALETTE')
+123200000726     A                                      COLHDG( +
+123300000726     A                                      'PLQT' +
+123400000726     A                                      )
+123500000726     A            AREVOL     00007P05B
+123600000726     A                                      TEXT('ENTR: VOLUME DU PCB')
+123700000726     A                                      COLHDG( +
+123800000726     A                                      'VOLP' +
+123900000726     A                                      )
+124000000726     A            AREPOI     00009P04B
+124100000726     A                                      TEXT('ENTR: POIDS DU PCB')
+124200000726     A                                      COLHDG( +
+124300000726     A                                      'POIP' +
+124400000726     A                                      )
+124500000726     A            AREPLT     00002A  B
+124600000727     A
+124700000726     A                                      TEXT('ENTR: TYPE DE PALETTE')
+124800000726     A                                      COLHDG( +
+124900000726     A                                      'PLT' +
+125000000726     A                                      )
+125100000726     A            AREPAE     00001A  B
+125200000727     A
+125300000726     A                                      TEXT('ENTR: PALETTE EMPILABLE 0=')
+125400000726     A                                      COLHDG( +
+125500000726     A                                      'PAEM' +
+125600000726     A                                      )
+125700000726     A            AREDST     00005P00B
+125800000726     A                                      TEXT('ENTR: DELAI STOCKAGE')
+125900000726     A                                      COLHDG( +
+126000000726     A                                      'DSTK' +
+126100000726     A                                      )
+126200000726     A            AREPAC     00001A  B
+126300000727     A
+126400000726     A                                      TEXT('ENTR: PALETTE COMPLETE 0=N')
+126500000726     A                                      COLHDG( +
+126600000726     A                                      'PACO' +
+126700000726     A                                      )
+126800000726     A            ARFCC      00003P00B
+126900000726     A                                      TEXT('FOUR: NB COLIS PAR COUCHE')
+127000000726     A                                      COLHDG( +
+127100000726     A                                      'CC' +
+127200000726     A                                      )
+127300000726     A            ARFCP      00003P00B
+127400000726     A                                      TEXT('FOUR: NB COUCHES PAR PALET')
+127500000726     A                                      COLHDG( +
+127600000726     A                                      'CP' +
+127700000726     A                                      )
+127800000726     A            ARFHHT     00005P03B
+127900000726     A                                      TEXT('FOUR: HAUTEUR HORS TOUT')
+128000000726     A                                      COLHDG( +
+128100000726     A                                      'HHT' +
+128200000726     A                                      )
+128300000726     A            ARFLON     00005P03B
+128400000726     A                                      TEXT('FOUR: LONGUEUR DU PCB')
+128500000726     A                                      COLHDG( +
+128600000726     A                                      'LON' +
+128700000726     A                                      )
+128800000726     A            ARFLAR     00005P03B
+128900000726     A                                      TEXT('FOUR: LARGEUR DU PCB')
+129000000726     A                                      COLHDG( +
+129100000726     A                                      'LAR' +
+129200000726     A                                      )
+129300000726     A            ARFHAU     00005P03B
+129400000726     A                                      TEXT('FOUR: HAUTEUR DU PCB')
+129500000726     A                                      COLHDG( +
+129600000726     A                                      'HAU' +
+129700000726     A                                      )
+129800000726     A            ARFPLQ     00007P00B
+129900000726     A                                      TEXT('FOUR: QUANTITE PAR PALETTE')
+130000000726     A                                      COLHDG( +
+130100000726     A                                      'PLQT' +
+130200000726     A                                      )
+130300000726     A            ARFVOL     00007P05B
+130400000726     A                                      TEXT('FOUR: VOLUME DU PCB')
+130500000726     A                                      COLHDG( +
+130600000726     A                                      'VOLP' +
+130700000726     A                                      )
+130800000726     A            ARFPOI     00009P04B
+130900000726     A                                      TEXT('FOUR: POIDS DU PCB')
+131000000726     A                                      COLHDG( +
+131100000726     A                                      'POIP' +
+131200000726     A                                      )
+131300000726     A            ARFPLT     00002A  B
+131400000727     A
+131500000726     A                                      TEXT('FOUR: TYPE DE PALETTE')
+131600000726     A                                      COLHDG( +
+131700000726     A                                      'PLT' +
+131800000726     A                                      )
+131900000726     A            ARFPAE     00001A  B
+132000000727     A
+132100000726     A                                      TEXT('FOUR: PALETTE EMPILABLE 0=')
+132200000726     A                                      COLHDG( +
+132300000726     A                                      'PAEM' +
+132400000726     A                                      )
+132500000726     A            ARFDST     00005P00B
+132600000726     A                                      TEXT('FOUR: DELAI STOCKAGE')
+132700000726     A                                      COLHDG( +
+132800000726     A                                      'DSTK' +
+132900000726     A                                      )
+133000000726     A            ARFPAC     00001A  B
+133100000727     A
+133200000726     A                                      TEXT('FOUR: PALETTE COMPLETE 0=N')
+133300000726     A                                      COLHDG( +
+133400000726     A                                      'PACO' +
+133500000726     A                                      )
+133600000726     A            ARSLIS     00007A  B
+133700000727     A
+133800000726     A                                      TEXT('SLIM STAM')
+133900000726     A                                      COLHDG( +
+134000000726     A                                      'SLIS' +
+134100000726     A                                      )
+134200000726     A            ARMODS     00001A  B
+134300000727     A
+134400000726     A                                      TEXT('MODULO STAM')
+134500000726     A                                      COLHDG( +
+134600000726     A                                      'MODS' +
+134700000726     A                                      )
+134800000726     A            ARAASS     00002A  B
+134900000727     A
+135000000726     A                                      TEXT('AA MAJ STAM')
+135100000726     A                                      COLHDG( +
+135200000726     A                                      'AA' +
+135300000726     A                                      'MAJ' +
+135400000726     A                                      'STAM' +
+135500000726     A                                      )
+135600000726     A            ARMMSS     00002A  B
+135700000727     A
+135800000726     A                                      TEXT('MM MAJ STAM')
+135900000726     A                                      COLHDG( +
+136000000726     A                                      'MM' +
+136100000726     A                                      'MAJ' +
+136200000726     A                                      'STAM' +
+136300000726     A                                      )
+136400000726     A            ARJJSS     00002A  B
+136500000727     A
+136600000726     A                                      TEXT('JJ MAJ STAM')
+136700000726     A                                      COLHDG( +
+136800000726     A                                      'JJ' +
+136900000726     A                                      'MAJ' +
+137000000726     A                                      'STAM' +
+137100000726     A                                      )
+137200000726     A            ARPAB      00009P03B
+137300000726     A                                      TEXT('PRIX ACHAT BASE')
+137400000726     A                                      COLHDG( +
+137500000726     A                                      'PRIX' +
+137600000726     A                                      'ACHAT' +
+137700000726     A                                      'BASE' +
+137800000726     A                                      )
+137900000726     A            ARPAT      00009P03B
+138000000726     A                                      TEXT('PRIX ACHAT TARIF')
+138100000726     A                                      COLHDG( +
+138200000726     A                                      'PRIX' +
+138300000726     A                                      'ACHAT' +
+138400000726     A                                      'TARIF' +
+138500000726     A                                      )
+138600000726     A            ARPAR      00009P03B
+138700000726     A                                      TEXT('PRIX ACHAT REEL')
+138800000726     A                                      COLHDG( +
+138900000726     A                                      'PRIX' +
+139000000726     A                                      'ACHAT' +
+139100000726     A                                      'REEL' +
+139200000726     A                                      )
+139300000726     A            ARPA       00009P03B
+139400000726     A                                      TEXT('PRIX ACHAT FACTURE')
+139500000726     A                                      COLHDG( +
+139600000726     A                                      'PRIX' +
+139700000726     A                                      'ACHAT' +
+139800000726     A                                      'FACTURE' +
+139900000726     A                                      )
+140000000726     A            ARPRB      00009P03B
+140100000726     A                                      TEXT('PRIX REVIENT BASE')
+140200000726     A                                      COLHDG( +
+140300000726     A                                      'PRIX' +
+140400000726     A                                      'REVIENT' +
+140500000726     A                                      'BASE' +
+140600000726     A                                      )
+140700000726     A            ARPR       00009P03B
+140800000726     A                                      TEXT('PRIX REVIENT REEL')
+140900000726     A                                      COLHDG( +
+141000000726     A                                      'PRIX' +
+141100000726     A                                      'REVIENT' +
+141200000726     A                                      'REEL' +
+141300000726     A                                      )
+141400000726     A            ARPF       00009P03B
+141500000726     A                                      TEXT('PRIX FACTURATION')
+141600000726     A                                      COLHDG( +
+141700000726     A                                      'PRIX' +
+141800000726     A                                      'FACTURATION' +
+141900000726     A                                      )
+142000000726     A            ARPRX      00009P03B
+142100000726     A                                      TEXT('PRX: PRIX DE REVIENT MOYEN')
+142200000726     A                                      COLHDG( +
+142300000726     A                                      'PRX' +
+142400000726     A                                      )
+142500000726     A            ARPVZ      00009P02B
+142600000726     A                                      TEXT('P.V.Z.')
+142700000726     A                                      COLHDG( +
+142800000726     A                                      'PVZ' +
+142900000726     A                                      )
+143000000726     A            ARPVZH     00009P02B
+143100000726     A                                      TEXT('PVZ HORS HPVZ')
+143200000726     A                                      COLHDG( +
+143300000726     A                                      'PVZ' +
+143400000726     A                                      'HORS HPVZ' +
+143500000726     A                                      )
+143600000726     A            ARREMI     00007P02B
+143700000726     A                                      TEXT('REMISE IMMEDIATE')
+143800000726     A                                      COLHDG( +
+143900000726     A                                      'REMI' +
+144000000726     A                                      )
+144100000726     A            ARCREI     00001A  B
+144200000727     A
+144300000726     A                                      TEXT('REMI IMMED: SPACE=%, 1=FRA')
+144400000726     A                                      COLHDG( +
+144500000726     A                                      'CREMI' +
+144600000726     A                                      )
+144700000726     A            ARTRS      00007P03B
+144800000726     A                                      TEXT('TRANSPORT')
+144900000726     A                                      COLHDG( +
+145000000726     A                                      'TRS' +
+145100000726     A                                      )
+145200000726     A            ARCTRS     00001A  B
+145300000727     A
+145400000726     A                                      TEXT('TRANSPORT: SPACE=%, 1=FRAN')
+145500000726     A                                      COLHDG( +
+145600000726     A                                      'CTRS' +
+145700000726     A                                      )
+145800000726     A            ARFEM      00007P03B
+145900000726     A                                      TEXT('EMBALLAGE FOURNIS')
+146000000726     A                                      COLHDG( +
+146100000726     A                                      'EMBALLAGE' +
+146200000726     A                                      'FOURNIS' +
+146300000726     A                                      )
+146400000726     A            ARCFEM     00001A  B
+146500000727     A
+146600000726     A                                      TEXT('EMBAL FOU: SPACE=%, 1=FRAN')
+146700000726     A                                      COLHDG( +
+146800000726     A                                      'CODE' +
+146900000726     A                                      'EMBAL' +
+147000000726     A                                      'FOURN' +
+147100000726     A                                      )
+147200000726     A            ARPANT     00001A  B
+147300000727     A
+147400000726     A                                      TEXT('PA NET: 0=NON 1=OUI(SANS A')
+147500000726     A                                      COLHDG( +
+147600000726     A                                      'PANT' +
+147700000726     A                                      )
+147800000726     A            ARCAVD     00003A  B
+147900000727     A
+148000000726     A                                      TEXT('TYPE CONTRAT AVD')
+148100000726     A                                      COLHDG( +
+148200000726     A                                      'TYPE' +
+148300000726     A                                      'CONTRAT' +
+148400000726     A                                      'AVD' +
+148500000726     A                                      )
+148600000726     A            ARRIST     00007P03B
+148700000726     A                                      TEXT('RISTOURNE')
+148800000726     A                                      COLHDG( +
+148900000726     A                                      'RIS' +
+149000000726     A                                      )
+149100000726     A            ARCRIS     00001A  B
+149200000727     A
+149300000726     A                                      TEXT('RIST: SPACE=%, 1=FRANCS')
+149400000726     A                                      COLHDG( +
+149500000726     A                                      'CRIS' +
+149600000726     A                                      )
+149700000726     A            ARCOOP     00007P03B
+149800000726     A                                      TEXT('COOPERATION')
+149900000726     A                                      COLHDG( +
+150000000726     A                                      'COO' +
+150100000726     A                                      )
+150200000726     A            ARCCOO     00001A  B
+150300000727     A
+150400000726     A                                      TEXT('COOP: SPACE=%, 1=FRANCS')
+150500000726     A                                      COLHDG( +
+150600000726     A                                      'CCOO' +
+150700000726     A                                      )
+150800000726     A            ARHPVZ     00007P03B
+150900000726     A                                      TEXT('HORS. PVZ')
+151000000726     A                                      COLHDG( +
+151100000726     A                                      'HPVZ' +
+151200000726     A                                      )
+151300000726     A            ARCHPV     00001A  B
+151400000727     A
+151500000726     A                                      TEXT('RIST: SPACE=%, 1=FRANCS')
+151600000726     A                                      COLHDG( +
+151700000726     A                                      'COD' +
+151800000726     A                                      'HPVZ' +
+151900000726     A                                      )
+152000000726     A            ARRFNT     00001A  B
+152100000727     A
+152200000726     A                                      TEXT('RF NET')
+152300000726     A                                      COLHDG( +
+152400000726     A                                      'RFNT' +
+152500000726     A                                      )
+152600000726     A            ARRF       00007P03B
+152700000726     A                                      TEXT('REM FCT')
+152800000726     A                                      COLHDG( +
+152900000726     A                                      'RF' +
+153000000726     A                                      )
+153100000726     A            ARCRF      00001A  B
+153200000727     A
+153300000726     A                                      TEXT('REM FONCT: SPACE=%, 1=FRAN')
+153400000726     A                                      COLHDG( +
+153500000726     A                                      'CRF' +
+153600000726     A                                      )
+153700000726     A            ARREM1     00009P03B
+153800000726     A                                      TEXT('REMISE')
+153900000726     A                                      COLHDG( +
+154000000726     A                                      'REM' +
+154100000726     A                                      )
+154200000726     A            ARCRE1     00001A  B
+154300000727     A
+154400000726     A                                      TEXT('REMISE: SPACE=%, 1=FRANCS')
+154500000726     A                                      COLHDG( +
+154600000726     A                                      'CREM' +
+154700000726     A                                      )
+154800000726     A            ARTR12     00001A  B
+154900000727     A
+155000000726     A                                      TEXT('TYPE REMISE: 1=CUMULE 2=CA')
+155100000726     A                                      COLHDG( +
+155200000726     A                                      'TYPE' +
+155300000726     A                                      'REMISE' +
+155400000726     A                                      )
+155500000726     A            ARREM2     00009P03B
+155600000726     A                                      TEXT('REMISE')
+155700000726     A                                      COLHDG( +
+155800000726     A                                      'REM' +
+155900000726     A                                      )
+156000000726     A            ARCRE2     00001A  B
+156100000727     A
+156200000726     A                                      TEXT('REMISE: SPACE=%, 1=FRANCS')
+156300000726     A                                      COLHDG( +
+156400000726     A                                      'CREM' +
+156500000726     A                                      )
+156600000726     A            ARTR23     00001A  B
+156700000727     A
+156800000726     A                                      TEXT('TYPE REMISE: 1=CUMULE 2=CA')
+156900000726     A                                      COLHDG( +
+157000000726     A                                      'TYPE' +
+157100000726     A                                      'REMISE' +
+157200000726     A                                      )
+157300000726     A            ARREM3     00009P03B
+157400000726     A                                      TEXT('REMISE')
+157500000726     A                                      COLHDG( +
+157600000726     A                                      'REM' +
+157700000726     A                                      )
+157800000726     A            ARCRE3     00001A  B
+157900000727     A
+158000000726     A                                      TEXT('REMISE: SPACE=%, 1=FRANCS')
+158100000726     A                                      COLHDG( +
+158200000726     A                                      'CREM' +
+158300000726     A                                      )
+158400000726     A            ARSTK      00011P03B
+158500000726     A                                      TEXT('STOCK DISPONIBLE')
+158600000726     A                                      COLHDG( +
+158700000726     A                                      'STOCK' +
+158800000726     A                                      'DISPONIBLE' +
+158900000726     A                                      )
+159000000726     A            ARSTKE     00001A  B
+159100000727     A
+159200000726     A                                      TEXT('ETAT STOCK')
+159300000726     A                                      COLHDG( +
+159400000726     A                                      'STKE' +
+159500000726     A                                      )
+159600000726     A            ARSTKD     00002A  B
+159700000727     A
+159800000726     A                                      TEXT('TYPE DESTOCKAGE')
+159900000726     A                                      COLHDG( +
+160000000726     A                                      'STKD' +
+160100000726     A                                      )
+160200000726     A            ARSTKR     00011P03B
+160300000726     A                                      TEXT('STOCK RESERVE POUR LA PREP')
+160400000726     A                                      COLHDG( +
+160500000726     A                                      'STOCK' +
+160600000726     A                                      'RESERVE' +
+160700000726     A                                      'PREPA' +
+160800000726     A                                      )
+160900000726     A            ARSTKP     00011P03B
+161000000726     A                                      TEXT('STOCK PREPARE EN ATTENTE F')
+161100000726     A                                      COLHDG( +
+161200000726     A                                      'STOCK' +
+161300000726     A                                      'PREPARE' +
+161400000726     A                                      '->FACT' +
+161500000726     A                                      )
+161600000726     A            ARSTPP     00011P03B
+161700000726     A                                      TEXT('STOCK POUR PROMO PALETTE')
+161800000726     A                                      COLHDG( +
+161900000726     A                                      'STOCK' +
+162000000726     A                                      'PROMO' +
+162100000726     A                                      'PALETTE' +
+162200000726     A                                      )
+162300000726     A            ARPPAA     00002A  B
+162400000727     A
+162500000726     A                                      TEXT('ANNEE PROMO')
+162600000726     A                                      COLHDG( +
+162700000726     A                                      'ANNEE' +
+162800000726     A                                      'PROMO' +
+162900000726     A                                      )
+163000000726     A            ARPPSM     00002A  B
+163100000727     A
+163200000726     A                                      TEXT('SEMAINE PROMO')
+163300000726     A                                      COLHDG( +
+163400000726     A                                      'SEMAINE' +
+163500000726     A                                      'PROMO1' +
+163600000726     A                                      )
+163700000726     A            ARPPJN     00004A  B
+163800000727     A
+163900000726     A                                      TEXT('N° JOURNAL PROMOS PALETTES')
+164000000726     A                                      COLHDG( +
+164100000726     A                                      'JOURNAL' +
+164200000726     A                                      'PROMO' +
+164300000726     A                                      'PALETTE' +
+164400000726     A                                      )
+164500000726     A            ARSTKB     00011P03B
+164600000726     A                                      TEXT('STOCK BLOQUE PAR APPRO')
+164700000726     A                                      COLHDG( +
+164800000726     A                                      'STOCK' +
+164900000726     A                                      'BLOQUE' +
+165000000726     A                                      )
+165100000726     A            ARMOTB     00002A  B
+165200000727     A
+165300000726     A                                      TEXT('MOTIF BLOQUAGE')
+165400000726     A                                      COLHDG( +
+165500000726     A                                      'MOTB' +
+165600000726     A                                      )
+165700000726     A            ARSKAA     00002A  B
+165800000727     A
+165900000726     A                                      TEXT('AA  RECTIF STOCK')
+166000000726     A                                      COLHDG( +
+166100000726     A                                      'AA' +
+166200000726     A                                      'STOCK' +
+166300000726     A                                      )
+166400000726     A            ARSKMM     00002A  B
+166500000727     A
+166600000726     A                                      TEXT('MM  RECTIF STOCK')
+166700000726     A                                      COLHDG( +
+166800000726     A                                      'MM' +
+166900000726     A                                      'STOCK' +
+167000000726     A                                      )
+167100000726     A            ARSKJJ     00002A  B
+167200000727     A
+167300000726     A                                      TEXT('JJ  RECTIF STOCK')
+167400000726     A                                      COLHDG( +
+167500000726     A                                      'JJ' +
+167600000726     A                                      'STOCK' +
+167700000726     A                                      )
+167800000726     A            ARRCAA     00002A  B
+167900000727     A
+168000000726     A                                      TEXT('AA DERN ENTREE')
+168100000726     A                                      COLHDG( +
+168200000726     A                                      'AA' +
+168300000726     A                                      'DERN' +
+168400000726     A                                      'ENTREE' +
+168500000726     A                                      )
+168600000726     A            ARRCMM     00002A  B
+168700000727     A
+168800000726     A                                      TEXT('MM DERN ENTREE')
+168900000726     A                                      COLHDG( +
+169000000726     A                                      'MM' +
+169100000726     A                                      'DERN' +
+169200000726     A                                      'ENTREE' +
+169300000726     A                                      )
+169400000726     A            ARRCJJ     00002A  B
+169500000727     A
+169600000726     A                                      TEXT('JJ DERN ENTREE')
+169700000726     A                                      COLHDG( +
+169800000726     A                                      'JJ' +
+169900000726     A                                      'DERN' +
+170000000726     A                                      'ENTREE' +
+170100000726     A                                      )
+170200000726     A            ARRCQT     00011P03B
+170300000726     A                                      TEXT('DERNIERE QUANTITE RECUE')
+170400000726     A                                      COLHDG( +
+170500000726     A                                      'QTE' +
+170600000726     A                                      'RECUE' +
+170700000726     A                                      )
+170800000726     A            ARRCDF     00011P03B
+170900000726     A                                      TEXT('QUANTITE RECUE DIFFEREE')
+171000000726     A                                      COLHDG( +
+171100000726     A                                      'QTE' +
+171200000726     A                                      'RECUE' +
+171300000726     A                                      'DIFFEREE' +
+171400000726     A                                      )
+171500000726     A            ARSOAA     00002A  B
+171600000727     A
+171700000726     A                                      TEXT('AA DERN SORTIE')
+171800000726     A                                      COLHDG( +
+171900000726     A                                      'AA' +
+172000000726     A                                      'DERN' +
+172100000726     A                                      'SORTIE' +
+172200000726     A                                      )
+172300000726     A            ARSOMM     00002A  B
+172400000727     A
+172500000726     A                                      TEXT('MM DERN SORTIE')
+172600000726     A                                      COLHDG( +
+172700000726     A                                      'MM' +
+172800000726     A                                      'DERN' +
+172900000726     A                                      'SORTIE' +
+173000000726     A                                      )
+173100000726     A            ARSOJJ     00002A  B
+173200000727     A
+173300000726     A                                      TEXT('JJ DERN SORTIE')
+173400000726     A                                      COLHDG( +
+173500000726     A                                      'JJ' +
+173600000726     A                                      'DERN' +
+173700000726     A                                      'SORTIE' +
+173800000726     A                                      )
+173900000726     A            ARDOCU     00005A  B
+174000000727     A
+174100000726     A                                      TEXT('DERNIERE DOCUMENTATION FAC')
+174200000726     A                                      COLHDG( +
+174300000726     A                                      'DERN' +
+174400000726     A                                      'DOCU' +
+174500000726     A                                      'FACT' +
+174600000726     A                                      )
+174700000726     A            ARDOK      00011P03B
+174800000726     A                                      TEXT('VARIATION STOCK DISPONIBLE')
+174900000726     A                                      COLHDG( +
+175000000726     A                                      'VARIATION' +
+175100000726     A                                      'STOCK' +
+175200000726     A                                      'DISPONIBLE' +
+175300000726     A                                      )
+175400000726     A            ARDOKE     00001A  B
+175500000727     A
+175600000726     A                                      TEXT('SAUVEGARDE ETAT STOCK')
+175700000726     A                                      COLHDG( +
+175800000726     A                                      'STKE' +
+175900000726     A                                      )
+176000000726     A            ARDOKD     00002A  B
+176100000727     A
+176200000726     A                                      TEXT('SAUVEGARDE TYPE DESTOCKAGE')
+176300000726     A                                      COLHDG( +
+176400000726     A                                      'STKD' +
+176500000726     A                                      )
+176600000726     A            ARDOKR     00011P03B
+176700000726     A                                      TEXT('VARIATION STOCK RESERVE PR')
+176800000726     A                                      COLHDG( +
+176900000726     A                                      'VARIATION' +
+177000000726     A                                      'STOCK' +
+177100000726     A                                      'PREPA' +
+177200000726     A                                      )
+177300000726     A            ARDOKP     00011P03B
+177400000726     A                                      TEXT('VARIATION STOCK ATTENTE FA')
+177500000726     A                                      COLHDG( +
+177600000726     A                                      'VARIATION' +
+177700000726     A                                      'STOCK' +
+177800000726     A                                      'FACTUR' +
+177900000726     A                                      )
+178000000726     A            ARDOPP     00011P03B
+178100000726     A                                      TEXT('VARIATION STOCK PROMO PALE')
+178200000726     A                                      COLHDG( +
+178300000726     A                                      'VARIATION' +
+178400000726     A                                      'STOCK' +
+178500000726     A                                      'PROMO' +
+178600000726     A                                      )
+178700000726     A            ARTTSK     00011P00B
+178800000726     A                                      TEXT('STOC DEBUT MOIS')
+178900000726     A                                      COLHDG( +
+179000000726     A                                      'STOC' +
+179100000726     A                                      'DEBUT' +
+179200000726     A                                      'MOIS' +
+179300000726     A                                      )
+179400000726     A            ARTTRC     00011P00B
+179500000726     A                                      TEXT('RECEPTIONS DU MOIS')
+179600000726     A                                      COLHDG( +
+179700000726     A                                      'RECEPTIONS' +
+179800000726     A                                      'DU MOIS' +
+179900000726     A                                      )
+180000000726     A            ARTTRS     00011P00B
+180100000726     A                                      TEXT('RECTIF STOC MOIS')
+180200000726     A                                      COLHDG( +
+180300000726     A                                      'RECTIF' +
+180400000726     A                                      'STOC' +
+180500000726     A                                      'MOIS' +
+180600000726     A                                      )
+180700000726     A            ARTTRL     00011P00B
+180800000726     A                                      TEXT('RECTIF LITIGE MOIS')
+180900000726     A                                      COLHDG( +
+181000000726     A                                      'RECTIF' +
+181100000726     A                                      'LITIGE' +
+181200000726     A                                      'MOIS' +
+181300000726     A                                      )
+181400000726     A            ARTTFT     00011P00B
+181500000726     A                                      TEXT('FACTURATION MOIS')
+181600000726     A                                      COLHDG( +
+181700000726     A                                      'FACTURATION' +
+181800000726     A                                      'MOIS' +
+181900000726     A                                      )
+182000000726     A            ARZEMP     00002A  B
+182100000727     A
+182200000726     A                                      TEXT('ZONE ENTREPOT')
+182300000726     A                                      COLHDG( +
+182400000726     A                                      'ZEMP' +
+182500000726     A                                      )
+182600000726     A            AREMPL     00006A  B
+182700000727     A
+182800000726     A                                      TEXT('CODE EMPLACEMENT')
+182900000726     A                                      COLHDG( +
+183000000726     A                                      'EMPL' +
+183100000726     A                                      )
+183200000726     A            AREMPO     00002A  B
+183300000727     A
+183400000726     A                                      TEXT('ORDRE EMPLACEMENT')
+183500000726     A                                      COLHDG( +
+183600000726     A                                      'EMPO' +
+183700000726     A                                      )
+183800000726     A            ARRAYO     00002A  B
+183900000727     A
+184000000726     A                                      TEXT('RAYONNAGE')
+184100000726     A                                      COLHDG( +
+184200000726     A                                      'RAYONNAGE' +
+184300000726     A                                      )
+184400000726     A            ARZOST     00002A  B
+184500000727     A
+184600000726     A                                      TEXT('ZONE DE STOCKAGE')
+184700000726     A                                      COLHDG( +
+184800000726     A                                      'ZOST' +
+184900000726     A                                      )
+185000000726     A            ARPREP     00002A  B
+185100000727     A
+185200000726     A                                      TEXT('DROIT PREPARATION DETAIL/C')
+185300000726     A                                      COLHDG( +
+185400000726     A                                      'PREP' +
+185500000726     A                                      )
+185600000726     A            ARTLIV     00001A  B
+185700000727     A
+185800000726     A                                      TEXT('TYPE LIVR: PALETTE, ROLLS.')
+185900000726     A                                      COLHDG( +
+186000000726     A                                      'TLIV' +
+186100000726     A                                      )
+186200000726     A          K ARRAC
+186300000726     A          K ARCCC
+186400000726     A          K ARVPV

@@ -1,0 +1,51 @@
+000001000728      *%LOC: SRC=*OBJ OBJ=*OBJ
+000100888888      *%CSTD==========================================================*
+000200888888      * Application. : SAM Arcad Sample application                   *
+000300888888      * Component. . : HSPODEL                       Type: PF         *
+000400888888      *===============================================================*
+000500888888      * Sub-system . : TRD   Trade                                    *
+000600888888      * Function . . : SAL   Sales                                    *
+000700888888      * Sub-function :                                                *
+000800888888      *%S=============================================================*
+000900888888      * Description of functionalities :                              *
+001000888888      *                                                               *
+001100888888      *                                                               *
+001200888888      *                                                               *
+001300888888      *%E=============================================================*
+001400888888      * AUTHOR:                           00:00                       *
+001500888888      * MODIFS: ** MARY      28/07/2000   12:01 V 1.00.B MR N°00/0506 *
+001600888888      *           CR 00/0122 Sales Order Delivery Details             *
+001700888888      *%ECSTD=========================================================*
+001800000000      **************************************************************
+001900000000      *                                                            *
+002000990115      *  File Name  :  HSPODEL                                     *
+002100000000      *                                                            *
+002200981230      *  Description:  Sales Order Delivery Details                *
+002300000000      *                                                            *
+002400981229      *  Date       :  December 1998                               *
+002500000000      *                                                            *
+002600000000      **************************************************************
+002700990115     A                                      REF(*LIBL/HSPREF)
+002800990115     A          R HSFODEL
+002900990115      *  Description:  Sales Order Delivery Details
+003000990115     A            VCOMP     R               REFFLD(COMP)
+003100990115     A            VTYPE     R               REFFLD(TYPE)
+003200990115     A                                      COLHDG('Sales Order Type')
+003300990115     A            VSORD     R               REFFLD(SORD)
+003400990115     A            VNAM1     R               REFFLD(NAME)
+003500990115     A                                      COLHDG('Delivery Name')
+003600990115     A            VADR1     R               REFFLD(ADR1)
+003700990115     A                                      COLHDG('Delivery Addr 1')
+003800990115     A            VADR2     R               REFFLD(ADR1)
+003900990115     A                                      COLHDG('Delivery Addr 2')
+004000990115     A            VADR3     R               REFFLD(ADR1)
+004100990115     A                                      COLHDG('Delivery Addr 3')
+004200990115     A            VPCDE     R               REFFLD(PCDE)
+004300990115     A            VDIN1     R               REFFLD(ADR1)
+004400990115     A                                      COLHDG('Delivery Instr.1')
+004500990115     A            VDIN2     R               REFFLD(ADR1)
+004600990115     A                                      COLHDG('Delivery Instr.2')
+004700000728     A            VDIN3     R               REFFLD(ADR1)
+004800000728     A                                      COLHDG('Delivery Instr.3')
+004900990115     A            VDELT     R               REFFLD(A1)
+005000990115     A                                      COLHDG('Deletion Flag')

@@ -1,0 +1,19 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990219      *  File Name  :  HSPAREQ                                     *
+000400000000      *                                                            *
+000500990219      *  Description:  Agency Sales  File                          *
+000600000000      *                                                            *
+000700990219      *  Date       :  Febuary 1999                                *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990219     A          R HSFAREQ
+001200990219      *  Description:  Agency Input
+001300990219     A            AATYPE    R               REFFLD(TYPE)
+001400990115     A                                      COLHDG('Sales Order Type')
+001500990219     A            AACUST    R               REFFLD(CUST)
+001600990219     A            AAPROD    R               REFFLD(PROD)
+001700990219     A            AAQTYN    R               REFFLD(QTYN)
+001800990219     A            AADELT    R               REFFLD(A1)
+001900990115     A                                      COLHDG('Deletion Flag')

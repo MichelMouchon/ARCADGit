@@ -1,0 +1,33 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPPROD                                     *
+000400000000      *                                                            *
+000500990112      *  Description:  Item Master                                 *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFPROD
+001200990115      *  Description:  Product Master
+001300990115     A            NCOMP     R               REFFLD(COMP)
+001400990115     A            NPROD     R               REFFLD(PROD)
+001500990115     A            NSUBC     R               REFFLD(SUBC)
+001600990115     A            NDESC     R               REFFLD(DESC)
+001700990115     A            NANL1     R               REFFLD(ANL1)
+001800990115     A            NANL2     R               REFFLD(ANL1)
+001900990115     A            NANL3     R               REFFLD(ANL1)
+002000990115     A            NANL4     R               REFFLD(ANL1)
+002100990115     A            NANL5     R               REFFLD(ANL1)
+002200990115     A            NANL6     R               REFFLD(ANL1)
+002300990115     A            NANL7     R               REFFLD(ANL1)
+002400990115     A            NANL8     R               REFFLD(ANL1)
+002500990115     A            NANL9     R               REFFLD(ANL1)
+002600990115     A            NCOST     R               REFFLD(COST)
+002700990115     A            NPRIC     R               REFFLD(PRIC)
+002800990115     A            NBOOK     R               REFFLD(A1)
+002900990115     A                                      COLHDG('Booklet/Single')
+003000990223     A            NVATC     R               REFFLD(A1)
+003100990223     A                                      COLHDG('VAT Code/A,B,C')
+003200990115     A            NDELT     R               REFFLD(A1)
+003300990115     A                                      COLHDG('Deletion Flag')

@@ -1,0 +1,19 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990125      *  File Name  :  HSPCLAM                                     *
+000400000000      *                                                            *
+000500990125      *  Description:  Claims Input                                *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990125     A          R HSFCLAM
+001200990125      *  Description:  Claims Input
+001300990125     A            KATYPE    R               REFFLD(TYPE)
+001400990115     A                                      COLHDG('Sales Order Type')
+001500990125     A            KACUST    R               REFFLD(CUST)
+001600990125     A            KAPROD    R               REFFLD(PROD)
+001700990126     A            KAQTYN    R               REFFLD(QTYN)
+001800990125     A            KADELT    R               REFFLD(A1)
+001900990115     A                                      COLHDG('Deletion Flag')

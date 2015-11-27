@@ -1,0 +1,602 @@
+000100000726     A                                      UNIQUE
+000200000726     A          R BPRER
+000300000726     A                                      TEXT('Fic. entêtes réception')
+000400000726     A            ERTYRC     00002A  B
+000500000726     A                                      CCSID(00297)
+000600000726     A                                      TEXT('TYPE RECEP')
+000700000726     A                                      COLHDG( +
+000800000726     A                                      'TYPE' +
+000900000726     A                                      'RECEP' +
+001000000726     A                                      )
+001100000726     A            ERCIDR     00005A  B
+001200000726     A                                      CCSID(00297)
+001300000726     A                                      TEXT('CID RATTACHEMENT')
+001400000726     A                                      COLHDG( +
+001500000726     A                                      'CID' +
+001600000726     A                                      'RATTACHEMENT' +
+001700000726     A                                      )
+001800000726     A            ERKAPP     00003A  B
+001900000726     A                                      CCSID(00297)
+002000000726     A                                      TEXT('APPRO')
+002100000726     A                                      COLHDG( +
+002200000726     A                                      'APPRO' +
+002300000726     A                                      )
+002400000726     A            ERKDEP     00002A  B
+002500000726     A                                      CCSID(00297)
+002600000726     A                                      TEXT('DEP')
+002700000726     A                                      COLHDG( +
+002800000726     A                                      'DEP' +
+002900000726     A                                      )
+003000000726     A            ERKRAY     00002A  B
+003100000726     A                                      CCSID(00297)
+003200000726     A                                      TEXT('RAY')
+003300000726     A                                      COLHDG( +
+003400000726     A                                      'RAY' +
+003500000726     A                                      )
+003600000726     A            ERKSEC     00002A  B
+003700000726     A                                      CCSID(00297)
+003800000726     A                                      TEXT('SECT')
+003900000726     A                                      COLHDG( +
+004000000726     A                                      'SECT' +
+004100000726     A                                      )
+004200000726     A            ERCNUL     00006A  B
+004300000726     A                                      CCSID(00297)
+004400000726     A                                      TEXT('CNUL')
+004500000726     A                                      COLHDG( +
+004600000726     A                                      'CNUL' +
+004700000726     A                                      )
+004800000726     A            ERNENT     00002A  B
+004900000726     A                                      CCSID(00297)
+005000000726     A                                      TEXT('NO ENT SEC')
+005100000726     A                                      COLHDG( +
+005200000726     A                                      'NO' +
+005300000726     A                                      'ENT' +
+005400000726     A                                      'SEC' +
+005500000726     A                                      )
+005600000726     A            ERCID      00005A  B
+005700000726     A                                      CCSID(00297)
+005800000726     A                                      TEXT('CID')
+005900000726     A                                      COLHDG( +
+006000000726     A                                      'CID' +
+006100000726     A                                      )
+006200000726     A            ERAARC     00002A  B
+006300000726     A                                      CCSID(00297)
+006400000726     A                                      TEXT('ANNEE RECEPTION')
+006500000726     A                                      COLHDG( +
+006600000726     A                                      'ANNEE' +
+006700000726     A                                      'RECEPTION' +
+006800000726     A                                      )
+006900000726     A            ERMMRC     00002A  B
+007000000726     A                                      CCSID(00297)
+007100000726     A                                      TEXT('MOIS RECEPTION')
+007200000726     A                                      COLHDG( +
+007300000726     A                                      'MOIS' +
+007400000726     A                                      'RECEPTION' +
+007500000726     A                                      )
+007600000726     A            ERJJRC     00002A  B
+007700000726     A                                      CCSID(00297)
+007800000726     A                                      TEXT('JOUR RECEPTION')
+007900000726     A                                      COLHDG( +
+008000000726     A                                      'JOUR' +
+008100000726     A                                      'RECEPTION' +
+008200000726     A                                      )
+008300000726     A            ERNORD     00005A  B
+008400000726     A                                      CCSID(00297)
+008500000726     A                                      TEXT('NUMERO ORDRE')
+008600000726     A                                      COLHDG( +
+008700000726     A                                      'NUMERO' +
+008800000726     A                                      'ORDRE' +
+008900000726     A                                      )
+009000000726     A            ERNCMD     00008A  B
+009100000726     A                                      CCSID(00297)
+009200000726     A                                      TEXT('NUMERO COMMANDE')
+009300000726     A                                      COLHDG( +
+009400000726     A                                      'NUMERO' +
+009500000726     A                                      'COMMANDE' +
+009600000726     A                                      )
+009700000726     A            ERCIFR     00003A  B
+009800000726     A                                      CCSID(00297)
+009900000726     A                                      TEXT('CIF REGL')
+010000000726     A                                      COLHDG( +
+010100000726     A                                      'CIF' +
+010200000726     A                                      'REGL' +
+010300000726     A                                      )
+010400000726     A            ERCIFC     00003A  B
+010500000726     A                                      CCSID(00297)
+010600000726     A                                      TEXT('CIF CMDE')
+010700000726     A                                      COLHDG( +
+010800000726     A                                      'CIF' +
+010900000726     A                                      'CMDE' +
+011000000726     A                                      )
+011100000726     A            ERNSL      00012A  B
+011200000726     A                                      CCSID(00297)
+011300000726     A                                      TEXT('NOM SIMP LIV')
+011400000726     A                                      COLHDG( +
+011500000726     A                                      'NOM SIMP LIV' +
+011600000726     A                                      )
+011700000726     A            ERNTRT     00003P00B
+011800000726     A                                      TEXT('NB FOIS TRAITE')
+011900000726     A                                      COLHDG( +
+012000000726     A                                      'NB FOIS' +
+012100000726     A                                      'TRAITE' +
+012200000726     A                                      )
+012300000726     A            ERTME      00005P02B
+012400000726     A                                      TEXT('TAUX MARQUE')
+012500000726     A                                      COLHDG( +
+012600000726     A                                      'TAUX' +
+012700000726     A                                      'MARQUE' +
+012800000726     A                                      )
+012900000726     A            ERTMG      00005P02B
+013000000726     A                                      TEXT('TAUX MARQUE GENERAL')
+013100000726     A                                      COLHDG( +
+013200000726     A                                      'TAUX' +
+013300000726     A                                      'MARQUE' +
+013400000726     A                                      'GENERAL' +
+013500000726     A                                      )
+013600000726     A            ERNTRC     00002A  B
+013700000726     A                                      CCSID(00297)
+013800000726     A                                      TEXT('NATURE RECEPTION')
+013900000726     A                                      COLHDG( +
+014000000726     A                                      'NATURE' +
+014100000726     A                                      'RECEPTION' +
+014200000726     A                                      )
+014300000726     A            ERCNUD     00003A  B
+014400000726     A                                      CCSID(00297)
+014500000726     A                                      TEXT('CNUD')
+014600000726     A                                      COLHDG( +
+014700000726     A                                      'CNUD' +
+014800000726     A                                      )
+014900000726     A            ERSTE      00002A  B
+015000000726     A                                      CCSID(00297)
+015100000726     A                                      TEXT('STE')
+015200000726     A                                      COLHDG( +
+015300000726     A                                      'STE' +
+015400000726     A                                      )
+015500000726     A            ERCATR     00002A  B
+015600000726     A                                      CCSID(00297)
+015700000726     A                                      TEXT('CATEGORIE MAGASIN')
+015800000726     A                                      COLHDG( +
+015900000726     A                                      'CAT' +
+016000000726     A                                      'MAG' +
+016100000726     A                                      )
+016200000726     A            ERCATM     00002A  B
+016300000726     A                                      CCSID(00297)
+016400000726     A                                      TEXT('CATEGORIE MAGASIN')
+016500000726     A                                      COLHDG( +
+016600000726     A                                      'CAT' +
+016700000726     A                                      'MAG' +
+016800000726     A                                      )
+016900000726     A            ERTRIS     00005P02B
+017000000726     A                                      TEXT('TAUX RIST')
+017100000726     A                                      COLHDG( +
+017200000726     A                                      'TAUX' +
+017300000726     A                                      'RIST' +
+017400000726     A                                      )
+017500000726     A            ERTCOO     00005P02B
+017600000726     A                                      TEXT('TAUX COOP')
+017700000726     A                                      COLHDG( +
+017800000726     A                                      'TAUX' +
+017900000726     A                                      'COOP' +
+018000000726     A                                      )
+018100000726     A            ERTREM     00005P02B
+018200000726     A                                      TEXT('TAUX REMISE')
+018300000726     A                                      COLHDG( +
+018400000726     A                                      'TAUX' +
+018500000726     A                                      'REMISE' +
+018600000726     A                                      )
+018700000726     A            ERTRF      00005P02B
+018800000726     A                                      TEXT('TAUX R.F.')
+018900000726     A                                      COLHDG( +
+019000000726     A                                      'TAUX' +
+019100000726     A                                      'R.F.' +
+019200000726     A                                      )
+019300000726     A            ERDEP      00002A  B
+019400000726     A                                      CCSID(00297)
+019500000726     A                                      TEXT('DEP')
+019600000726     A                                      COLHDG( +
+019700000726     A                                      'DEP' +
+019800000726     A                                      )
+019900000726     A            ERRAY      00002A  B
+020000000726     A                                      CCSID(00297)
+020100000726     A                                      TEXT('RAY')
+020200000726     A                                      COLHDG( +
+020300000726     A                                      'RAY' +
+020400000726     A                                      )
+020500000726     A            ERSEC      00002A  B
+020600000726     A                                      CCSID(00297)
+020700000726     A                                      TEXT('SECT')
+020800000726     A                                      COLHDG( +
+020900000726     A                                      'SECT' +
+021000000726     A                                      )
+021100000726     A            ERAAC      00002A  B
+021200000726     A                                      CCSID(00297)
+021300000726     A                                      TEXT('ANNEE CREATION')
+021400000726     A                                      COLHDG( +
+021500000726     A                                      'ANNEE' +
+021600000726     A                                      'CREATION' +
+021700000726     A                                      )
+021800000726     A            ERMMC      00002A  B
+021900000726     A                                      CCSID(00297)
+022000000726     A                                      TEXT('MOIS CREATION')
+022100000726     A                                      COLHDG( +
+022200000726     A                                      'MOIS' +
+022300000726     A                                      'CREATION' +
+022400000726     A                                      )
+022500000726     A            ERJJC      00002A  B
+022600000726     A                                      CCSID(00297)
+022700000726     A                                      TEXT('JOUR CREATION')
+022800000726     A                                      COLHDG( +
+022900000726     A                                      'JOUR' +
+023000000726     A                                      'CREATION' +
+023100000726     A                                      )
+023200000726     A            ERAAM      00002A  B
+023300000726     A                                      CCSID(00297)
+023400000726     A                                      TEXT('ANNEE MODIF')
+023500000726     A                                      COLHDG( +
+023600000726     A                                      'ANNEE' +
+023700000726     A                                      'MODIF' +
+023800000726     A                                      )
+023900000726     A            ERMMM      00002A  B
+024000000726     A                                      CCSID(00297)
+024100000726     A                                      TEXT('MOIS MODIF')
+024200000726     A                                      COLHDG( +
+024300000726     A                                      'MOIS' +
+024400000726     A                                      'MODIF' +
+024500000726     A                                      )
+024600000726     A            ERJJM      00002A  B
+024700000726     A                                      CCSID(00297)
+024800000726     A                                      TEXT('JOUR MODIF')
+024900000726     A                                      COLHDG( +
+025000000726     A                                      'JOUR' +
+025100000726     A                                      'MODIF' +
+025200000726     A                                      )
+025300000726     A            ERAAS      00002A  B
+025400000726     A                                      CCSID(00297)
+025500000726     A                                      TEXT('ANNEE SUPPRESS')
+025600000726     A                                      COLHDG( +
+025700000726     A                                      'ANNEE' +
+025800000726     A                                      'SUPPRESS' +
+025900000726     A                                      )
+026000000726     A            ERMMS      00002A  B
+026100000726     A                                      CCSID(00297)
+026200000726     A                                      TEXT('MOIS SUPPRESS')
+026300000726     A                                      COLHDG( +
+026400000726     A                                      'MOIS' +
+026500000726     A                                      'SUPPRESS' +
+026600000726     A                                      )
+026700000726     A            ERJJS      00002A  B
+026800000726     A                                      CCSID(00297)
+026900000726     A                                      TEXT('JOUR SUPPRESS')
+027000000726     A                                      COLHDG( +
+027100000726     A                                      'JOUR' +
+027200000726     A                                      'SUPPRESS' +
+027300000726     A                                      )
+027400000726     A            ERTOP1     00002A  B
+027500000726     A                                      CCSID(00297)
+027600000726     A                                      TEXT('TOP')
+027700000726     A                                      COLHDG( +
+027800000726     A                                      'TOP' +
+027900000726     A                                      )
+028000000726     A            ERTOP2     00002A  B
+028100000726     A                                      CCSID(00297)
+028200000726     A                                      TEXT('TOP')
+028300000726     A                                      COLHDG( +
+028400000726     A                                      'TOP' +
+028500000726     A                                      )
+028600000726     A            ERTOP3     00002A  B
+028700000726     A                                      CCSID(00297)
+028800000726     A                                      TEXT('TOP')
+028900000726     A                                      COLHDG( +
+029000000726     A                                      'TOP' +
+029100000726     A                                      )
+029200000726     A            ERTOP4     00002A  B
+029300000726     A                                      CCSID(00297)
+029400000726     A                                      TEXT('TOP')
+029500000726     A                                      COLHDG( +
+029600000726     A                                      'TOP' +
+029700000726     A                                      )
+029800000726     A            ERTOP5     00002A  B
+029900000726     A                                      CCSID(00297)
+030000000726     A                                      TEXT('TOP')
+030100000726     A                                      COLHDG( +
+030200000726     A                                      'TOP' +
+030300000726     A                                      )
+030400000726     A            ERNFAC     00008A  B
+030500000726     A                                      CCSID(00297)
+030600000726     A                                      TEXT('NUMERO FACTURE')
+030700000726     A                                      COLHDG( +
+030800000726     A                                      'NUMERO' +
+030900000726     A                                      'FACTURE' +
+031000000726     A                                      )
+031100000726     A            ERREGR     00002A  B
+031200000726     A                                      CCSID(00297)
+031300000726     A                                      TEXT('CODE FACT REGROUPEE')
+031400000726     A                                      COLHDG( +
+031500000726     A                                      'CODE' +
+031600000726     A                                      'FACT' +
+031700000726     A                                      'REGROUPEE' +
+031800000726     A                                      )
+031900000726     A            ERFPA      00011P03B
+032000000726     A                                      TEXT('MONTANT PA')
+032100000726     A                                      COLHDG( +
+032200000726     A                                      'MONTANT' +
+032300000726     A                                      'PA' +
+032400000726     A                                      )
+032500000726     A            ERFPV      00011P02B
+032600000726     A                                      TEXT('MONTANT PV')
+032700000726     A                                      COLHDG( +
+032800000726     A                                      'MONTANT' +
+032900000726     A                                      'PV' +
+033000000726     A                                      )
+033100000726     A            ERFTVA     00011P03B
+033200000726     A                                      TEXT('MONTANT TVA/ACH')
+033300000726     A                                      COLHDG( +
+033400000726     A                                      'MONTANT' +
+033500000726     A                                      'TVA/ACH' +
+033600000726     A                                      )
+033700000726     A            ERFVIG     00011P02B
+033800000726     A                                      TEXT('MONTANT VIGNETTE')
+033900000726     A                                      COLHDG( +
+034000000726     A                                      'MONTANT' +
+034100000726     A                                      'VIGNETTE' +
+034200000726     A                                      )
+034300000726     A            ERFTRS     00011P03B
+034400000726     A                                      TEXT('MONTANT TRANSPORT')
+034500000726     A                                      COLHDG( +
+034600000726     A                                      'MONTANT' +
+034700000726     A                                      'TRANSPORT' +
+034800000726     A                                      )
+034900000726     A            ERFTVT     00011P03B
+035000000726     A                                      TEXT('MONTANT TAXE TRANSP')
+035100000726     A                                      COLHDG( +
+035200000726     A                                      'MONTANT' +
+035300000726     A                                      'TAXE' +
+035400000726     A                                      'TRANSP' +
+035500000726     A                                      )
+035600000726     A            ERFPAR     00011P03B
+035700000726     A                                      TEXT('MONTANT TAXE PARA')
+035800000726     A                                      COLHDG( +
+035900000726     A                                      'MONTANT' +
+036000000726     A                                      'TAXE' +
+036100000726     A                                      'PARA' +
+036200000726     A                                      )
+036300000726     A            ERFTX1     00011P03B
+036400000726     A                                      TEXT('MONTANT TAXE 1')
+036500000726     A                                      COLHDG( +
+036600000726     A                                      'MONTANT' +
+036700000726     A                                      'TAXE 1' +
+036800000726     A                                      )
+036900000726     A            ERFTX2     00011P03B
+037000000726     A                                      TEXT('MONTANT TAXE 2')
+037100000726     A                                      COLHDG( +
+037200000726     A                                      'MONTANT' +
+037300000726     A                                      'TAXE 2' +
+037400000726     A                                      )
+037500000726     A            ERREGL     00002A  B
+037600000726     A                                      CCSID(00297)
+037700000726     A                                      TEXT('CODE REGLT')
+037800000726     A                                      COLHDG( +
+037900000726     A                                      'CODE' +
+038000000726     A                                      'REGLT' +
+038100000726     A                                      )
+038200000726     A            ERRET      00002A  B
+038300000726     A                                      CCSID(00297)
+038400000726     A                                      TEXT('SIGNE')
+038500000726     A                                      COLHDG( +
+038600000726     A                                      'SIGNE' +
+038700000726     A                                      )
+038800000726     A            ERAAEC     00002A  B
+038900000726     A                                      CCSID(00297)
+039000000726     A                                      TEXT('ANNEE ECHEANCE')
+039100000726     A                                      COLHDG( +
+039200000726     A                                      'ANNEE' +
+039300000726     A                                      'ECHEANCE' +
+039400000726     A                                      )
+039500000726     A            ERMMEC     00002A  B
+039600000726     A                                      CCSID(00297)
+039700000726     A                                      TEXT('MOIS ECHEANCE')
+039800000726     A                                      COLHDG( +
+039900000726     A                                      'MOIS' +
+040000000726     A                                      'ECHEANCE' +
+040100000726     A                                      )
+040200000726     A            ERJJEC     00002A  B
+040300000726     A                                      CCSID(00297)
+040400000726     A                                      TEXT('JOUR ECHEANCE')
+040500000726     A                                      COLHDG( +
+040600000726     A                                      'JOUR' +
+040700000726     A                                      'ECHEANCE' +
+040800000726     A                                      )
+040900000726     A            ERARPA     00011P03B
+041000000726     A                                      TEXT('MONTANT PA')
+041100000726     A                                      COLHDG( +
+041200000726     A                                      'MONTANT' +
+041300000726     A                                      'PA' +
+041400000726     A                                      )
+041500000726     A            ERARTV     00011P03B
+041600000726     A                                      TEXT('MONTANT TVA/ACH')
+041700000726     A                                      COLHDG( +
+041800000726     A                                      'MONTANT' +
+041900000726     A                                      'TVA/ACH' +
+042000000726     A                                      )
+042100000726     A            ERDIFF     00002A  B
+042200000726     A                                      CCSID(00297)
+042300000726     A                                      TEXT('P1 DIFF')
+042400000726     A                                      COLHDG( +
+042500000726     A                                      'P1' +
+042600000726     A                                      'DIFF' +
+042700000726     A                                      )
+042800000726     A            ERAAFT     00002A  B
+042900000726     A                                      CCSID(00297)
+043000000726     A                                      TEXT('ANNEE')
+043100000726     A                                      COLHDG( +
+043200000726     A                                      'ANNEE' +
+043300000726     A                                      )
+043400000726     A            ERMMFT     00002A  B
+043500000726     A                                      CCSID(00297)
+043600000726     A                                      TEXT('MOIS')
+043700000726     A                                      COLHDG( +
+043800000726     A                                      'MOIS' +
+043900000726     A                                      )
+044000000726     A            ERJJFT     00002A  B
+044100000726     A                                      CCSID(00297)
+044200000726     A                                      TEXT('JOUR')
+044300000726     A                                      COLHDG( +
+044400000726     A                                      'JOUR' +
+044500000726     A                                      )
+044600000726     A            ERNORF     00005A  B
+044700000726     A                                      CCSID(00297)
+044800000726     A                                      TEXT('NUMERO ORDRE FACT')
+044900000726     A                                      COLHDG( +
+045000000726     A                                      'NUMERO' +
+045100000726     A                                      'ORDRE' +
+045200000726     A                                      'FACT' +
+045300000726     A                                      )
+045400000726     A            ERAACH     00002A  B
+045500000726     A                                      CCSID(00297)
+045600000726     A                                      TEXT('ANNEE')
+045700000726     A                                      COLHDG( +
+045800000726     A                                      'ANNEE' +
+045900000726     A                                      )
+046000000726     A            ERMMCH     00002A  B
+046100000726     A                                      CCSID(00297)
+046200000726     A                                      TEXT('MOIS')
+046300000726     A                                      COLHDG( +
+046400000726     A                                      'MOIS' +
+046500000726     A                                      )
+046600000726     A            ERJJCH     00002A  B
+046700000726     A                                      CCSID(00297)
+046800000726     A                                      TEXT('JOUR')
+046900000726     A                                      COLHDG( +
+047000000726     A                                      'JOUR' +
+047100000726     A                                      )
+047200000726     A            ERNORC     00005A  B
+047300000726     A                                      CCSID(00297)
+047400000726     A                                      TEXT('NUMERO ORDRE CHAINE')
+047500000726     A                                      COLHDG( +
+047600000726     A                                      'NUMERO' +
+047700000726     A                                      'ORDRE' +
+047800000726     A                                      'CHAINE' +
+047900000726     A                                      )
+048000000726     A            ERMPA      00011P03B
+048100000726     A                                      TEXT('MONTANT PA')
+048200000726     A                                      COLHDG( +
+048300000726     A                                      'MONTANT' +
+048400000726     A                                      'PA' +
+048500000726     A                                      )
+048600000726     A            ERMPV      00011P02B
+048700000726     A                                      TEXT('MONTANT PV')
+048800000726     A                                      COLHDG( +
+048900000726     A                                      'MONTANT' +
+049000000726     A                                      'PV' +
+049100000726     A                                      )
+049200000726     A            ERMTVA     00011P03B
+049300000726     A                                      TEXT('MONTANT TVA/ACH')
+049400000726     A                                      COLHDG( +
+049500000726     A                                      'MONTANT' +
+049600000726     A                                      'TVA/ACH' +
+049700000726     A                                      )
+049800000726     A            ERMVIG     00011P02B
+049900000726     A                                      TEXT('MONTANT VIGNETTE')
+050000000726     A                                      COLHDG( +
+050100000726     A                                      'MONTANT' +
+050200000726     A                                      'VIGNETTE' +
+050300000726     A                                      )
+050400000726     A            ERNLIG     00005P00B
+050500000726     A                                      TEXT('NOMBRE LIGNES DETAIL')
+050600000726     A                                      COLHDG( +
+050700000726     A                                      'NOMBRE' +
+050800000726     A                                      'LIGNES' +
+050900000726     A                                      'DETAIL' +
+051000000726     A                                      )
+051100000726     A            ERGRET     00002A  B
+051200000726     A                                      CCSID(00297)
+051300000726     A                                      TEXT('SIGNE')
+051400000726     A                                      COLHDG( +
+051500000726     A                                      'SIGNE' +
+051600000726     A                                      )
+051700000726     A            ERMTVV     00011P02B
+051800000726     A                                      TEXT('MONTANT TVA/VTE')
+051900000726     A                                      COLHDG( +
+052000000726     A                                      'MONTANT' +
+052100000726     A                                      'TVA/VTE' +
+052200000726     A                                      )
+052300000726     A            ERMAVD     00011P03B
+052400000726     A                                      TEXT('MONTANT AVD')
+052500000726     A                                      COLHDG( +
+052600000726     A                                      'MONTANT' +
+052700000726     A                                      'AVD' +
+052800000726     A                                      )
+052900000726     A            ERMRIS     00011P03B
+053000000726     A                                      TEXT('MONTANT AVD')
+053100000726     A                                      COLHDG( +
+053200000726     A                                      'MONTANT' +
+053300000726     A                                      'AVD' +
+053400000726     A                                      )
+053500000726     A            ERMCOO     00011P03B
+053600000726     A                                      TEXT('MONTANT AVD')
+053700000726     A                                      COLHDG( +
+053800000726     A                                      'MONTANT' +
+053900000726     A                                      'AVD' +
+054000000726     A                                      )
+054100000726     A            ERMNEG     00011P03B
+054200000726     A                                      TEXT('MONTANT AVD')
+054300000726     A                                      COLHDG( +
+054400000726     A                                      'MONTANT' +
+054500000726     A                                      'AVD' +
+054600000726     A                                      )
+054700000726     A            ERMRGD     00011P03B
+054800000726     A                                      TEXT('MONTANT REGIE')
+054900000726     A                                      COLHDG( +
+055000000726     A                                      'MONTANT' +
+055100000726     A                                      'REGIE' +
+055200000726     A                                      )
+055300000726     A            ERMEMB     00011P03B
+055400000726     A                                      TEXT('MONTANT EMBAL')
+055500000726     A                                      COLHDG( +
+055600000726     A                                      'MONTANT' +
+055700000726     A                                      'EMBAL' +
+055800000726     A                                      )
+055900000726     A            ERMRF      00011P03B
+056000000726     A                                      TEXT('MONTANT R.F.')
+056100000726     A                                      COLHDG( +
+056200000726     A                                      'MONTANT' +
+056300000726     A                                      'R.F.' +
+056400000726     A                                      )
+056500000726     A            ERMTRS     00011P03B
+056600000726     A                                      TEXT('MONTANT TRANSPORT')
+056700000726     A                                      COLHDG( +
+056800000726     A                                      'MONTANT' +
+056900000726     A                                      'TRANSPORT' +
+057000000726     A                                      )
+057100000726     A            ERMTVT     00011P03B
+057200000726     A                                      TEXT('MONTANT TAXE TRANSP')
+057300000726     A                                      COLHDG( +
+057400000726     A                                      'MONTANT' +
+057500000726     A                                      'TAXE' +
+057600000726     A                                      'TRANSP' +
+057700000726     A                                      )
+057800000726     A            ERMTX1     00011P03B
+057900000726     A                                      TEXT('MONTANT TAXE 1')
+058000000726     A                                      COLHDG( +
+058100000726     A                                      'MONTANT' +
+058200000726     A                                      'TAXE 1' +
+058300000726     A                                      )
+058400000726     A            ERMTX2     00011P03B
+058500000726     A                                      TEXT('MONTANT TAXE 2')
+058600000726     A                                      COLHDG( +
+058700000726     A                                      'MONTANT' +
+058800000726     A                                      'TAXE 2' +
+058900000726     A                                      )
+059000000726     A          K ERTYRC
+059100000726     A          K ERCIDR
+059200000726     A          K ERKAPP
+059300000726     A          K ERKDEP
+059400000726     A          K ERKRAY
+059500000726     A          K ERKSEC
+059600000726     A          K ERCNUL
+059700000726     A          K ERNENT
+059800000726     A          K ERCID
+059900000726     A          K ERAARC
+060000000726     A          K ERMMRC
+060100000726     A          K ERJJRC
+060200000726     A          K ERNORD

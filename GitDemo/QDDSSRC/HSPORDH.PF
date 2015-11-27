@@ -1,0 +1,47 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPORDH                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Sales Order Header                          *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFORDH
+001200990115      *  Description:  Sales Order Header
+001300990115     A            JCOMP     R               REFFLD(COMP)
+001400990115     A            JCUST     R               REFFLD(CUST)
+001500990212     A            JCUSB     R               REFFLD(CUSB)
+001600990115     A                                      COLHDG('Customer Branch')
+001700990115     A            JORDR     R               REFFLD(CONT)
+001800990115     A                                      COLHDG('Cust.Order Ref.')
+001900990115     A            JTYPE     R               REFFLD(TYPE)
+002000990115     A                                      COLHDG('Sales Order Type')
+002100990115     A            JSORD     R               REFFLD(SORD)
+002200990115     A            JORDD     R               REFFLD(DATE)
+002300990115     A                                      COLHDG('Order Date')
+002400990115     A            JINVN     R               REFFLD(INVN)
+002500990115     A            JINVD     R               REFFLD(DATE)
+002600990115     A                                      COLHDG('Invoice Date')
+002700990115     A            JDELN     R               REFFLD(DELN)
+002800990115     A            JDELD     R               REFFLD(DATE)
+002900990115     A                                      COLHDG('Ship Date')
+003000990115     A            JCRTD     R               REFFLD(DATE)
+003100990115     A                                      COLHDG('Date Created')
+003200990115     A            JCRTT     R               REFFLD(TIME)
+003300990115     A                                      COLHDG('Time Created')
+003400990115     A            JCRTS     R               REFFLD(SCRN)
+003500990115     A                                      COLHDG('Screen Id.')
+003600990115     A            JCRTU     R               REFFLD(USER)
+003700990115     A                                      COLHDG('User Id.')
+003800990115     A            JCRTP     R               REFFLD(PROG)
+003900990115     A                                      COLHDG('Program Id.')
+004000990211     A            JSTAT     R               REFFLD(A1)
+004100990211     A                                      COLHDG('Status Flag')
+004200990212     A            JSUBB     R               REFFLD(SUBB)
+004300990212     A                                      COLHDG('Customer Sub-branch')
+004400990217     A            JBATC     R               REFFLD(DSPB)
+004500990217     A                                      COLHDG('Claims Batch No.')
+004600990115     A            JDELT     R               REFFLD(A1)
+004700990115     A                                      COLHDG('Deletion Flag')

@@ -1,0 +1,23 @@
+000100051123         /*-----------------------------------*/
+000200051123         /* Test RtvSysVal Upper or LowerCase */
+000300051123         /*-----------------------------------*/
+000400051123
+000500051123             PGM        PARM(&SYSVALNAM &UPLW &VALUE)
+000600051123             DCL        VAR(&SYSVALNAM) TYPE(*CHAR) LEN(10)
+000700051123             DCL        VAR(&UPLW) TYPE(*CHAR) LEN(1)
+000800051123             DCL        VAR(&VALUE) TYPE(*CHAR) LEN(100)
+000900051123
+001000051123
+001100051123             CALLPRC    PRC('SMK48M1') PARM(&SYSVALNAM &VALUE)
+001200051123
+001300051123       /* Return In Upper or LowerCase */
+001400051123             IF         COND(&UPLW = 'U') THEN(DO)
+001500051123             CALLPRC    PRC('STR_TOUPPER') PARM(&VALUE) +
+001600051123                          RTNVAL(&VALUE)
+001700051123             ENDDO
+001800051123             IF         COND(&UPLW = 'L') THEN(DO)
+001900051123             CALLPRC    PRC('STR_TOLOWER') PARM(&VALUE) +
+002000051123                          RTNVAL(&VALUE)
+002100051123             ENDDO
+002200051123
+002300051123             ENDPGM

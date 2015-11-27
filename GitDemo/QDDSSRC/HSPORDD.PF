@@ -1,0 +1,52 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPORDD                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Sales Order Details                         *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFORDD
+001200990115      *  Description:  Sales Order Details
+001300990130     A            KLTYP     R               REFFLD(A1)
+001400990130     A                                      COLHDG('Line Type S/N/T')
+001500990115     A            KCOMP     R               REFFLD(COMP)
+001600990115     A            KTYPE     R               REFFLD(TYPE)
+001700990115     A                                      COLHDG('Sales Order Type')
+001800990130     A            KLINE     R               REFFLD(LINE)
+001900990130     A            KCUST     R               REFFLD(CUST)
+002000990115     A            KSORD     R               REFFLD(SORD)
+002100990115     A            KPROD     R               REFFLD(PROD)
+002200990204     A            KDESC     R               REFFLD(DESC)
+002300990115     A            KSERC     R               REFFLD(SERC)
+002400990115     A            KSERNF    R               REFFLD(SERN)
+002500990115     A                                      COLHDG('Serial No. From')
+002600990115     A            KELEMF    R               REFFLD(ELEM)
+002700990115     A                                      COLHDG('Element From')
+002800990115     A            KSERNT    R               REFFLD(SERN)
+002900990115     A                                      COLHDG('Serial No. To')
+003000990115     A            KELEMT    R               REFFLD(ELEM)
+003100990115     A                                      COLHDG('Element To')
+003200990115     A            KQTYN     R               REFFLD(QTYN)
+003300990115     A            KCOST     R               REFFLD(COST)
+003400990115     A            KPRIC     R               REFFLD(PRIC)
+003500990208     A            KVALU     R               REFFLD(PRIC)
+003600990208     A                                      COLHDG('Order Value')
+003700990208     A            KVATA     R               REFFLD(PRIC)
+003800990208     A                                      COLHDG('VAT Value')
+003900990115     A            KDISP     R               REFFLD(DISP)
+004000990115     A                                      COLHDG('Discount %')
+004100990115     A            KCRTD     R               REFFLD(DATE)
+004200990115     A                                      COLHDG('Date Created')
+004300990115     A            KCRTT     R               REFFLD(TIME)
+004400990115     A                                      COLHDG('Time Created')
+004500990115     A            KCRTS     R               REFFLD(SCRN)
+004600990115     A                                      COLHDG('Screen Id.')
+004700990115     A            KCRTU     R               REFFLD(USER)
+004800990115     A                                      COLHDG('User Id.')
+004900990115     A            KCRTP     R               REFFLD(PROG)
+005000990115     A                                      COLHDG('Program Id.')
+005100990115     A            KDELT     R               REFFLD(A1)
+005200990115     A                                      COLHDG('Deletion Flag')

@@ -1,0 +1,42 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPORDP                                     *
+000400000000      *                                                            *
+000500990115      *  Description:  Sales Order Parameters                      *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFORDP
+001200990115      *  Description:  Sales Order Parameters
+001300990115     A            MOTYP     R               REFFLD(TYPE)
+001400990115     A                                      COLHDG('Order Type')
+001500990115     A            MODES     R               REFFLD(DESC)
+001600990115     A                                      COLHDG('Order Description')
+001700990115     A            MSALE     R               REFFLD(A1)
+001800990115     A                                      COLHDG('Sale / Credit')
+001900990115     A            MASCG     R               REFFLD(A1)
+002000990224     A                                      COLHDG('Cash / Account')
+002100990218     A            MTTYP     R               REFFLD(TYPE)
+002200990115     A            MXREF     R               REFFLD(A1)
+002300990115     A                                      COLHDG('Cross-refer Agen')
+002400990115     A            MBAND     R               REFFLD(A1)
+002500990115     A                                      COLHDG('Banded allocation')
+002600990115     A            MMAND     R               REFFLD(A1)
+002700990115     A                                      COLHDG('Manual allocation')
+002800990115     A            MWHSE     R               REFFLD(WHSE)
+002900990115     A            MINVP     R               REFFLD(A1)
+003000990115     A                                      COLHDG('Invoice Print')
+003100990115     A            MINVC     R               REFFLD(A1)
+003200990115     A                                      COLHDG('Inv.charges only')
+003300990115     A            MUPSL     R               REFFLD(A1)
+003400990115     A                                      COLHDG('Update Sales Ledg')
+003500990218     A            MALLP     R               REFFLD(A1)
+003600990216     A                                      COLHDG('Ship to allpoints')
+003700990218     A            MMDSP     R               REFFLD(A1)
+003800990216     A                                      COLHDG('Manual dispatch')
+003900990115     A            MORDV     R               REFFLD(QTYN)
+004000990115     A                                      COLHDG('Min. Order Value')
+004100990115     A            MDELT     R               REFFLD(A1)
+004200990115     A                                      COLHDG('Deletion Flag')

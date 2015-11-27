@@ -1,0 +1,27 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPSINT                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Sales Ledger Interface                      *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFSINT
+001200990115      *  Description:  Sales Ledger Interface
+001300990115     A            TCOMP     R               REFFLD(COMP)
+001400990208     A            TCUST     R               REFFLD(CUST)
+001500990208     A            TCUSB     R               REFFLD(REDR)
+001600990208     A                                      COLHDG('Customer Branch')
+001700990208     A            TINVN     R               REFFLD(INVN)
+001800990208     A            TINVD     R               REFFLD(DATE)
+001900990208     A                                      COLHDG('Invoice Date')
+002000990208     A            TVALU     R               REFFLD(PRIC)
+002100990208     A                                      COLHDG('Invoice Value')
+002200990208     A            TVATA     R               REFFLD(PRIC)
+002300990208     A                                      COLHDG('VAT Value')
+002400990208     A            TDISP     R               REFFLD(DISP)
+002500990208     A                                      COLHDG('Discount %')
+002600990215     A            TBATC     R               REFFLD(DSPB)
+002700990215     A                                      COLHDG('Invoice Batch No.')

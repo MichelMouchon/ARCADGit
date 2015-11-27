@@ -1,0 +1,559 @@
+000100990302     A*%%TS  SD  19990302  120457  SARLLO      REL-V3R7M0  5716-PW1
+000200000000     A*****************************************************************
+000300000000     A*                                                               *
+000400990122     A*  Display File  : HSS200                                       *
+000500000000     A*                                                               *
+000600990122     A*  Description . : Sales Order Entry / Maintenance / Inquiry    *
+000700000000     A*                                                               *
+000800990105     A*  System  . . . : HSV Control & Tracking                       *
+000900000000     A*                                                               *
+001000990105     A*  Date Written  : January 1999                                 *
+001100000000     A*                                                               *
+001200000000     A*****************************************************************
+001300990122     A*                                                               *
+001400990302     A*%%EC
+001500990302     A                                      DSPSIZ(24 80 *DS3)
+001600990302     A                                      REF(*LIBL/HSPREF)
+001700990302     A                                      PRINT
+001800990302     A                                      HELP
+001900990106     A*****************************************************************
+002000990224     A          R HSS200A
+002100990224     A*%%TS  SD  19990224  170800  SARLLO      REL-V3R7M0  5716-PW1
+002200990224     A                                      CA03
+002300990224     A  76                                  CF04
+002400990224     A  75 20                               CF07
+002500990226     A  61N75                               CF10
+002600990224     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+002700990224     A                                      BLINK
+002800990224     A                                      OVERLAY
+002900990224     A            CSRRCD        10A  H
+003000990224     A            CSRFLD        10A  H
+003100000728     A            XJCOMP         6A  H
+003200000728     A            XJWHSE         3A  H
+003300000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+003400990224     A                                  1 28'HIGH STREET VOUCHERS'
+003500990224     A                                      DSPATR(HI)
+003600990224     A                                      COLOR(WHT)
+003700990224     A  78                              1 54' MAINTENANCE '
+003800990224     A                                      DSPATR(RI)
+003900990224     A  77                              1 56' INQUIRY '
+004000990224     A                                      DSPATR(RI)
+004100990224     A  76                              1 57' ENTRY '
+004200990224     A                                      DSPATR(RI)
+004300990224     A  75                              1 56' DISPATCH '
+004400990224     A                                      DSPATR(RI)
+004500990224     A                                  1 72SYSNAME
+004600990224     A                                      COLOR(WHT)
+004700000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+004800990224     A                                  2 27'Sales Order Processing'
+004900990224     A                                      COLOR(WHT)
+005000990224     A                                  2 72DATE
+005100990224     A                                      EDTCDE(Y)
+005200990224     A                                      COLOR(WHT)
+005300000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+005400000728     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+005500990224     A                                      COLOR(WHT)
+005600990224     A  75
+005700990224     AO 77
+005800990224     AO 78                              5 10'Order No.'
+005900000728     A            XJSORD    R        B  5 30REFFLD(JSORD)
+006000990224     A                                      EDTCDE(4)
+006100990224     A  75                                  CHECK(ER)
+006200990224     A N75N77N78                            DSPATR(ND)
+006300990224     A  76
+006400990224     AO 78                                  DSPATR(PR)
+006500990224     A                                      DSPATR(UL)
+006600990224     A                                      COLOR(BLU)
+006700000728     A  75        XENAM1    R        O  5 40REFFLD(ENAM1)
+006800990224     A  75                              6 10'Number of Vouchers'
+006900000728     A  75        XVQTY     R        O  6 30REFFLD(QTYN)
+007000990224     A                                      EDTCDE(J)
+007100990224     A                                  7 15'Order Type'
+007200000728     A            XJTYPE    R        B  7 35REFFLD(JTYPE)
+007300990224     A  30                                  DSPATR(RI)
+007400990224     A  30                                  DSPATR(PC)
+007500990224     A                                      DSPATR(UL)
+007600990224     A  75                                  DSPATR(PR)
+007700990224     A                                      COLOR(BLU)
+007800990224     A                                 10 15'Customer Post Code'
+007900000728     A            XJPCDE    R        B 10 35REFFLD(PCDE)
+008000990224     A  33                                  DSPATR(RI)
+008100990224     A  33                                  DSPATR(PC)
+008200990224     A                                      DSPATR(UL)
+008300990224     A  75                                  DSPATR(PR)
+008400990224     A                                      COLOR(BLU)
+008500990224     A                                 11 15'Customer No.'
+008600000728     A            XJCUST    R        B 11 35REFFLD(JCUST)
+008700990224     A  34                                  DSPATR(RI)
+008800990224     A  34                                  DSPATR(PC)
+008900990224     A                                      DSPATR(UL)
+009000990224     A  75                                  DSPATR(PR)
+009100990224     A                                      COLOR(BLU)
+009200990224     A                                 12 15'Discount %'
+009300000728     A            XJDISP    R        B 12 35REFFLD(KDISP)
+009400990224     A                                      EDTCDE(L)
+009500990224     A  36                                  DSPATR(RI)
+009600990224     A  36                                  DSPATR(PC)
+009700990224     A                                      DSPATR(UL)
+009800990224     A  75                                  DSPATR(PR)
+009900990224     A                                      COLOR(BLU)
+010000990224     A                                 14 15'Order Date'
+010100000728     A            XJORDD    R        B 14 35REFFLD(JORDD)
+010200990224     A  35                                  DSPATR(RI)
+010300990224     A  35                                  DSPATR(PC)
+010400990224     A                                      DSPATR(UL)
+010500990224     A  75                                  DSPATR(PR)
+010600990224     A                                      COLOR(BLU)
+010700990224     A                                      EDTWRD('  /  /    ')
+010800990224     A                                 17 15'Customer Order Ref.'
+010900000728     A            XJORDR    R        B 17 35REFFLD(JORDR)
+011000990224     A                                      COLOR(BLU)
+011100990224     A  75                                  DSPATR(PR)
+011200990224     A                                 23  3'F3-Exit'
+011300990224     A                                      COLOR(WHT)
+011400990224     A  76                             23 12'F4-Search'
+011500990224     A                                      COLOR(WHT)
+011600990226     A  61N75                          23 23'F10-Confirm'
+011700990224     A                                      COLOR(WHT)
+011800990224     A  75 20                          23 38'F7-Confirm Dispatch'
+011900990224     A                                      COLOR(WHT)
+012000000728     A  75        XXNAM1        30A  B  9 49
+012100000728     A  75        XXNAM2        30A  B 10 49
+012200000728     A  75        XXADR1        30A  B 11 49
+012300000728     A  75        XXADR2        30A  B 12 49
+012400990225     A  75                              7 56'Delivery Address'
+012500990106     A*****************************************************************
+012600990122     A          R HSS200C                   SFL
+012700990204     A                                      SFLNXTCHG
+012800000728     A            XOLIN          4S 0H
+012900000728     A            XKVATA         5  2H
+013000000728     A            XXQTYN         9  0H
+013100000728     A            XSELC     R        B 12  2REFFLD(A1)
+013200990126     A  36                                  DSPATR(RI)
+013300990126     A  36                                  DSPATR(PC)
+013400990203     A  77                                  DSPATR(PR)
+013500990126     A                                      DSPATR(UL)
+013600990126     A                                      COLOR(BLU)
+013700000728     A            XKPROD    R        B 12  4REFFLD(KPROD)
+013800990204     A  37                                  DSPATR(RI)
+013900990204     A  37                                  DSPATR(PC)
+014000990204     A  77                                  DSPATR(PR)
+014100990204     A                                      DSPATR(UL)
+014200990204     A                                      COLOR(BLU)
+014300000728     A            XNDESC        19   B 12 18
+014400990126     A  38                                  DSPATR(RI)
+014500990126     A  38                                  DSPATR(PC)
+014600990203     A  77                                  DSPATR(PR)
+014700990126     A                                      DSPATR(UL)
+014800990126     A                                      COLOR(BLU)
+014900000728     A            XKPRIC    R        B 12 38REFFLD(DENO)
+015000990210     A                                      EDTCDE(L)
+015100990126     A  39                                  DSPATR(RI)
+015200990126     A  39                                  DSPATR(PC)
+015300990203     A  77                                  DSPATR(PR)
+015400990126     A                                      DSPATR(UL)
+015500990126     A                                      COLOR(BLU)
+015600000728     A            XKQTYN    R        B 12 50REFFLD(LAST)
+015700990210     A                                      EDTCDE(3)
+015800990126     A  40                                  DSPATR(RI)
+015900990126     A  40                                  DSPATR(PC)
+016000990225     A  77 50                               DSPATR(PR)
+016100990126     A                                      DSPATR(UL)
+016200990126     A                                      COLOR(BLU)
+016300990303     A                                      CHECK(ER)
+016400000728     A            XKVALU    R        O 12 62REFFLD(DENO)
+016500990122     A                                      EDTCDE(L)
+016600990126     A                                      COLOR(GRN)
+016700990122     A                                 13  2'Series'
+016800000728     A            XKSERC    R        B 13  9REFFLD(KSERC)
+016900990126     A  41                                  DSPATR(RI)
+017000990126     A  41                                  DSPATR(PC)
+017100990126     A                                      DSPATR(UL)
+017200990225     A N50N75                               DSPATR(PR)
+017300990126     A                                      COLOR(BLU)
+017400000728     A            XKSERF    R        B 13 13REFFLD(KSERNF)
+017500990126     A  42                                  DSPATR(RI)
+017600990126     A  42                                  DSPATR(PC)
+017700990210     A                                      EDTCDE(3)
+017800990126     A                                      DSPATR(UL)
+017900990225     A N75N50                               DSPATR(PR)
+018000990225     A                                      COLOR(BLU)
+018100990122     A                                 13 25'-'
+018200000728     A            XKSERT    R        B 13 27REFFLD(KSERNT)
+018300990126     A  43                                  DSPATR(RI)
+018400990126     A  43                                  DSPATR(PC)
+018500990210     A                                      EDTCDE(3)
+018600990126     A                                      DSPATR(UL)
+018700990225     A N75N50                               DSPATR(PR)
+018800990126     A                                      COLOR(BLU)
+018900990122     A*****************************************************************
+019000990122     A          R HSS200B                   SFLCTL(HSS200C)
+019100990128     A                                      SFLSIZ(0100)
+019200990128     A                                      SFLPAG(0005)
+019300990122     A                                      CA03
+019400990224     A N77                                  CF04
+019500990302     A  86                                  CF08
+019600990126     A  61                                  CF10
+019700990122     A                                      CA12
+019800990122     A                                      PAGEDOWN
+019900990122     A                                      OVERLAY
+020000990122     A                                      BLINK
+020100990122     A  72                                  SFLDSP
+020200990122     A  71                                  SFLDSPCTL
+020300990127     A  73                                  SFLINZ
+020400990122     A  70                                  SFLCLR
+020500990122     A  90                                  SFLEND(*MORE)
+020600990122     A                                      SFLCSRRRN(&CSRRRN)
+020700990127     A                                      RTNCSRLOC(&CSRRCD &CSRFLD &CSRPOS)
+020800990127     A                                      CSRLOC(CSRROW     CSRCOL)
+020900990127     A            CSRROW         3S 0H
+021000990127     A            CSRCOL         3S 0H
+021100990127     A            CSRPOS         4S 0H
+021200990122     A            RCDNBR         4S 0H      SFLRCDNBR(CURSOR)
+021300990122     A            CSRRRN         5S 0H
+021400990122     A            CSRRCD        10A  H
+021500990122     A            CSRFLD        10A  H
+021600000728     A            XJWHSE         3A  H
+021700000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+021800990122     A                                  1 28'HIGH STREET VOUCHERS'
+021900990122     A                                      DSPATR(HI)
+022000990122     A                                      COLOR(WHT)
+022100990122     A                                  1 72SYSNAME
+022200990122     A                                      COLOR(WHT)
+022300000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+022400990210     A  78                              1 54' MAINTENANCE '
+022500990210     A                                      DSPATR(RI)
+022600990210     A  77                              1 56' INQUIRY '
+022700990210     A                                      DSPATR(RI)
+022800990210     A  76                              1 57' ENTRY '
+022900990210     A                                      DSPATR(RI)
+023000990210     A  75                              1 56' DISPATCH '
+023100990210     A                                      DSPATR(RI)
+023200990210     A                                  2 27'Sales Order Processing'
+023300990210     A                                      COLOR(WHT)
+023400990122     A                                  2 72DATE
+023500990122     A                                      EDTCDE(Y)
+023600990122     A                                      COLOR(WHT)
+023700000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+023800000728     A            XMODES    R           3 20REFFLD(MODES)
+023900000728     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+024000990122     A                                      COLOR(WHT)
+024100990122     A*
+024200990122     A                                  5  2'Customer No.'
+024300000728     A            XJCUST    R        O  5 15REFFLD(JCUST)
+024400990122     A                                  5 44'Order No.'
+024500000728     A            XJSORD    R        O  5 58REFFLD(JSORD)
+024600990122     A*
+024700000728     A            XJNAM1    R        O  6  2REFFLD(NAME)
+024800990122     A                                  6 44'Customer Ref.'
+024900000728     A            XJORDR    R        O  6 58REFFLD(JORDR)
+025000000728     A            XJNAM2    R        O  7  2REFFLD(ADR1)
+025100990211     A                                  7 44'Order Date'
+025200000728     A            XJORDD    R        O  7 58REFFLD(JORDD)
+025300990122     A                                      EDTWRD('  /  /    ')
+025400000728     A            XJADR1    R        O  8  2REFFLD(ADR1)
+025500990122     A                                  8 44'Discount %'
+025600000728     A            XJDISP    R        O  8 58REFFLD(DISP)
+025700990122     A                                      EDTCDE(L)
+025800000728     A            XJADR2    R        O  9  2REFFLD(ADR1)
+025900990211     A*                                 9 44'Warehouse'
+026000990211     A*           #JWHSE    R        O  9 58REFFLD(WHSE)
+026100990122     A                                 10  2'S=Stock  N=Non-stock  T=Text'
+026200990122     A                                      COLOR(WHT)
+026300990122     A                                 11  4'Product'
+026400990122     A                                      COLOR(WHT)
+026500990122     A                                 11 18'Description'
+026600990122     A                                      COLOR(WHT)
+026700990122     A                                 11 40'Unit Price'
+026800990122     A                                      COLOR(WHT)
+026900990122     A                                 11 52'Quantity'
+027000990122     A                                      COLOR(WHT)
+027100990122     A                                 11 67'Value'
+027200990122     A                                      COLOR(WHT)
+027300990224     A*                                11 74'V.A.T.'
+027400990224     A*                                     COLOR(WHT)
+027500990225     A*****************************************************************
+027600990226     A          R HSS200H                   SFL
+027700990226     A*%%TS  SD  19990226  124826  SARLLO      REL-V3R7M0  5716-PW1
+027800990226     A                                      SFLNXTCHG
+027900000728     A            XOLIN          4S 0H
+028000000728     A            XKVATA         5S 2H
+028100000728     A            XXQTYN         9S 0H
+028200000728     A            XSELC     R        B 12  2REFFLD(A1)
+028300990226     A  36                                  DSPATR(RI)
+028400990226     A  36                                  DSPATR(PC)
+028500990226     A  77                                  DSPATR(PR)
+028600990226     A                                      DSPATR(UL)
+028700990226     A                                      COLOR(BLU)
+028800990226     A                                      CHECK(AB)
+028900990226     A                                      RANGE('A' '9')
+029000000728     A            XKPROD    R        B 12  4REFFLD(KPROD)
+029100990226     A  37                                  DSPATR(RI)
+029200990226     A  37                                  DSPATR(PC)
+029300990226     A  77                                  DSPATR(PR)
+029400990226     A                                      DSPATR(UL)
+029500990226     A                                      COLOR(BLU)
+029600990226     A                                      CHECK(AB)
+029700990226     A                                      RANGE('AAAAAAAAAAAAA' '999999999999-
+029800990226     A                                      9')
+029900000728     A            XNDESC        19A  B 12 18
+030000990226     A  38                                  DSPATR(RI)
+030100990226     A  38                                  DSPATR(PC)
+030200990226     A  77                                  DSPATR(PR)
+030300990226     A                                      DSPATR(UL)
+030400990226     A                                      COLOR(BLU)
+030500990226     A                                      CHECK(AB)
+030600990226     A                                      RANGE('AAAAAAAAAAAAAAAAAAA' '999999-
+030700990226     A                                      9999999999999')
+030800000728     A            XKPRIC    R        B 12 38REFFLD(DENO)
+030900990226     A                                      EDTCDE(L)
+031000990226     A  39                                  DSPATR(RI)
+031100990226     A  39                                  DSPATR(PC)
+031200990226     A  77                                  DSPATR(PR)
+031300990226     A                                      DSPATR(UL)
+031400990226     A                                      COLOR(BLU)
+031500000728     A            XKQTYN    R        B 12 50REFFLD(LAST)
+031600990226     A                                      EDTCDE(3)
+031700990226     A  40                                  DSPATR(RI)
+031800990226     A  40                                  DSPATR(PC)
+031900990226     A  77 50                               DSPATR(PR)
+032000990226     A                                      DSPATR(UL)
+032100990226     A                                      COLOR(BLU)
+032200990226     A                                      RANGE(0 999999999)
+032300990226     A                                      CHECK(AB)
+032400000728     A            XKVALU    R        O 12 62REFFLD(DENO)
+032500990226     A                                      EDTCDE(L)
+032600990226     A                                      COLOR(GRN)
+032700990226     A                                 13  2'Series'
+032800000728     A            XKSERC    R        B 13  9REFFLD(KSERC)
+032900990226     A  41                                  DSPATR(RI)
+033000990226     A  41                                  DSPATR(PC)
+033100990226     A                                      DSPATR(UL)
+033200990226     A N75 50                               DSPATR(PR)
+033300990226     A                                      COLOR(BLU)
+033400990226     A                                      RANGE('AA' '99')
+033500990226     A                                      CHECK(AB)
+033600000728     A            XKSERF    R        B 13 13REFFLD(KSERNF)
+033700990226     A  42                                  DSPATR(RI)
+033800990226     A  42                                  DSPATR(PC)
+033900990226     A                                      EDTCDE(3)
+034000990226     A                                      DSPATR(UL)
+034100990226     A N75 50                               DSPATR(PR)
+034200990226     A                                      COLOR(BLU)
+034300990226     A                                      RANGE(0 999999999)
+034400990226     A                                      CHECK(AB)
+034500990226     A                                 13 25'-'
+034600000728     A            XKSERT    R        B 13 27REFFLD(KSERNT)
+034700990226     A  43                                  DSPATR(RI)
+034800990226     A  43                                  DSPATR(PC)
+034900990226     A                                      EDTCDE(3)
+035000990226     A                                      DSPATR(UL)
+035100990226     A N75 50                               DSPATR(PR)
+035200990226     A                                      COLOR(BLU)
+035300990226     A                                      RANGE(0 999999999)
+035400990226     A                                      CHECK(AB)
+035500990225     A*****************************************************************
+035600990225     A          R HSS200G                   SFLCTL(HSS200H)
+035700990225     A                                      SFLSIZ(0100)
+035800990225     A                                      SFLPAG(0005)
+035900990225     A                                      CA03
+036000990225     A N77                                  CF04
+036100990225     A*                                     CF06
+036200990225     A  61                                  CF10
+036300990225     A                                      CA12
+036400990225     A                                      PAGEDOWN
+036500990225     A                                      OVERLAY
+036600990225     A                                      BLINK
+036700990225     A  72                                  SFLDSP
+036800990225     A  71                                  SFLDSPCTL
+036900990225     A  73                                  SFLINZ
+037000990225     A  70                                  SFLCLR
+037100990225     A  90                                  SFLEND(*MORE)
+037200990225     A                                      SFLCSRRRN(&CSRRRN)
+037300990225     A                                      RTNCSRLOC(&CSRRCD &CSRFLD &CSRPOS)
+037400990225     A                                      CSRLOC(CSRROW     CSRCOL)
+037500990225     A            CSRROW         3S 0H
+037600990225     A            CSRCOL         3S 0H
+037700990225     A            CSRPOS         4S 0H
+037800990225     A            RCDNBR         4S 0H      SFLRCDNBR(CURSOR)
+037900990225     A            CSRRRN         5S 0H
+038000990225     A            CSRRCD        10A  H
+038100990225     A            CSRFLD        10A  H
+038200000728     A            XJWHSE         3A  H
+038300000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+038400990225     A                                  1 28'HIGH STREET VOUCHERS'
+038500990225     A                                      DSPATR(HI)
+038600990225     A                                      COLOR(WHT)
+038700990225     A                                  1 72SYSNAME
+038800990225     A                                      COLOR(WHT)
+038900000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+039000990225     A  78                              1 54' MAINTENANCE '
+039100990225     A                                      DSPATR(RI)
+039200990225     A  77                              1 56' INQUIRY '
+039300990225     A                                      DSPATR(RI)
+039400990225     A  76                              1 57' ENTRY '
+039500990225     A                                      DSPATR(RI)
+039600990225     A  75                              1 56' DISPATCH '
+039700990225     A                                      DSPATR(RI)
+039800990225     A                                  2 27'Sales Order Processing'
+039900990225     A                                      COLOR(WHT)
+040000990225     A                                  2 72DATE
+040100990225     A                                      EDTCDE(Y)
+040200990225     A                                      COLOR(WHT)
+040300000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+040400000728     A            XMODES    R           3 20REFFLD(MODES)
+040500000728     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+040600990225     A                                      COLOR(WHT)
+040700990225     A*
+040800990225     A                                  5  2'Customer No.'
+040900000728     A            XJCUST    R        O  5 15REFFLD(JCUST)
+041000990225     A                                  5 44'Order No.'
+041100000728     A            XJSORD    R        O  5 58REFFLD(JSORD)
+041200990225     A*
+041300000728     A            XJNAM1    R        O  6  2REFFLD(NAME)
+041400990225     A                                  6 44'Customer Ref.'
+041500000728     A            XJORDR    R        O  6 58REFFLD(JORDR)
+041600000728     A            XJNAM2    R        O  7  2REFFLD(ADR1)
+041700990225     A                                  7 44'Order Date'
+041800000728     A            XJORDD    R        O  7 58REFFLD(JORDD)
+041900990225     A                                      EDTWRD('  /  /    ')
+042000000728     A            XJADR1    R        O  8  2REFFLD(ADR1)
+042100990225     A                                  8 44'Discount %'
+042200000728     A            XJDISP    R        O  8 58REFFLD(DISP)
+042300990225     A                                      EDTCDE(L)
+042400000728     A            XJADR2    R        O  9  2REFFLD(ADR1)
+042500990225     A*                                 9 44'Warehouse'
+042600990225     A*           #JWHSE    R        O  9 58REFFLD(WHSE)
+042700990225     A                                 10  2'S=Stock  N=Non-stock  T=Text'
+042800990225     A                                      COLOR(WHT)
+042900990225     A                                 11  4'Product'
+043000990225     A                                      COLOR(WHT)
+043100990225     A                                 11 18'Description'
+043200990225     A                                      COLOR(WHT)
+043300990225     A                                 11 40'Unit Price'
+043400990225     A                                      COLOR(WHT)
+043500990225     A                                 11 52'Quantity'
+043600990225     A                                      COLOR(WHT)
+043700990225     A                                 11 67'Value'
+043800990225     A                                      COLOR(WHT)
+043900990225     A*                                11 74'V.A.T.'
+044000990225     A*                                     COLOR(WHT)
+044100990122     A*****************************************************************
+044200990225     A          R HSS200D
+044300990122     A                                      CA03
+044400990224     A*                                     CF04
+044500990205     A*                                     CF06
+044600990126     A  61                                  CF10
+044700990122     A                                      CA12
+044800990122     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+044900990122     A                                      OVERLAY
+045000990122     A            CSRRCD        10A  H
+045100990122     A            CSRFLD        10A  H
+045200000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+045300990122     A                                  1 28'HIGH STREET VOUCHERS'
+045400990122     A                                      DSPATR(HI)
+045500990122     A                                      COLOR(WHT)
+045600990122     A                                  1 72SYSNAME
+045700990122     A                                      COLOR(WHT)
+045800000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+045900990210     A  78                              1 54' MAINTENANCE '
+046000990210     A                                      DSPATR(RI)
+046100990210     A  77                              1 56' INQUIRY '
+046200990210     A                                      DSPATR(RI)
+046300990210     A  76                              1 57' ENTRY '
+046400990210     A                                      DSPATR(RI)
+046500990210     A  75                              1 56' DISPATCH '
+046600990210     A                                      DSPATR(RI)
+046700990210     A                                  2 30'Delivery Details'
+046800990122     A                                      COLOR(WHT)
+046900990122     A                                  2 72DATE
+047000990122     A                                      EDTCDE(Y)
+047100990122     A                                      COLOR(WHT)
+047200000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+047300000728     A            XXTME          6Y 0O  3 72EDTWRD('  :  :  ')
+047400990122     A                                      COLOR(WHT)
+047500990210     A                                  5  2'Customer No.'
+047600000728     A            XJCUST    R        O  5 15REFFLD(JCUST)
+047700990210     A                                  5 44'Order No.'
+047800000728     A            XJSORD    R        O  5 58REFFLD(JSORD)
+047900990210     A*
+048000000728     A            XJNAM1    R        O  6  2REFFLD(NAME)
+048100990210     A                                  6 44'Customer Ref.'
+048200000728     A            XJORDR    R        O  6 58REFFLD(JORDR)
+048300000728     A            XJNAM2    R        O  7  2REFFLD(ADR1)
+048400990211     A                                 10  2'Delivery Name'
+048500000728     A            XVNAM1    R        B 10 20REFFLD(VNAM1)
+048600990122     A                                      COLOR(BLU)
+048700990204     A  77                                  DSPATR(PR)
+048800000728     A            XVADR1    R        B 11 20REFFLD(VADR1)
+048900990122     A                                      COLOR(BLU)
+049000990204     A  77                                  DSPATR(PR)
+049100000728     A            XVADR2    R        B 12 20REFFLD(VADR2)
+049200990122     A                                      COLOR(BLU)
+049300990204     A  77                                  DSPATR(PR)
+049400000728     A            XVADR3    R        B 13 20REFFLD(VADR3)
+049500990122     A                                      COLOR(BLU)
+049600990204     A  77                                  DSPATR(PR)
+049700000728     A            XVPCDE    R        B 14 20REFFLD(VPCDE)
+049800990122     A                                      COLOR(BLU)
+049900990204     A  77                                  DSPATR(PR)
+050000990211     A                                 17  2'Delivery Instructions'
+050100000728     A            XVDIN1    R        B 18 20REFFLD(VDIN1)
+050200990122     A                                      COLOR(BLU)
+050300990204     A  77                                  DSPATR(PR)
+050400000728     A            XVDIN2    R        B 19 20REFFLD(VDIN2)
+050500990122     A                                      COLOR(BLU)
+050600990204     A  77                                  DSPATR(PR)
+050700000728     A            XVDIN3    R        B 20 20REFFLD(VDIN3)
+050800990122     A                                      COLOR(BLU)
+050900990204     A  77                                  DSPATR(PR)
+051000990122     A*****************************************************************
+051100990302     A          R HSS200E
+051200990302     A*%%TS  SD  19990302  120457  SARLLO      REL-V3R7M0  5716-PW1
+051300990302     A                                      TEXT('F key footer')
+051400990302     A N77                                  CF04
+051500990302     A  86                                  CF08
+051600990302     A  61                                  CF10
+051700990302     A                                      CA12
+051800990302     A                                      OVERLAY
+051900990302     A N77                             23  2'F4-Search'
+052000990302     A                                      COLOR(WHT)
+052100990302     A  61                             23 22'F10-Update'
+052200990302     A                                      COLOR(WHT)
+052300990302     A                                 23 34'F12-Cancel'
+052400990302     A                                      COLOR(WHT)
+052500990302     A                                 23 49'Order Value'
+052600000728     A            XKTVAL    R        B 23 62REFFLD(DENO)
+052700990302     A                                      EDTCDE(L)
+052800990302     A                                      DSPATR(PR)
+052900990302     A  86                             23 13'F8-Band'
+053000990302     A                                      COLOR(WHT)
+053100990224     A*****************************************************************
+053200990224     A          R HSS200F                   TEXT('F key footer')
+053300990224     A  61                                  CF10
+053400990224     A                                      CA12
+053500990224     A                                      OVERLAY
+053600990224     A  61                             23 14'F10-Update'
+053700990224     A                                      COLOR(WHT)
+053800990224     A                                 23 26'F12-Cancel'
+053900990224     A                                      COLOR(WHT)
+054000990224     A                                 23 49'Order Value'
+054100000728     A            XKTVAL    R        B 23 62REFFLD(DENO)
+054200990224     A                                      EDTCDE(L)
+054300990224     A                                      DSPATR(PR)
+054400990224     A  46                                  DSPATR(RI)
+054500000000     A*****************************************************************
+054600990112     A          R MSGSFL                    TEXT('Program messages')
+054700990106     A                                      SFL SFLMSGRCD(24)
+054800990106     A            MSGKEY                    SFLMSGKEY
+054900000728     A            XPGMID                    SFLPGMQ
+055000990106     A*****************************************************************
+055100990112     A          R MSGCTL                    SFLCTL(MSGSFL)
+055200990106     A                                      TEXT('Program messages')
+055300990106     A  79                                  SFLDSP
+055400990106     A  79                                  SFLDSPCTL
+055500990106     A  79                                  SFLINZ
+055600990106     A  79                                  SFLEND
+055700990106     A                                      SFLSIZ(0010)
+055800990106     A                                      SFLPAG(0001)
+055900000728     A            XPGMID                    SFLPGMQ

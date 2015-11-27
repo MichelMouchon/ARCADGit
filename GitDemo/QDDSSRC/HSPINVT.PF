@@ -1,0 +1,62 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPINVT                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Inventory Transactions                      *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFINVT
+001200990115      *  Description:  Inventory Transactions
+001300990115     A            CCOMP     R               REFFLD(COMP)
+001400990115     A            CWHSE     R               REFFLD(WHSE)
+001500990115     A            CPROD     R               REFFLD(PROD)
+001600990122     A            CSUBCF    R               REFFLD(SUBC)
+001700990122     A                                      COLHDG('From Sub-code')
+001800990122     A            CSUBCT    R               REFFLD(SUBC)
+001900990122     A                                      COLHDG('To Sub-code')
+002000990115     A            CVTYP     R               REFFLD(VTYP)
+002100990115     A            CSERC     R               REFFLD(SERC)
+002200990115     A            CSERNF    R               REFFLD(SERN)
+002300990115     A                                      COLHDG('From Serial No.')
+002400990115     A            CELEMF    R               REFFLD(ELEM)
+002500990115     A                                      COLHDG('From Element No.')
+002600990115     A            CSERNT    R               REFFLD(SERN)
+002700990115     A                                      COLHDG('To Serial No.')
+002800990115     A            CELEMT    R               REFFLD(ELEM)
+002900990115     A                                      COLHDG('To Element No.')
+003000990115     A            CQTYN     R               REFFLD(QTYN)
+003100990115     A            CBATC     R               REFFLD(DSPB)
+003200990115     A            CDELN     R               REFFLD(DELN)
+003300990115     A            CREAS     R               REFFLD(REAS)
+003400990115     A            CTDAT     R               REFFLD(DATE)
+003500990115     A                                      COLHDG('Transaction Date')
+003600990115     A            CTYPE     R               REFFLD(TYPE)
+003700990115     A                                      COLHDG('Transaction Type')
+003800990115     A            CSUPP     R               REFFLD(SUPP)
+003900990115     A            CCUST     R               REFFLD(CUST)
+004000990115     A            CAREA     R               REFFLD(AREA)
+004100990115     A            CAISL     R               REFFLD(AISL)
+004200990115     A            CBAYR     R               REFFLD(BAYR)
+004300990115     A            CLEVL     R               REFFLD(LEVL)
+004400990115     A            CINVN     R               REFFLD(INVN)
+004500990301     A            CSBAL     R               REFFLD(QTYN)
+004600990301     A                                      COLHDG('Opening Balance')
+004700990301     A            CCBAL     R               REFFLD(QTYN)
+004800990301     A                                      COLHDG('Closing Balance')
+004900990301     A            CIOTF     R               REFFLD(A1)
+005000990301     A                                      COLHDG('In/Out/Transfer')
+005100990301     A            CCRTD     R               REFFLD(DATE)
+005200990115     A                                      COLHDG('Date Created')
+005300990115     A            CCRTT     R               REFFLD(TIME)
+005400990115     A                                      COLHDG('Time Created')
+005500990115     A            CCRTS     R               REFFLD(SCRN)
+005600990115     A                                      COLHDG('Screen Id.')
+005700990115     A            CCRTU     R               REFFLD(USER)
+005800990115     A                                      COLHDG('User Id.')
+005900990115     A            CCRTP     R               REFFLD(PROG)
+006000990115     A                                      COLHDG('Program Id.')
+006100990115     A            CDELT     R               REFFLD(A1)
+006200990115     A                                      COLHDG('Deletion Flag')

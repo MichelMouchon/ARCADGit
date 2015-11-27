@@ -1,0 +1,24 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPVCTL                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Voucher Control                             *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFVCTL
+001200990115      *  Description:  Voucher Control
+001300990115     A            BCOMP     R               REFFLD(COMP)
+001400990115     A            BWHSE     R               REFFLD(WHSE)
+001500990115     A            BPROD     R               REFFLD(PROD)
+001600990115     A            BVTYP     R               REFFLD(VTYP)
+001700990115     A            BSERNN    R               REFFLD(SERN)
+001800990115     A                                      COLHDG('Next Serial No.')
+001900990115     A            BSERCC    R               REFFLD(SERC)
+002000990115     A                                      COLHDG('Curr.Series Code')
+002100990115     A            BELEM     R               REFFLD(ELEM)
+002200990115     A                                      COLHDG('No. of Elements')
+002300990115     A            BDELT     R               REFFLD(A1)
+002400990115     A                                      COLHDG('Deletion Flag')

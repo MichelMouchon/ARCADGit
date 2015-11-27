@@ -1,0 +1,9 @@
+000100000713                                            REF(SMPREF)
+000200000713                R FPROV
+000300000713                  PRID      R               REFFLD(PROVID)
+000400000713                  PROVNM    R
+000500000713                  PROVA1    R               REFFLD(PROVAD)
+000600000713                  PROVA2    R               REFFLD(PROVAD)
+000700000713                  PROVA3    R               REFFLD(PROVAD)
+000800000713                  PRZIP     R               REFFLD(ZIPCOD)
+000900000713                  PRCOUN    R               REFFLD(COUNTR)

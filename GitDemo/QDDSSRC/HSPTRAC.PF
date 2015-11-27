@@ -1,0 +1,53 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  HSPTRAC                                     *
+000400000000      *                                                            *
+000500981229      *  Description:  Voucher Tracking                            *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R HSFTRAC
+001200990115      *****************
+001300990115      *  Description:  Voucher Tracking
+001400990128      *
+001500990128      *
+001600990128      ***************  IN/ADD
+001700990115     A            ACOMP     R               REFFLD(COMP)
+001800990115     A            APROD     R               REFFLD(PROD)
+001900990115     A            AVTYP     R               REFFLD(VTYP)
+002000990115     A            ASERC     R               REFFLD(SERC)
+002100990115     A            ASERN     R               REFFLD(SERN)
+002200990115     A            AELEM     R               REFFLD(ELEM)
+002300990128      *
+002400990128      *
+002500990128      ***************  IN/ADD
+002600990115     A            ADELN     R               REFFLD(DELN)
+002700990115     A            ADELD     R               REFFLD(DATE)
+002800990115     A                                      COLHDG('Date Delivered')
+002900990115     A            ASUPP     R               REFFLD(SUPP)
+003000990128      *
+003100990128      *
+003200990301      ***************  ALLOCATION
+003300990301     A            AALLD     R               REFFLD(DATE)
+003400990301     A                                      COLHDG('Allocation Date')
+003500990128      ***************  OUT/UPDATE
+003600990115     A            ACUST     R               REFFLD(CUST)
+003700990115     A            ASORD     R               REFFLD(SORD)
+003800990115     A            ADSPB     R               REFFLD(DSPB)
+003900990115     A            ADFIS     R               REFFLD(DATE)
+004000990115     A                                      COLHDG('Ship Date')
+004100990128      *
+004200990128      *
+004300990128      *************** REDEMPTIONS
+004400990215     A            AREDB     R               REFFLD(REDB)
+004500990115     A            ADRED     R               REFFLD(DATE)
+004600990115     A                                      COLHDG('Date Redeemed')
+004700990215     A            AHSVB     R               REFFLD(REDE)
+004800990216     A                                      COLHDG('AS400 Red Batch No.')
+004900990115     A            AREDC     R               REFFLD(REDC)
+005000990115     A            AREDR     R               REFFLD(REDR)
+005100990115     A            AREDI     R               REFFLD(REDI)
+005200990115     A            ASTAT     R               REFFLD(A1)
+005300990115     A                                      COLHDG('Status Code')

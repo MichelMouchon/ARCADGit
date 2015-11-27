@@ -1,0 +1,52 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990115      *  File Name  :  INPTRNC                                     *
+000400000000      *                                                            *
+000500990104      *  Description:  Inventory Transaction Type Codes            *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990115     A          R INFTRNC
+001200990115      *  Description:  Inventory Transaction Type Codes
+001300990115     A            YTYPE     R               REFFLD(TYPE)
+001400990115     A                                      COLHDG('Invent.Trans Type')
+001500990115     A            YODES     R               REFFLD(DESC)
+001600990115     A                                      COLHDG('Invent.Trans Desc')
+001700990115     A            YCOMP     R               REFFLD(COMP)
+001800990115     A                                      COLHDG('Default Company')
+001900990115     A            YWHSE     R               REFFLD(WHSE)
+002000990115     A                                      COLHDG('Default Warehouse')
+002100990115     A            YREFR     R               REFFLD(A1)
+002200990115     A                                      COLHDG('Reference Requir?')
+002300990115     A            YDATR     R               REFFLD(A1)
+002400990115     A                                      COLHDG('Trans.Date Requr?')
+002500990129     A            YSACR     R               REFFLD(A1)
+002600990129     A                                      COLHDG('Supp. A/C Requr?')
+002700990129     A            YCACR     R               REFFLD(A1)
+002800990129     A                                      COLHDG('Cust. A/C Requr?')
+002900990115     A            YPWDR     R               REFFLD(A1)
+003000990115     A                                      COLHDG('Password Requird?')
+003100990115     A            YSECR     R               REFFLD(A1)
+003200990115     A                                      COLHDG('Series Cde Requr?')
+003300990129     A            YSCFR     R               REFFLD(A1)
+003400990120     A                                      COLHDG('From Prod sub Cod')
+003500990129     A            YSCTR     R               REFFLD(A1)
+003600990120     A                                      COLHDG('To Prod sub Cod')
+003700990115     A            YSNFR     R               REFFLD(A1)
+003800990115     A                                      COLHDG('From SrNo Requir?')
+003900990115     A            YELFR     R               REFFLD(A1)
+004000990115     A                                      COLHDG('From ElemNo Reqr?')
+004100990115     A            YSNTR     R               REFFLD(A1)
+004200990115     A                                      COLHDG('To SerNo Requird?')
+004300990115     A            YELTR     R               REFFLD(A1)
+004400990115     A                                      COLHDG('To ElemNo Requir?')
+004500990115     A            YQTYR     R               REFFLD(A1)
+004600990115     A                                      COLHDG('Quantity Requird?')
+004700990129     A            YREAR     R               REFFLD(A1)
+004800990125     A                                      COLHDG('Reason Code Req.?')
+004900990115     A            YMOVT     R               REFFLD(A1)
+005000990115     A                                      COLHDG('In/Out Movement')
+005100990115     A            YDELT     R               REFFLD(A1)
+005200990115     A                                      COLHDG('Deletion Flag')

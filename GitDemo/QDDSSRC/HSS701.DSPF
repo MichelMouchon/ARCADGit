@@ -1,0 +1,183 @@
+000100990211     A*%%TS  SD  19990211  085228  SARLLO      REL-V3R7M0  5716-PW1
+000200000000     A*****************************************************************
+000300000000     A*                                                               *
+000400990121     A*  Display File  : HSS701                                       *
+000500000000     A*                                                               *
+000600990121     A*  Description . : Inventory Transaction Reports                *
+000700000000     A*                                                               *
+000800990105     A*  System  . . . : HSV Control & Tracking                       *
+000900000000     A*                                                               *
+001000000727     A*  Author  . . . : Owen Sarll                                   *
+001100000000     A*                                                               *
+001200990105     A*  Date Written  : January 1999                                 *
+001300000000     A*                                                               *
+001400000000     A*****************************************************************
+001500000000     A*
+001600990211     A*%%EC
+001700990211     A                                      DSPSIZ(24 80 *DS3)
+001800990211     A                                      REF(*LIBL/HSP999)
+001900990211     A                                      PRINT
+002000990211     A                                      HELP
+002100990211     A          R HSS701A
+002200990211     A*%%TS  SD  19990211  085228  SARLLO      REL-V3R7M0  5716-PW1
+002300990211     A                                      OVERLAY
+002400990302     A*                                     CA03(03)
+002500990211     A                                      CF04
+002600990302     A*                                     CF10
+002700990302     A                                      CA12
+002800990211     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+002900990211     A            CSRRCD        10A  H
+003000990211     A            CSRFLD        10A  H
+003100000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+003200990211     A                                  1 31'HIGH STREET VOUCHERS'
+003300990211     A                                      COLOR(WHT)
+003400990211     A                                  1 72SYSNAME
+003500990211     A                                      COLOR(WHT)
+003600000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+003700990211     A                                  2 72DATE
+003800990211     A                                      EDTCDE(Y)
+003900990211     A                                      COLOR(WHT)
+004000000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+004100990211     A                                  3 72TIME
+004200990211     A                                      COLOR(WHT)
+004300990302     A*                                23  3'F3-Exit'
+004400990302     A*                                     COLOR(WHT)
+004500990211     A                                 23 12'F4-Search'
+004600990211     A                                      COLOR(WHT)
+004700990302     A*                                23 23'F10-Confirm'
+004800990302     A*                                     COLOR(WHT)
+004900990302     A                                 23 68'F12-Return'
+005000990302     A                                      COLOR(WHT)
+005100990211     A                                  2 26'Inventory Transaction Reports'
+005200990211     A                                      COLOR(WHT)
+005300990211     A                                  5  2'Transaction Type'
+005400990211     A                                  8  2'Product Code'
+005500990211     A                                 18  2'Reference'
+005600990211     A                                  7 25'From'
+005700990211     A                                      DSPATR(UL)
+005800990211     A                                  7 49'To'
+005900990211     A                                      DSPATR(UL)
+006000990211     A                                 16  2'Date'
+006100990211     A                                 10  2'Product Sub-Code'
+006200990211     A                                 19  2'Series Code'
+006300990211     A                                 14  2'Serial Number'
+006400990211     A                                 15  2'Element Number'
+006500990211     A                                 17  2'Quantity'
+006600990211     A                                 12  2'Reason Code'
+006700000728     A            XTYPE          3A  B  5 25COLOR(BLU)
+006800990216     A  32                                  DSPATR(PC)
+006900990216     A  32                                  DSPATR(RI)
+007000000728     A            XPROD         13A  B  8 25COLOR(BLU)
+007100990216     A  33                                  DSPATR(PC)
+007200990216     A  33                                  DSPATR(RI)
+007300000728     A            XPROD1        13A  B  8 49COLOR(BLU)
+007400990216     A  34                                  DSPATR(PC)
+007500990216     A  34                                  DSPATR(RI)
+007600000728     A            XREF          20A  B 18 25COLOR(BLU)
+007700990216     A  47                                  DSPATR(PC)
+007800990216     A  47                                  DSPATR(RI)
+007900000728     A            XREF1         20A  B 18 49COLOR(BLU)
+008000990216     A  48                                  DSPATR(PC)
+008100990216     A  48                                  DSPATR(RI)
+008200000728     A            XDD            2Y 0B 16 25COLOR(BLU)
+008300990211     A                                      EDTCDE(4)
+008400990211     A                                      RANGE(1 31)
+008500990211     A                                      CHECK(AB)
+008600990216     A  43                                  DSPATR(PC)
+008700990216     A  43                                  DSPATR(RI)
+008800990211     A                                 16 28'/'
+008900990211     A                                      COLOR(BLU)
+009000000728     A            XMM            2Y 0B 16 30COLOR(BLU)
+009100990211     A                                      RANGE(1 12)
+009200990211     A                                      EDTCDE(4)
+009300990216     A  43                                  DSPATR(PC)
+009400990216     A  43                                  DSPATR(RI)
+009500990211     A                                      CHECK(AB)
+009600990211     A                                 16 33'/'
+009700990211     A                                      COLOR(BLU)
+009800000728     A            XYY            4Y 0B 16 35COLOR(BLU)
+009900990211     A                                      EDTCDE(4)
+010000990211     A                                      RANGE(0 9999)
+010100990211     A                                      CHECK(AB)
+010200990216     A  43                                  DSPATR(PC)
+010300990216     A  43                                  DSPATR(RI)
+010400000728     A            XDD1           2Y 0B 16 49COLOR(BLU)
+010500990211     A                                      RANGE(1 31)
+010600990211     A                                      CHECK(AB)
+010700990211     A                                      EDTCDE(4)
+010800990216     A  44                                  DSPATR(PC)
+010900990216     A  44                                  DSPATR(RI)
+011000990211     A                                 16 52'/'
+011100990211     A                                      COLOR(BLU)
+011200000728     A            XMM1           2Y 0B 16 54COLOR(BLU)
+011300990211     A                                      EDTCDE(4)
+011400990211     A                                      RANGE(1 12)
+011500990211     A                                      CHECK(AB)
+011600990216     A  44                                  DSPATR(PC)
+011700990216     A  44                                  DSPATR(RI)
+011800990211     A                                 16 57'/'
+011900990211     A                                      COLOR(BLU)
+012000000728     A            XYY1           4Y 0B 16 59COLOR(BLU)
+012100990211     A                                      EDTCDE(4)
+012200990211     A                                      RANGE(0 9999)
+012300990211     A                                      CHECK(AB)
+012400990216     A  44                                  DSPATR(PC)
+012500990216     A  44                                  DSPATR(RI)
+012600000728     A            XSUBC          5A  B 10 25COLOR(BLU)
+012700990216     A  35                                  DSPATR(PC)
+012800990216     A  35                                  DSPATR(RI)
+012900000728     A            XSUBC1         5A  B 10 49COLOR(BLU)
+013000990216     A  36                                  DSPATR(PC)
+013100990216     A  36                                  DSPATR(RI)
+013200000728     A            XSERC          3A  B 19 25COLOR(BLU)
+013300990216     A  49                                  DSPATR(PC)
+013400990216     A  49                                  DSPATR(RI)
+013500000728     A            XSERC1         3A  B 19 49COLOR(BLU)
+013600990216     A  50                                  DSPATR(PC)
+013700990216     A  50                                  DSPATR(RI)
+013800000728     A            XSERN          9Y 0B 14 25COLOR(BLU)
+013900990216     A  39                                  DSPATR(PC)
+014000990216     A  39                                  DSPATR(RI)
+014100990211     A                                      EDTCDE(4)
+014200000728     A            XSERN1         9Y 0B 14 49COLOR(BLU)
+014300990216     A  40                                  DSPATR(PC)
+014400990216     A  40                                  DSPATR(RI)
+014500990211     A                                      EDTCDE(4)
+014600000728     A            XELEM          3Y 0B 15 25COLOR(BLU)
+014700990216     A  41                                  DSPATR(PC)
+014800990216     A  41                                  DSPATR(RI)
+014900990211     A                                      EDTCDE(4)
+015000000728     A            XELEM1         3Y 0B 15 49COLOR(BLU)
+015100990216     A  42                                  DSPATR(PC)
+015200990216     A  42                                  DSPATR(RI)
+015300990211     A                                      EDTCDE(4)
+015400000728     A            XQTYN         15Y 0B 17 25COLOR(BLU)
+015500990216     A  45                                  DSPATR(PC)
+015600990216     A  45                                  DSPATR(RI)
+015700990211     A                                      EDTCDE(4)
+015800000728     A            XQTYN1        15Y 0B 17 49COLOR(BLU)
+015900990216     A  46                                  DSPATR(PC)
+016000990216     A  46                                  DSPATR(RI)
+016100990211     A                                      EDTCDE(4)
+016200000728     A            XREAS          5A  B 12 25COLOR(BLU)
+016300990216     A  37                                  DSPATR(PC)
+016400990216     A  37                                  DSPATR(RI)
+016500000728     A            XREAS1         5A  B 12 49COLOR(BLU)
+016600990216     A  38                                  DSPATR(PC)
+016700990216     A  38                                  DSPATR(RI)
+016800000000     A*****************************************************************
+016900990106     A          R MSGRCD                    TEXT('Program messages')
+017000990106     A                                      SFL SFLMSGRCD(24)
+017100990106     A            MSGKEY                    SFLMSGKEY
+017200000728     A            XPGMID                    SFLPGMQ
+017300990106     A*****************************************************************
+017400990106     A          R MSGCTL                    SFLCTL(MSGRCD)
+017500990106     A*%%TS  SD  19980328  123253  EDISUPP     REL-V3R1M0  5763-PW1
+017600990106     A                                      TEXT('Program messages')
+017700990111     A  79                                  SFLDSP
+017800990111     A  79                                  SFLDSPCTL
+017900990111     A  79                                  SFLINZ
+018000990111     A  79                                  SFLEND
+018100990106     A                                      SFLSIZ(0010)
+018200990106     A                                      SFLPAG(0001)
+018300000728     A            XPGMID                    SFLPGMQ

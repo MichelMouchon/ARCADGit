@@ -1,0 +1,10 @@
+000100000714                                            REF(SMPREF)
+000200000714                R FDETO
+000300000714                  ORDDNB    R               REFFLD(ORDENB)
+000400000727                  ORDDYR    R               REFFLD(ORDEYR)
+000500000714                  ORDDLI    R
+000600000714                  ORDDAR    R               REFFLD(ARTIID)
+000700000714                  ORDLDE    R               REFFLD(ARTIDE)
+000800000714                  ORDDQT    R
+000900000714                  ORDDUP    R               REFFLD(ARTIPR)
+001000000714                  ORDDPR    R

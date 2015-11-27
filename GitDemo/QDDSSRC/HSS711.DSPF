@@ -1,0 +1,321 @@
+000100990216     A*%%TS  SD  19990216  092440  SARLLO      REL-V3R7M0  5716-PW1
+000200000000     A*****************************************************************
+000300000000     A*                                                               *
+000400990128     A*  Display File  : HSS711                                       *
+000500000000     A*                                                               *
+000600990128     A*  Description . : Voucher Tracking Reports                     *
+000700000000     A*                                                               *
+000800990105     A*  System  . . . : HSV Control & Tracking                       *
+000900000000     A*                                                               *
+001000000727     A*  Author  . . . : Owen Sarll                                   *
+001100000000     A*                                                               *
+001200990105     A*  Date Written  : January 1999                                 *
+001300000000     A*                                                               *
+001400000000     A*****************************************************************
+001500000000     A*
+001600990216     A*%%EC
+001700990216     A                                      DSPSIZ(24 80 *DS3)
+001800990216     A                                      REF(*LIBL/HSP999)
+001900990216     A                                      PRINT
+002000990216     A                                      HELP
+002100990216     A          R HSS711A
+002200990216     A*%%TS  SD  19990216  092440  SARLLO      REL-V3R7M0  5716-PW1
+002300990216     A                                      OVERLAY
+002400990302     A*                                     CA03(03)
+002500990216     A                                      CF04
+002600990302     A*                                     CF10
+002700990302     A                                      CA12
+002800990216     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+002900990216     A            CSRRCD        10A  H
+003000990216     A            CSRFLD        10A  H
+003100000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+003200990216     A                                  1 31'HIGH STREET VOUCHERS'
+003300990216     A                                      COLOR(WHT)
+003400990216     A                                  1 72SYSNAME
+003500990216     A                                      COLOR(WHT)
+003600000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+003700990216     A                                  2 72DATE
+003800990216     A                                      EDTCDE(Y)
+003900990216     A                                      COLOR(WHT)
+004000000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+004100990216     A                                  3 72TIME
+004200990216     A                                      COLOR(WHT)
+004300990216     A                                  2 29'Voucher Tracking Reports'
+004400990216     A                                      COLOR(WHT)
+004500990216     A                                  5  2'Product Code'
+004600990216     A                                  4 29'From'
+004700990216     A                                      DSPATR(UL)
+004800990216     A                                  4 53'To'
+004900990216     A                                      DSPATR(UL)
+005000990216     A                                  8  2'Series Code'
+005100990216     A                                  9  2'Serial Number'
+005200990216     A                                 10  2'Element Number'
+005300000728     A            XPROD         13A  B  5 29COLOR(BLU)
+005400990216     A  32                                  DSPATR(PC)
+005500990216     A  32                                  DSPATR(RI)
+005600000728     A            XPROD1        13A  B  5 53COLOR(BLU)
+005700990216     A  33                                  DSPATR(PC)
+005800990216     A  33                                  DSPATR(RI)
+005900000728     A            XDELN         20A  B 11 29COLOR(BLU)
+006000990216     A  42                                  DSPATR(PC)
+006100990216     A  42                                  DSPATR(RI)
+006200000728     A            XDELN1        20A  B 11 53COLOR(BLU)
+006300990216     A  43                                  DSPATR(PC)
+006400990216     A  43                                  DSPATR(RI)
+006500000728     A            XDDD           2Y 0B 12 29COLOR(BLU)
+006600990216     A  44                                  DSPATR(PC)
+006700990216     A  44                                  DSPATR(RI)
+006800990216     A                                      EDTCDE(4)
+006900990216     A                                      RANGE(0 31)
+007000990216     A                                      CHECK(AB)
+007100990216     A                                 12 32'/'
+007200990216     A                                      COLOR(BLU)
+007300000728     A            XDMM           2Y 0B 12 34COLOR(BLU)
+007400990216     A  44                                  DSPATR(PC)
+007500990216     A  44                                  DSPATR(RI)
+007600990216     A                                      RANGE(0 12)
+007700990216     A                                      EDTCDE(4)
+007800990216     A                                      CHECK(AB)
+007900990216     A                                 12 37'/'
+008000990216     A                                      COLOR(BLU)
+008100000728     A            XDYY           4Y 0B 12 39COLOR(BLU)
+008200990216     A  44                                  DSPATR(PC)
+008300990216     A  44                                  DSPATR(RI)
+008400990216     A                                      EDTCDE(4)
+008500990216     A                                      RANGE(0 9999)
+008600990216     A                                      CHECK(AB)
+008700000728     A            XDDD1          2Y 0B 12 53COLOR(BLU)
+008800990216     A  45                                  DSPATR(PC)
+008900990216     A  45                                  DSPATR(RI)
+009000990216     A                                      RANGE(0 31)
+009100990216     A                                      CHECK(AB)
+009200990216     A                                      EDTCDE(4)
+009300990216     A                                 12 56'/'
+009400990216     A                                      COLOR(BLU)
+009500000728     A            XDMM1          2Y 0B 12 58COLOR(BLU)
+009600990216     A  45                                  DSPATR(PC)
+009700990216     A  45                                  DSPATR(RI)
+009800990216     A                                      EDTCDE(4)
+009900990216     A                                      RANGE(0 12)
+010000990216     A                                      CHECK(AB)
+010100000728     A            XDYY1          4Y 0B 12 63COLOR(BLU)
+010200990216     A  45                                  DSPATR(PC)
+010300990216     A  45                                  DSPATR(RI)
+010400990216     A                                      EDTCDE(4)
+010500990216     A                                      RANGE(0 9999)
+010600990216     A                                      CHECK(AB)
+010700000728     A            XSERC          3A  B  8 29COLOR(BLU)
+010800990216     A  36                                  DSPATR(PC)
+010900990216     A  36                                  DSPATR(RI)
+011000000728     A            XSERC1         3A  B  8 53COLOR(BLU)
+011100990216     A  37                                  DSPATR(PC)
+011200990216     A  37                                  DSPATR(RI)
+011300000728     A            XSERN          9Y 0B  9 29COLOR(BLU)
+011400990216     A  38                                  DSPATR(PC)
+011500990216     A  38                                  DSPATR(RI)
+011600990216     A                                      EDTCDE(4)
+011700000728     A            XSERN1         9Y 0B  9 53COLOR(BLU)
+011800990216     A  39                                  DSPATR(PC)
+011900990216     A  39                                  DSPATR(RI)
+012000990216     A                                      EDTCDE(4)
+012100000728     A            XELEM          3Y 0B 10 29COLOR(BLU)
+012200990216     A  40                                  DSPATR(PC)
+012300990216     A  40                                  DSPATR(RI)
+012400990216     A                                      EDTCDE(4)
+012500000728     A            XELEM1         3Y 0B 10 53COLOR(BLU)
+012600990216     A  41                                  DSPATR(PC)
+012700990216     A  41                                  DSPATR(RI)
+012800990216     A                                      EDTCDE(4)
+012900990222     A                                 12  2'Date Received'
+013000990216     A                                 14  2'Sales Order No.'
+013100990216     A                                 17  2'Redemption Batch No.'
+013200990216     A                                 15  2'Dispatch Batch No.'
+013300990216     A                                 16  2'Date Shipped'
+013400990222     A                                 11  2'Delivery Note Ref.'
+013500000728     A            XSUPP          8A  B 13 29COLOR(BLU)
+013600990216     A  46                                  DSPATR(PC)
+013700990216     A  46                                  DSPATR(RI)
+013800000728     A            XSUPP1         8A  B 13 53COLOR(BLU)
+013900990216     A  47                                  DSPATR(PC)
+014000990216     A  47                                  DSPATR(RI)
+014100000728     A            XCUST          8A  B  6 29COLOR(BLU)
+014200990216     A  34                                  DSPATR(PC)
+014300990216     A  34                                  DSPATR(RI)
+014400000728     A            XCUST1         8A  B  6 53COLOR(BLU)
+014500990216     A  35                                  DSPATR(PC)
+014600990216     A  35                                  DSPATR(RI)
+014700000728     A            XSORD          8Y 0B 14 29COLOR(BLU)
+014800990216     A  48                                  DSPATR(PC)
+014900990216     A  48                                  DSPATR(RI)
+015000990216     A                                      EDTCDE(4)
+015100000728     A            XSORD1         8Y 0B 14 53COLOR(BLU)
+015200990216     A  49                                  DSPATR(PC)
+015300990216     A  49                                  DSPATR(RI)
+015400990216     A                                      EDTCDE(4)
+015500000728     A            XDSPB          5Y 0B 15 29COLOR(BLU)
+015600990216     A  50                                  DSPATR(PC)
+015700990216     A  50                                  DSPATR(RI)
+015800990216     A                                      EDTCDE(4)
+015900000728     A            XDSPB1         5Y 0B 15 53COLOR(BLU)
+016000990216     A  51                                  DSPATR(PC)
+016100990216     A  51                                  DSPATR(RI)
+016200990216     A                                      EDTCDE(4)
+016300000728     A            XSDD           2Y 0B 16 29COLOR(BLU)
+016400990216     A  52                                  DSPATR(PC)
+016500990216     A  52                                  DSPATR(RI)
+016600990216     A                                      EDTCDE(4)
+016700990216     A                                      CHECK(AB)
+016800990216     A                                      RANGE(1 32)
+016900990216     A                                 16 32'/'
+017000990216     A                                      COLOR(BLU)
+017100000728     A            XSMM           2Y 0B 16 34COLOR(BLU)
+017200990216     A  52                                  DSPATR(PC)
+017300990216     A  52                                  DSPATR(RI)
+017400990216     A                                      EDTCDE(4)
+017500990216     A                                      RANGE(1 12)
+017600990216     A                                      CHECK(AB)
+017700990216     A                                 16 37'/'
+017800990216     A                                      COLOR(BLU)
+017900000728     A            XSYY           4Y 0B 16 39COLOR(BLU)
+018000990216     A  52                                  DSPATR(PC)
+018100990216     A  52                                  DSPATR(RI)
+018200990216     A                                      EDTCDE(4)
+018300990216     A                                      RANGE(0 9999)
+018400990216     A                                      CHECK(AB)
+018500000728     A            XSDD1          2Y 0B 16 53COLOR(BLU)
+018600990216     A  53                                  DSPATR(PC)
+018700990216     A  53                                  DSPATR(RI)
+018800990216     A                                      EDTCDE(4)
+018900990216     A                                      RANGE(1 32)
+019000990216     A                                      CHECK(AB)
+019100990216     A                                 16 56'/'
+019200990216     A                                      COLOR(BLU)
+019300000728     A            XSMM1          2Y 0B 16 58COLOR(BLU)
+019400990216     A  53                                  DSPATR(PC)
+019500990216     A  53                                  DSPATR(RI)
+019600990216     A                                      EDTCDE(4)
+019700990216     A                                      RANGE(1 12)
+019800990216     A                                      CHECK(AB)
+019900990216     A                                 16 61'/'
+020000990216     A                                      COLOR(BLU)
+020100000728     A            XSYY1          4Y 0B 16 63COLOR(BLU)
+020200990216     A  53                                  DSPATR(PC)
+020300990216     A  53                                  DSPATR(RI)
+020400990216     A                                      EDTCDE(4)
+020500990216     A                                      RANGE(0 9999)
+020600990216     A                                      CHECK(AB)
+020700000728     A            XREDB          5Y 0B 17 29COLOR(BLU)
+020800990216     A  54                                  DSPATR(PC)
+020900990216     A  54                                  DSPATR(RI)
+021000990216     A                                      EDTCDE(4)
+021100000728     A            XREDB1         5Y 0B 17 53COLOR(BLU)
+021200990216     A  55                                  DSPATR(PC)
+021300990216     A  55                                  DSPATR(RI)
+021400990216     A                                      EDTCDE(4)
+021500000728     A            XRDD           2Y 0B 18 29COLOR(BLU)
+021600990216     A  56                                  DSPATR(PC)
+021700990216     A  56                                  DSPATR(RI)
+021800990216     A                                      EDTCDE(4)
+021900990216     A                                      RANGE(1 32)
+022000990216     A                                      CHECK(AB)
+022100990216     A                                 18 32'/'
+022200990216     A                                      COLOR(BLU)
+022300000728     A            XRMM           2Y 0B 18 34COLOR(BLU)
+022400990216     A  56                                  DSPATR(PC)
+022500990216     A  56                                  DSPATR(RI)
+022600990216     A                                      EDTCDE(4)
+022700990216     A                                      RANGE(1 12)
+022800990216     A                                      CHECK(AB)
+022900990216     A                                 18 37'/'
+023000990216     A                                      COLOR(BLU)
+023100000728     A            XRYY           4Y 0B 18 39COLOR(BLU)
+023200990216     A  56                                  DSPATR(PC)
+023300990216     A  56                                  DSPATR(RI)
+023400990216     A                                      CHECK(AB)
+023500990216     A                                      EDTCDE(4)
+023600990216     A                                      RANGE(0 9999)
+023700990216     A                                 18  2'Date Redeemed'
+023800990216     A                                 22  2'Redeemer Invoice     '
+023900000728     A            XRDD1          2Y 0B 18 53COLOR(BLU)
+024000990216     A  57                                  DSPATR(PC)
+024100990216     A  57                                  DSPATR(RI)
+024200990216     A                                      EDTCDE(4)
+024300990216     A                                      RANGE(1 32)
+024400990216     A                                      CHECK(AB)
+024500990216     A                                 18 56'/'
+024600990216     A                                      COLOR(BLU)
+024700000728     A            XRMM1          2Y 0B 18 58COLOR(BLU)
+024800990216     A  57                                  DSPATR(PC)
+024900990216     A  57                                  DSPATR(RI)
+025000990216     A                                      CHECK(AB)
+025100990216     A                                      EDTCDE(4)
+025200990216     A                                      RANGE(1 12)
+025300990216     A                                 18 61'/'
+025400990216     A                                      COLOR(BLU)
+025500000728     A            XRYY1          4Y 0B 18 63COLOR(BLU)
+025600990216     A  57                                  DSPATR(PC)
+025700990216     A  57                                  DSPATR(RI)
+025800990216     A                                      CHECK(AB)
+025900990216     A                                      EDTCDE(4)
+026000990216     A                                      RANGE(0 9999)
+026100000728     A            XHSVB          5Y 0B 19 29COLOR(BLU)
+026200990216     A  58                                  DSPATR(PC)
+026300990216     A  58                                  DSPATR(RI)
+026400990216     A                                      EDTCDE(4)
+026500000728     A            XHSVB1         5Y 0B 19 53COLOR(BLU)
+026600990216     A  59                                  DSPATR(PC)
+026700990216     A  59                                  DSPATR(RI)
+026800990216     A                                      EDTCDE(4)
+026900000728     A            XREDC          8A  B 20 29COLOR(BLU)
+027000990216     A  60                                  DSPATR(PC)
+027100990216     A  60                                  DSPATR(RI)
+027200000728     A            XREDC1         8A  B 20 53COLOR(BLU)
+027300990216     A  61                                  DSPATR(PC)
+027400990216     A  61                                  DSPATR(RI)
+027500000728     A            XREDR          5A  B 21 29COLOR(BLU)
+027600990216     A  62                                  DSPATR(PC)
+027700990216     A  62                                  DSPATR(RI)
+027800000728     A            XREDR1         5A  B 21 53COLOR(BLU)
+027900990216     A  63                                  DSPATR(PC)
+028000990216     A  63                                  DSPATR(RI)
+028100000728     A            XREDI         20A  B 22 29COLOR(BLU)
+028200990216     A  64                                  DSPATR(PC)
+028300990216     A  64                                  DSPATR(RI)
+028400000728     A            XREDI1        20A  B 22 53COLOR(BLU)
+028500990216     A  65                                  DSPATR(PC)
+028600990216     A  65                                  DSPATR(RI)
+028700990216     A                                  6  2'Customer A/c No.'
+028800990216     A                                 13  2'Supplier A/c No.'
+028900990216     A                                 19  2'AS400 Redemption Batch No.'
+029000990216     A                                 12 61'/'
+029100990216     A                                      COLOR(BLU)
+029200990216     A                                 20  2'Redemption A/c No.'
+029300990216     A                                 20 77' '
+029400990216     A                                 21 77' '
+029500990216     A                                 22 78' '
+029600990216     A                                 23 37' '
+029700990216     A                                 21  2'Redeemer Branch'
+029800990302     A*                                23  3'F3-Exit'
+029900990302     A*                                     COLOR(WHT)
+030000990216     A                                 23 12'F4-Search'
+030100990216     A                                      COLOR(WHT)
+030200990302     A*                                23 24'F10-Confirm'
+030300990302     A*                                     COLOR(WHT)
+030400990302     A                                 23 68'F12-Return'
+030500990302     A                                      COLOR(WHT)
+030600000000     A*****************************************************************
+030700990106     A          R MSGRCD                    TEXT('Program messages')
+030800990106     A                                      SFL SFLMSGRCD(24)
+030900990106     A            MSGKEY                    SFLMSGKEY
+031000000728     A            XPGMID                    SFLPGMQ
+031100990106     A*****************************************************************
+031200990106     A          R MSGCTL                    SFLCTL(MSGRCD)
+031300990106     A*%%TS  SD  19980328  123253  EDISUPP     REL-V3R1M0  5763-PW1
+031400990106     A                                      TEXT('Program messages')
+031500990111     A  79                                  SFLDSP
+031600990111     A  79                                  SFLDSPCTL
+031700990111     A  79                                  SFLINZ
+031800990111     A  79                                  SFLEND
+031900990106     A                                      SFLSIZ(0010)
+032000990106     A                                      SFLPAG(0001)
+032100000728     A            XPGMID                    SFLPGMQ

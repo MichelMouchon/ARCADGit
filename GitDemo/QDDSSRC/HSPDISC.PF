@@ -1,0 +1,40 @@
+000001888888      *%CSTD===========================================================*       *
+000002888888      ** Application. : SAM        Arcad Sample application            *       *
+000003888888      ** Component. . : HSPDISC                       Type: PF         *       *
+000004888888      **===============================================================*       *
+000005888888      ** Sub-system . : TRD Trade                                      *       *
+000006888888      ** Function . . : SAL Sales                                      *       *
+000007888888      ** Sub-function :                                                *       *
+000008888888      **%S=============================================================*       *
+000009888888      ** Description of functions:                                     *       *
+000010888888      **                                                               *       *
+000011888888      **                                                               *       *
+000012888888      **                                                               *       *
+000013888888      **%E=============================================================*       *
+000014888888      ** AUTHOR:                          00:00                        *       *
+000015888888      ** MODIFS: 01 MMARREL    05/23/2014 09:58  V 1.00.G MR 14/   22  *       *
+000016888888      **           MCH0001 when loading program                        *       *
+000017888888      *%ECSTD==========================================================*       *
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990215      *  File Name  :  HSPDISC                                     *
+000400000000      *                                                            *
+000500990215      *  Description:  Customer Discount File                      *
+000600000000      *                                                            *
+000700990215      *  Date       :  Februrary 1999                              *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990216     A          R HSFDISC
+001200990215      *  Description:  Customer Discount File
+001300990215     A            PCTYP     R               REFFLD(ECTYP)
+001400990215     A            PDAYS          2  0       TEXT('PAYMENT TERM DAYS')
+001500990216     A                                      COLHDG('PAYMENT' 'TERM' 'DAYS')
+001600140523     A            PFAMT         10  0       TEXT('ORDER AMOUNT FROM RANGE')
+001601140523
+001700990216     A                                      COLHDG('ORDER' 'AMOUNT' 'FROM')
+001800990216     A            PTAMT         10  0       TEXT('ORDER AMOUNT TO RANGE')
+001900990216     A                                      COLHDG('ORDER' 'AMOUNT' 'TO')
+002000990215     A            PDISC     R               REFFLD(DISP)
+002100990219     A            PDELT     R               REFFLD(A1)
+002200990219     A                                      COLHDG('Deletion Flag')

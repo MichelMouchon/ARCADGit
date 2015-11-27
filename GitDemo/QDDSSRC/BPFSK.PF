@@ -1,0 +1,179 @@
+000100000726     A          R BPRSK
+000200000726     A            SKRAC      00006A  B
+000300000726     A                                      CCSID(00297)
+000400000726     A                                      TEXT('ART COMMANDE: RACINE')
+000500000726     A                                      COLHDG( +
+000600000726     A                                      'RACINE' +
+000700000726     A                                      )
+000800000726     A            SKCCC      00001A  B
+000900000726     A                                      CCSID(00297)
+001000000726     A                                      TEXT('ART COMMANDE: CONDT CMDE M')
+001100000726     A                                      COLHDG( +
+001200000726     A                                      'COND' +
+001300000726     A                                      'CMDE' +
+001400000726     A                                      'MAG' +
+001500000726     A                                      )
+001600000726     A            SKVPV      00002A  B
+001700000726     A                                      CCSID(00297)
+001800000726     A                                      TEXT('ART COMMANDE: LOT PROMO')
+001900000726     A                                      COLHDG( +
+002000000726     A                                      'LOT' +
+002100000726     A                                      'PROMO' +
+002200000726     A                                      )
+002300000726     A            SKMOD      00001A  B
+002400000726     A                                      CCSID(00297)
+002500000726     A                                      TEXT('MODULO')
+002600000726     A                                      COLHDG( +
+002700000726     A                                      'MOD' +
+002800000726     A                                      )
+002900000726     A            SKAAM      00002A  B
+003000000726     A                                      CCSID(00297)
+003100000726     A                                      TEXT('ANNEE MODIF')
+003200000726     A                                      COLHDG( +
+003300000726     A                                      'ANNEE' +
+003400000726     A                                      'MODIF' +
+003500000726     A                                      )
+003600000726     A            SKMMM      00002A  B
+003700000726     A                                      CCSID(00297)
+003800000726     A                                      TEXT('MOIS MODIF')
+003900000726     A                                      COLHDG( +
+004000000726     A                                      'MOIS' +
+004100000726     A                                      'MODIF' +
+004200000726     A                                      )
+004300000726     A            SKJJM      00002A  B
+004400000726     A                                      CCSID(00297)
+004500000726     A                                      TEXT('JOUR MODIF')
+004600000726     A                                      COLHDG( +
+004700000726     A                                      'JOUR' +
+004800000726     A                                      'MODIF' +
+004900000726     A                                      )
+005000000726     A            SKHHM      00002A  B
+005100000726     A                                      CCSID(00297)
+005200000726     A                                      TEXT('HEURE MODIF')
+005300000726     A                                      COLHDG( +
+005400000726     A                                      'HEURE' +
+005500000726     A                                      'MODIF' +
+005600000726     A                                      )
+005700000726     A            SKMNM      00002A  B
+005800000726     A                                      CCSID(00297)
+005900000726     A                                      TEXT('MINUTE MODIF')
+006000000726     A                                      COLHDG( +
+006100000726     A                                      'MINUTE' +
+006200000726     A                                      'MODIF' +
+006300000726     A                                      )
+006400000726     A            SKSSM      00002A  B
+006500000726     A                                      CCSID(00297)
+006600000726     A                                      TEXT('SECONDE MODIF')
+006700000726     A                                      COLHDG( +
+006800000726     A                                      'SECONDE' +
+006900000726     A                                      'MODIF' +
+007000000726     A                                      )
+007100000726     A            SKAN       00002A  B
+007200000726     A                                      CCSID(00297)
+007300000726     A                                      TEXT('N° ANNEE')
+007400000726     A                                      COLHDG( +
+007500000726     A                                      'N°' +
+007600000726     A                                      'ANNEE' +
+007700000726     A                                      )
+007800000726     A            SKMOIS     00002A  B
+007900000726     A                                      CCSID(00297)
+008000000726     A                                      TEXT('N° MOIS')
+008100000726     A                                      COLHDG( +
+008200000726     A                                      'N°' +
+008300000726     A                                      'MOIS' +
+008400000726     A                                      )
+008500000726     A            SKSTKO     00011P03B
+008600000726     A                                      TEXT('STOCK ORIGINE AVANT')
+008700000726     A                                      COLHDG( +
+008800000726     A                                      'STOCK' +
+008900000726     A                                      'ORIGINE' +
+009000000726     A                                      'AVANT' +
+009100000726     A                                      )
+009200000726     A            SKNATO     00001A  B
+009300000726     A                                      CCSID(00297)
+009400000726     A                                      TEXT('0ex,1disp,2prom,3blq,4prép')
+009500000726     A                                      COLHDG( +
+009600000726     A                                      'NATURE' +
+009700000726     A                                      'ORIGINE' +
+009800000726     A                                      )
+009900000726     A            SKSTKD     00011P03B
+010000000726     A                                      TEXT('STOCK DESTINA AVANT')
+010100000726     A                                      COLHDG( +
+010200000726     A                                      'STOCK' +
+010300000726     A                                      'DESTINA' +
+010400000726     A                                      'AVANT' +
+010500000726     A                                      )
+010600000726     A            SKNATD     00001A  B
+010700000726     A                                      CCSID(00297)
+010800000726     A                                      TEXT('0ex,1disp,2prom,3blq,4prép')
+010900000726     A                                      COLHDG( +
+011000000726     A                                      'NATURE' +
+011100000726     A                                      'DESTINA' +
+011200000726     A                                      )
+011300000726     A            SKSTKV     00011P03B
+011400000726     A                                      TEXT('VARIATION STOC')
+011500000726     A                                      COLHDG( +
+011600000726     A                                      'VARIATION' +
+011700000726     A                                      'STOC' +
+011800000726     A                                      )
+011900000726     A            SKTYPE     00002A  B
+012000000726     A                                      CCSID(00297)
+012100000726     A                                      TEXT('TYPE MODIF')
+012200000726     A                                      COLHDG( +
+012300000726     A                                      'TYPE' +
+012400000726     A                                      'MODIF' +
+012500000726     A                                      )
+012600000726     A            SKMOTF     00002A  B
+012700000726     A                                      CCSID(00297)
+012800000726     A                                      TEXT('MOTIF')
+012900000726     A                                      COLHDG( +
+013000000726     A                                      'MOTIF' +
+013100000726     A                                      )
+013200000726     A            SKCID      00005A  B
+013300000726     A                                      CCSID(00297)
+013400000726     A                                      TEXT('CENTRE D''ACTIVITE')
+013500000726     A                                      COLHDG( +
+013600000726     A                                      'CID' +
+013700000726     A                                      )
+013800000726     A            SKNFAC     00008A  B
+013900000726     A                                      CCSID(00297)
+014000000726     A                                      TEXT('NUMERO FACTURE')
+014100000726     A                                      COLHDG( +
+014200000726     A                                      'NUMERO' +
+014300000726     A                                      'FACTURE' +
+014400000726     A                                      )
+014500000726     A            SKNPLT     00006S00B
+014600000726     A                                      TEXT('NUMERO PALETTE')
+014700000726     A                                      COLHDG( +
+014800000726     A                                      'NPLT' +
+014900000726     A                                      )
+015000000726     A            SKFTAA     00002A  B
+015100000726     A                                      CCSID(00297)
+015200000726     A                                      TEXT('AA FACT')
+015300000726     A                                      COLHDG( +
+015400000726     A                                      'AA' +
+015500000726     A                                      'FACT' +
+015600000726     A                                      )
+015700000726     A            SKFTMM     00002A  B
+015800000726     A                                      CCSID(00297)
+015900000726     A                                      TEXT('MM FACT')
+016000000726     A                                      COLHDG( +
+016100000726     A                                      'MM' +
+016200000726     A                                      'FACT' +
+016300000726     A                                      )
+016400000726     A            SKFTJJ     00002A  B
+016500000726     A                                      CCSID(00297)
+016600000726     A                                      TEXT('JJ FACT')
+016700000726     A                                      COLHDG( +
+016800000726     A                                      'JJ' +
+016900000726     A                                      'FACT' +
+017000000726     A                                      )
+017100000726     A          K SKRAC
+017200000726     A          K SKCCC
+017300000726     A          K SKVPV
+017400000726     A          K SKAAM
+017500000726     A          K SKMMM
+017600000726     A          K SKJJM
+017700000726     A          K SKHHM
+017800000726     A          K SKMNM
+017900000726     A          K SKSSM

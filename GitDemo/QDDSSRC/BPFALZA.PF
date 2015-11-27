@@ -1,0 +1,281 @@
+000100000726     A          R BPRALZA
+000200000727     A                                      TEXT('FILE. ALL. WRK. APPRO. AZ.')
+000300000726     A            AZCNFE     00006A  B
+000400000727     A
+000500000727     A                                      TEXT('CNUL ISSUER')
+000600000726     A                                      COLHDG( +
+000700000726     A                                      'CNUL' +
+000800000726     A                                      'Emett' +
+000900000726     A                                      )
+001000000726     A            AZCIFE     00003A  B
+001100000727     A
+001200000727     A                                      TEXT('CIF ISSUER')
+001300000726     A                                      COLHDG( +
+001400000726     A                                      'CIF' +
+001500000726     A                                      'Emett' +
+001600000726     A                                      )
+001700000726     A            AZNCMD     00008A  B
+001800000727     A
+001900000727     A                                      TEXT('COMMAND NUMBER')
+002000000726     A                                      COLHDG( +
+002100000726     A                                      'Num' +
+002200000726     A                                      'Cde' +
+002300000726     A                                      )
+002400000726     A            AZNORD     00005A  B
+002500000727     A
+002600000727     A                                      TEXT('ORDER NUMBER')
+002700000726     A                                      COLHDG( +
+002800000726     A                                      'Num' +
+002900000726     A                                      'Ordre' +
+003000000726     A                                      )
+003100000726     A            AZCNDD     00003A  B
+003200000727     A
+003300000727     A                                      TEXT('CNUD DESTINATION')
+003400000726     A                                      COLHDG( +
+003500000726     A                                      'CNUD' +
+003600000726     A                                      'Desti' +
+003700000726     A                                      )
+003800000726     A            AZCIDD     00005A  B
+003900000727     A
+004000000727     A                                      TEXT('SHOP Destination')
+004100000726     A                                      COLHDG( +
+004200000726     A                                      'Mag' +
+004300000726     A                                      'Desti' +
+004400000726     A                                      )
+004500000726     A            AZCNDL     00003A  B
+004600000727     A
+004700000727     A                                      TEXT('CNUD DRIVER')
+004800000726     A                                      COLHDG( +
+004900000726     A                                      'CNUD' +
+005000000726     A                                      'Liv.' +
+005100000726     A                                      )
+005200000726     A            AZCIDL     00005A  B
+005300000727     A
+005400000727     A                                      TEXT('WAREHOUSE CODE')
+005500000726     A                                      COLHDG( +
+005600000726     A                                      'Ent' +
+005700000726     A                                      'Liv' +
+005800000726     A                                      )
+005900000726     A            AZAAEM     00002A  B
+006000000727     A
+006100000727     A                                      TEXT('ISSUING YEAR')
+006200000726     A                                      COLHDG( +
+006300000726     A                                      'Ann' +
+006400000726     A                                      'Emi' +
+006500000726     A                                      )
+006600000726     A            AZMMEM     00002A  B
+006700000727     A
+006800000727     A                                      TEXT('ISSUING MONTH')
+006900000726     A                                      COLHDG( +
+007000000726     A                                      'Moi' +
+007100000726     A                                      'Emi' +
+007200000726     A                                      )
+007300000726     A            AZJJEM     00002A  B
+007400000727     A
+007500000727     A                                      TEXT('ISSUING DAY')
+007600000726     A                                      COLHDG( +
+007700000726     A                                      'Jou' +
+007800000726     A                                      'Emi' +
+007900000726     A                                      )
+008000000726     A            AZAALV     00002A  B
+008100000727     A
+008200000727     A                                      TEXT('PLANNED DELIVERY YEAR')
+008300000726     A                                      COLHDG( +
+008400000726     A                                      'Ann' +
+008500000726     A                                      'Liv' +
+008600000726     A                                      'Prév' +
+008700000726     A                                      )
+008800000726     A            AZMMLV     00002A  B
+008900000727     A
+009000000727     A                                      TEXT('PLANNED DELIVERY MONTH')
+009100000726     A                                      COLHDG( +
+009200000726     A                                      'Moi' +
+009300000726     A                                      'Liv' +
+009400000726     A                                      'Prév' +
+009500000726     A                                      )
+009600000726     A            AZJJLV     00002A  B
+009700000727     A
+009800000727     A                                      TEXT('PLANNED DELIVERY DAY')
+009900000726     A                                      COLHDG( +
+010000000726     A                                      'Jou' +
+010100000726     A                                      'Liv' +
+010200000726     A                                      'Prév' +
+010300000726     A                                      )
+010400000726     A            AZHHLV     00002A  B
+010500000727     A
+010600000727     A                                      TEXT('PLANNED DELIVERY HOUR')
+010700000726     A                                      COLHDG( +
+010800000726     A                                      'Heu' +
+010900000726     A                                      'Liv' +
+011000000726     A                                      'Prév' +
+011100000726     A                                      )
+011200000726     A            AZMNLV     00002A  B
+011300000727     A
+011400000727     A                                      TEXT('PLANNED DELIVERY MINUTE')
+011500000726     A                                      COLHDG( +
+011600000726     A                                      'Min' +
+011700000726     A                                      'Liv' +
+011800000726     A                                      'Prév' +
+011900000726     A                                      )
+012000000726     A            AZSPCB     00004S00B
+012100000727     A                                      TEXT('SUB-CONDITIONING SUPPL')
+012200000726     A                                      COLHDG( +
+012300000726     A                                      'SPCB' +
+012400000726     A                                      )
+012500000726     A            AZPCB      00004S00B
+012600000727     A                                      TEXT('SUPPLIER CONDITIONING')
+012700000726     A                                      COLHDG( +
+012800000726     A                                      'PCB' +
+012900000726     A                                      )
+013000000726     A            AZEAN      00012A  B
+013100000727     A
+013200000727     A                                      TEXT('EAN CODE')
+013300000726     A                                      COLHDG( +
+013400000726     A                                      'EAN' +
+013500000726     A                                      )
+013600000726     A            AZKEAN     00001A  B
+013700000727     A
+013800000727     A                                      TEXT('EAN KEY')
+013900000726     A                                      COLHDG( +
+014000000726     A                                      'Clé' +
+014100000726     A                                      'EAN' +
+014200000726     A                                      )
+014300000726     A            AZVL       00002A  B
+014400000727     A
+014500000727     A                                      TEXT('VARIANT LOGISTICS')
+014600000726     A                                      COLHDG( +
+014700000726     A                                      'VL' +
+014800000726     A                                      )
+014900000726     A            AZVA       00002A  B
+015000000727     A
+015100000727     A                                      TEXT('VARIANT PROMO')
+015200000726     A                                      COLHDG( +
+015300000726     A                                      'VA' +
+015400000726     A                                      )
+015500000726     A            AZQT       00009P03B
+015600000727     A                                      TEXT('QUANTITY')
+015700000726     A                                      COLHDG( +
+015800000726     A                                      'QTE' +
+015900000726     A                                      )
+016000000726     A            AZPA       00008P03B
+016100000727     A                                      TEXT('BUYING PRICE')
+016200000726     A                                      COLHDG( +
+016300000726     A                                      'Prix' +
+016400000726     A                                      'Achat' +
+016500000726     A                                      )
+016600000726     A            AZPVM      00008P03B
+016700000727     A                                      TEXT('MARKED SELLING PRICE')
+016800000726     A                                      COLHDG( +
+016900000726     A                                      'Prix' +
+017000000726     A                                      'Vente' +
+017100000726     A                                      'Marqué' +
+017200000726     A                                      )
+017300000726     A            AZRAC      00006A  B
+017400000727     A
+017500000727     A                                      TEXT('ROOT OF ARTICLE ORDERED')
+017600000726     A                                      COLHDG( +
+017700000726     A                                      'Racine' +
+017800000726     A                                      'Article' +
+017900000726     A                                      'Commandé' +
+018000000726     A                                      )
+018100000726     A            AZCCC      00001A  B
+018200000727     A
+018300000727     A                                      TEXT('Condition ORDER SHOP. Ar')
+018400000726     A                                      COLHDG( +
+018500000726     A                                      'COND' +
+018600000726     A                                      'CMDE' +
+018700000726     A                                      'MAG' +
+018800000726     A                                      )
+018900000726     A            AZVPV      00002A  B
+019000000727     A
+019100000727     A                                      TEXT('ART ORDER: LOT PROMO')
+019200000726     A                                      COLHDG( +
+019300000726     A                                      'LOT' +
+019400000726     A                                      'PROMO' +
+019500000726     A                                      )
+019600000726     A            AZMOD      00001A  B
+019700000727     A
+019800000727     A                                      TEXT('ORDERED ARTICLE MODULE')
+019900000726     A                                      COLHDG( +
+020000000726     A                                      'Modulo' +
+020100000726     A                                      'Article' +
+020200000726     A                                      'Commandé' +
+020300000726     A                                      )
+020400000726     A            AZDES      00030A  B
+020500000727     A
+020600000727     A                                      TEXT('DESIGNATION ORDERED ARTICLE')
+020700000726     A                                      COLHDG( +
+020800000726     A                                      'Désig.' +
+020900000726     A                                      'Article' +
+021000000726     A                                      'Commandé' +
+021100000726     A                                      )
+021200000726     A            AZEMPL     00006A  B
+021300000727     A
+021400000727     A                                      TEXT('LOCATION CODE')
+021500000726     A                                      COLHDG( +
+021600000726     A                                      'Code' +
+021700000726     A                                      'Emplacement' +
+021800000726     A                                      )
+021900000726     A            AZAACR     00002A  B
+022000000727     A
+022100000727     A                                      TEXT('CREATION YEAR')
+022200000726     A                                      COLHDG( +
+022300000726     A                                      'Année' +
+022400000726     A                                      'Création' +
+022500000726     A                                      )
+022600000726     A            AZMMCR     00002A  B
+022700000727     A
+022800000727     A                                      TEXT('CREATION MONTH')
+022900000726     A                                      COLHDG( +
+023000000726     A                                      'Mois' +
+023100000726     A                                      'Création' +
+023200000726     A                                      )
+023300000726     A            AZJJCR     00002A  B
+023400000727     A
+023500000727     A                                      TEXT('CREATION DAY')
+023600000726     A                                      COLHDG( +
+023700000726     A                                      'Jour' +
+023800000726     A                                      'Création' +
+023900000726     A                                      )
+024000000726     A            AZHHCR     00002A  B
+024100000727     A
+024200000727     A                                      TEXT('CREATION HOUR')
+024300000726     A                                      COLHDG( +
+024400000726     A                                      'Heure' +
+024500000726     A                                      'Création' +
+024600000726     A                                      )
+024700000726     A            AZMNCR     00002A  B
+024800000727     A
+024900000727     A                                      TEXT('CREATION MINUTE')
+025000000726     A                                      COLHDG( +
+025100000726     A                                      'Minute' +
+025200000726     A                                      'Création' +
+025300000726     A                                      )
+025400000726     A            AZSSCR     00002A  B
+025500000727     A
+025600000727     A                                      TEXT('CREATION SECOND')
+025700000726     A                                      COLHDG( +
+025800000726     A                                      'Seconde' +
+025900000726     A                                      'Création' +
+026000000726     A                                      )
+026100000726     A            AZRVAL     00001A  B
+026200000727     A
+026300000727     A                                      TEXT('VALID RETURN (Y=YES;'' ''')
+026400000726     A                                      COLHDG( +
+026500000726     A                                      'Top' +
+026600000726     A                                      'Ret' +
+026700000726     A                                      'Valide' +
+026800000726     A                                      )
+026900000726     A            AZCAPP     00003A  B
+027000000727     A
+027100000727     A                                      TEXT('SUPPLIER CODE')
+027200000726     A                                      COLHDG( +
+027300000726     A                                      'Code' +
+027400000726     A                                      'Approvisionneur' +
+027500000726     A                                      )
+027600000726     A            AZDATA     00046A  B
+027700000727     A
+027800000726     A                                      TEXT('Filler 01')
+027900000726     A                                      COLHDG( +
+028000000726     A                                      'Filler 01' +
+028100000726     A                                      )

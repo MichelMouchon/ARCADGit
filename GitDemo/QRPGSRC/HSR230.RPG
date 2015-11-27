@@ -1,0 +1,179 @@
+000100000000     H        1   Y
+000200000000      *****************************************************************
+000300000000      *                                                               *
+000400990204      *  Program Id. . : HSR230                                       *
+000500000000      *                                                               *
+000600990204      *  Description . : Delivery Note Print Processing               *
+000700000000      *                                                               *
+000800990105      *  System  . . . : High Street Vouchers Control & Tracking      *
+000900000000      *                                                               *
+001000980923      *  Author  . . . : Colin N. Jones   (Intec Systems Limited)     *
+001100000000      *                                                               *
+001200990204      *  Date Written  : February 1999                                *
+001300000000      *                                                               *
+001400000000      *****************************************************************
+001500990114      * Indicator usage:
+001600990203      *  90 - Main Order Header read result.
+001700990203      *  91 - Order Delivery Details read result.
+001800990203      *  92 - Product Details
+001900990203      *  93 - Order Details lines read result.
+002000990203      *  94 - Customer Details read result.
+002100990114      *
+002200990114      *****************************************************************
+002300990114      * Maintenance   :
+002400990114      * Fix/Chg Ref. Date       Description.
+002500990114      * ------------ ---------- -----------------------------------
+002600990114      *================================================================
+002700990126      *
+002800990126      * Sales Order Header File
+002900990129     FHSLORDHAUF  E           K        DISK
+003000990126      *
+003100990126      * Sales Order Detail File
+003200990127     FHSLORDDAIF  E           K        DISK
+003300990126      *
+003400990126      * Sales Order Delivery Detail File
+003500990127     FHSLODELAIF  E           K        DISK
+003600990126      *
+003700990126      * Customer Master File
+003800990126     FHSLCUSTAIF  E           K        DISK
+003900990126      *
+004000990126      * Product Master File
+004100990126     FHSLPRODAIF  E           K        DISK
+004200990126      *
+004300990204     FHSW230  O   E                    PRINTER
+004400000000      *
+004500000000      *****************************************************************
+004600990114      *----------------------------------------------------------------
+004700990127      *
+004800000728     IXDATE       DS
+004900990127     I                                        1   80CYMD
+005000990127     I                                        1   20CC
+005100990127     I                                        3   80YMD
+005200990127     I                                        3   40YY
+005300990129     I                                        5   60MM
+005400990129     I                                        7   80DD
+005500990127      *
+005600000728     IXXXSDS     SDS                            429
+005700000728     I                                     *PROGRAM XPGMID
+005800000728     I                                      244 253 XJOBNO
+005900000728     I                                      254 263 XUSRID
+006000990108      *  Main Line Processing
+006100990108      *************************************************************
+006200990126      *
+006300000728     C           ORDERX    SETLLHSFORDH
+006400990106b1   C           *INLR     DOUEQ*ON
+006500990119      *
+006600990202     C                     READ HSFORDH                  90
+006700990126      *
+006800990217      * If Order number not found then quit program
+006900990129      * otherwise process Order record.
+007000990126      *
+007100000728     C           ORDERX    IFNE JSORD
+007200990202     C                     MOVE *ON       *INLR
+007300990202     C                     LEAVE
+007400990202     C                     ENDIF
+007500990202      *
+007600990127     C           *IN90     IFEQ *ON
+007700990126     C                     MOVE *ON       *INLR
+007800990126     C                     ELSE
+007900990204     C                     MOVE DELVRY    JDELN
+008000000728     C                     MOVE DELVRY    JDELNX
+008100000728     C                     Z-ADD0         DELNX
+008200000728     C                     MOVE DELVRY    DELNX  120
+008300990226     C*                    MOVE CYMD      JDELD
+008400990225     C*                    MOVE 'D'       JSTAT
+008500990217      *
+008600000728     C                     TIME           XXTME   60
+008700000728     C                     MOVE XXTME     JCRTT
+008800990217     C                     MOVE CYMD      JCRTD
+008900000728     C                     MOVE XPGMID    JCRTP
+009000000728     C                     MOVE XJOBNO    JCRTS
+009100000728     C                     MOVE XUSRID    JCRTU
+009200990129     C                     UPDATHSFORDH
+009300990105     C                     EXSR SR01
+009400990126     C                     ENDIF
+009500990106      *
+009600990126e1   C                     ENDDO
+009700990127      *
+009800990127     C                     WRITEFOOTER
+009900990106      ****************************************************************
+010000990126      *  Process Record
+010100990107      *****************************************************************
+010200990126     C           SR01      BEGSR
+010300990107      *          ***************
+010400990126      *
+010500990129      * Get Delivery Address Details
+010600990129      * and write delivery details
+010700990126      *
+010800000728     C           ORDERX    CHAINHSLODELA             91
+010900990203     C           JCUST     CHAINHSLCUSTA             94
+011000990203     C           *IN94     IFEQ *OFF
+011100990129     C                     MOVE DD        JINDD
+011200990202     C                     MOVE MM        JINMM
+011300990129     C                     MOVE YY        JINYY
+011400990129     C                     WRITEHEADER1
+011500990202     C                     WRITEDETL
+011600990129     C                     ENDIF
+011700990126      *
+011800990129      * Get Order Detail lines & print. Only quit if no more order line
+011900990129      * exist.
+012000990126      *
+012100990129     C                     MOVE *OFF      *IN93
+012200990129      *
+012300000728     C           ORDERX    SETLLHSLORDDA
+012400990202     C           *IN93     DOWNE*ON
+012500990202     C                     READ HSLORDDA                 93
+012600990202      *
+012700000728     C           ORDERX    IFNE KSORD
+012800990202     C                     MOVE *ON       *IN93
+012900990202     C                     LEAVE
+013000990202     C                     ENDIF
+013100990202      *
+013200990127     C           *IN93     IFNE *ON
+013300990129      *
+013400990129      * Get product description.
+013500990129      *
+013600990129     C           KPROD     CHAINHSLPRODA             92
+013700000728     C                     MOVELKPROD     PRODX   4
+013800000728     C                     MOVELNDESC     PDESCX 40
+013900990202     C                     WRITEDETL1
+014000990202     C                     WRITEDETL2
+014100990202     C                     ELSE
+014200990202     C                     LEAVE
+014300990202     C                     ENDIF
+014400990129      *
+014500990129      *
+014600990129     C                     ENDDO
+014700990107      *          ***************
+014800990107     C                     ENDSR
+014900990126      *****************************************************************
+015000990126      *  Initial Subroutine.
+015100990126      *****************************************************************
+015200990126     C           *INZSR    BEGSR
+015300990126      *
+015400990126      * Prepare message subfile.
+015500990126      *
+015600990127     C           *ENTRY    PLIST
+015700000728     C                     PARM           ORDX    8
+015800000728     C                     MOVE ORDX      ORDERX  80
+015900000728     C                     MOVE ORDX      DELVRY  8
+016000990126      *
+016100990204      * Get Delivery Number & increment by 1.
+016200990222     C*          *NAMVAR   DEFN HSADELN   DELVRY  8
+016300990222     C*          *LOCK     IN   DELVRY
+016400990222     C*                    MOVE DELVRY    DEL#    80
+016500990222     C*                    ADD  1         DEL#
+016600990222     C*                    MOVE DEL#      DELVRY
+016700990222     C*                    OUT  DELVRY
+016800990126      *
+016900990126      * Set up current CCYYMMDD
+017000990126      *
+017100990126     C                     MOVE UDATE     YMD     60
+017200990126     C           YY        IFGE 40
+017300990126     C           YY        ANDLE99
+017400990126     C                     Z-ADD19        CC
+017500990126     C                     ELSE
+017600990126     C                     Z-ADD20        CC
+017700990126     C                     ENDIF
+017800990126      *
+017900990126     C                     ENDSR

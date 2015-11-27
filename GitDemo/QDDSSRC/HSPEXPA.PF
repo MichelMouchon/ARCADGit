@@ -1,0 +1,19 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990219      *  File Name  :  HSPACTL                                     *
+000400000000      *                                                            *
+000500990219      *  Description:  Agent Voucher Control                       *
+000600000000      *                                                            *
+000700990219      *  Date       :  February 1999                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990301     A          R HSFEXPA
+001200990301      *  Description:  Expanded Order Line File
+001300990301     A            UPROD     R               REFFLD(PROD)
+001400990301     A            USERCC    R               REFFLD(SERC)
+001500990301     A                                      COLHDG('Series Code')
+001600990301     A            USERNS    R               REFFLD(SERN)
+001700990115     A                                      COLHDG('Start Serial No.')
+001800990301     A            USERNE    R               REFFLD(SERN)
+001900990115     A                                      COLHDG('End Serial No.')

@@ -1,0 +1,1051 @@
+000100990204      */TITLE Voucher Tracking Reports
+000200990204      * CRTRPGPGM
+000300990204      *
+000400990204      * System  :  High Street Vouchers Control and Tracking
+000500990204      * Author  :  Owen Sarll  (Intec Systems Ltd)
+000600990204      * Date    :  January 1999.
+000700990204      *
+000800990204      *===============================================================
+000900990204      * Indicator usage:
+001000990119      *
+001100990204      * 03 - The main controlling do-loop.
+001200990216      * 32 - DSPATR (error) - From Product Code.
+001300990216      * 33 - DSPATR (error) - To Product Code.
+001400990216      * 34 - DSPATR (error) - From Customer A/c No.
+001500990216      * 35 - DSPATR (error) - To Customer A/c No.
+001600990216      * 36 - DSPATR (error) - From Series Code.
+001700990216      * 37 - DSPATR (error) - To Series Code.
+001800990216      * 38 - DSPATR (error) - From Serial No.
+001900990216      * 39 - DSPATR (error) - To Serial No.
+002000990216      * 40 - DSPATR (error) - From Element No.
+002100990216      * 41 - DSPATR (error) - To Element No.
+002200990216      * 42 - DSPATR (error) - From Delivery Reference.
+002300990216      * 43 - DSPATR (error) - To Delivery Refernence.
+002400990216      * 44 - DSPATR (error) - From Date Delivered.
+002500990216      * 45 - DSPATR (error) - To Date Delivered.
+002600990216      * 46 - DSPATR (error) - From Supplier A/c No.
+002700990216      * 47 - DSPATR (error) - To Supplier A/c No.
+002800990216      * 48 - DSPATR (error) - From Sales Order No.
+002900990216      * 49 - DSPATR (error) - To Sales Order No.
+003000990216      * 50 - DSPATR (error) - From Dispatch Batch No.
+003100990216      * 51 - DSPATR (error) - To Dispatch Batch No.
+003200990216      * 52 - DSPATR (error) - From Date Shipped.
+003300990216      * 53 - DSPATR (error) - To Date Shipped.
+003400990216      * 54 - DSPATR (error) - From Redemption Batch No.
+003500990216      * 55 - DSPATR (error) - To Redemption Batch No.
+003600990216      * 56 - DSPATR (error) - From Date Redeemed
+003700990216      * 57 - DSPATR (error) - To Date Redeemed
+003800990216      * 58 - DSPATR (error) - From AS400 Redemption Batch No.
+003900990216      * 59 - DSPATR (error) - To AS400 Redemption Batch No.
+004000990216      * 60 - DSPATR (error) - From Redemption A/c No.
+004100990216      * 61 - DSPATR (error) - To Redemption A/c No.
+004200990216      * 62 - DSPATR (error) - From Redeemer Branch.
+004300990216      * 63 - DSPATR (error) - To Redeemer Branch.
+004400990216      * 64 - DSPATR (error) - From Redeemer Invoice No.
+004500990216      * 65 - DSPATR (error) - To Redeemer Invoice No.
+004600990204      * 73 - Do-loop that encompasses validation subroutine and is
+004700990204      *       exited from if an error is found in the data to be
+004800990204      *       entered for report generation.
+004900990204      * 79 - MSGSFL (SFLCLR ETC...)
+005000990204      * 94 - Chain Product Master File by Product No. LF
+005100990204      * 95 - Chain Customer Master File by Customer No. LF
+005200990119      *
+005300990204      *================================================================
+005400990119     FHSLPRODAIF  E           K        DISK
+005500990204      * Product Code file by Product Code.
+005600990128     FHSLCUSTAIF  E           K        DISK
+005700990204      * Customer Code file by Customer Code.
+005800990128     FHSS711  CF  E                    WORKSTN      KINFDS INFDS
+005900990204      * Screen file.
+006000990204      * ===============================================================
+006100990204      * Arrays.
+006200990121      *
+006300990121     E                    LPY    12  12  2 0
+006400990121     E                    NLY    12  12  2 0
+006500990122      *
+006600990204      * SBMJOB command
+006700990122      *
+006800990204     E                    ARA     1  10 60
+006900990204      *================================================================
+007000990204      * Data Structures.
+007100990125      *
+007200990125     ICMA         DS
+007300990125      *    OPNQRY command layout for parameter substitution
+007400990204     I                                        1 600 ARA
+007500000728     I                                       30  42 XPROD
+007600000728     I                                       46  58 XPROD1
+007700000728     I                                       62  64 XSERC
+007800000728     I                                       68  70 XSERC1
+007900990301     I                                       74  82 ASERN
+008000990301     I                                       86  94 ASERN1
+008100990301     I                                       98 100 AELEM
+008200990301     I                                      104 106 AELEM1
+008300000728     I                                      110 129 XDELN
+008400000728     I                                      133 152 XDELN1
+008500990204     I                                      191 198 ADDAT
+008600990204     I                                      202 209 ADDAT1
+008700000728     I                                      213 220 XSUPP
+008800000728     I                                      224 231 XSUPP1
+008900000728     I                                      235 242 XCUST
+009000000728     I                                      246 253 XCUST1
+009100990204     I                                      257 264 ASORD
+009200990204     I                                      268 275 ASORD1
+009300990204     I                                      279 283 ADSPB
+009400990204     I                                      287 291 ADSPB1
+009500990204     I                                      295 302 ASDAT
+009600990204     I                                      306 313 ASDAT1
+009700990204     I                                      317 321 AREDB
+009800990204     I                                      325 329 AREDB1
+009900990204     I                                      333 340 ARDAT
+010000990204     I                                      344 351 ARDAT1
+010100990216     I                                      355 359 AHSVB
+010200990216     I                                      363 367 AHSVB1
+010300000728     I                                      371 378 XREDC
+010400000728     I                                      382 389 XREDC1
+010500000728     I                                      393 397 XREDR
+010600000728     I                                      401 405 XREDR1
+010700000728     I                                      409 428 XREDI
+010800000728     I                                      432 451 XREDI1
+010900000728     I                                      455 464 XPGMID
+011000000728     I                                      468 477 XUSRID
+011100000728     I                                      481 490 XJOBNO
+011200990125      *
+011300990204     ICMD         DS                            600
+011400990125      *
+011500990121     I            DS
+011600000728     I                                        1   80XDDAT
+011700000728     I                                        1   40XDYY
+011800000728     I                                        5   60XDMM
+011900000728     I                                        7   80XDDD
+012000990121     I            DS
+012100000728     I                                        1   80XDDAT1
+012200000728     I                                        1   40XDYY1
+012300000728     I                                        5   60XDMM1
+012400000728     I                                        7   80XDDD1
+012500990128      *
+012600990128     I            DS
+012700000728     I                                        1   80XSDAT
+012800000728     I                                        1   40XSYY
+012900000728     I                                        5   60XSMM
+013000000728     I                                        7   80XSDD
+013100990128     I            DS
+013200000728     I                                        1   80XSDAT1
+013300000728     I                                        1   40XSYY1
+013400000728     I                                        5   60XSMM1
+013500000728     I                                        7   80XSDD1
+013600990128      *
+013700990128     I            DS
+013800000728     I                                        1   80XRDAT
+013900000728     I                                        1   40XRYY
+014000000728     I                                        5   60XRMM
+014100000728     I                                        7   80XRDD
+014200990128     I            DS
+014300000728     I                                        1   80XRDAT1
+014400000728     I                                        1   40XRYY1
+014500000728     I                                        5   60XRMM1
+014600000728     I                                        7   80XRDD1
+014700990128      *
+014800990108     IINFDS       DS
+014900990119     I                                    B 370 3710CSRLOC
+015000990108     I                                      369 369 KEY
+015100990108      *
+015200000728     IXXXSDS     SDS                            429
+015300000728     I                                     *STATUS  XSYSNM
+015400000728     I                                     *PROGRAM APGMID
+015500000728     I                                      244 253 AJOBNO
+015600000728     I                                      254 263 AUSRID
+015700990111      *
+015800990111     I            DS
+015900990111     I                                        1 132 P0MSDA
+016000990111     I                                        1  15 WRK1
+016100990111     I                                       16  25 WRK2
+016200990204      *========================================================
+016300990204      * Constants.
+016400990204      *
+016500990204      * Named hexadecimal constants for function keys.
+016600990125      *
+016700990108     I              X'33'                 C         F03
+016800990108     I              X'34'                 C         F04
+016900990108     I              X'3A'                 C         F10
+017000990302     I              X'3C'                 C         F12
+017100990112      *
+017200990112      * Other constants.
+017300990112      *
+017400990118     I              'Product Code'        C         PAC
+017500990128     I              'Customer Type'       C         CAT
+017600990302     I              '999'                 C         SERCHI
+017700990128     I              '999999999'           C         SUPPHI
+017800990126     I              '9999999999999'       C         PRODHI
+017900990128     I              '99999999999999999999'C         DELNHI
+018000990129     I              '99999'               C         REDRHI
+018100990216      *
+018200990216      * Zeros to 'setoff' error indicators.
+018300000728     I              '00000000000000000'   C         XZEROE
+018400990216      *
+018500990204      *================================================================
+018600990204      * M A I N L I N E
+018700990204      *================================================================
+018800990125      *
+018900990111      * Controlling Do-loop.
+019000990108      *
+019100990204     C           KEY       DOUEQF03                        Do 1.
+019200990302     C           KEY       OREQ F12                        Do 1.
+019300990111      *
+019400990111      * Write the message subfile
+019500990111      *
+019600990111     C                     WRITEMSGCTL
+019700990111      *
+019800990128     C                     EXFMTHSS711A
+019900990111      *
+020000990119      * Clear the message subfile.
+020100990111      *
+020200990111     C                     EXSR CLRMSG
+020300990204      *
+020400990204      * Process the various function keys available on the screen.
+020500990204      *
+020600990204      * Exit if F03 pressed.
+020700990204     C           KEY       IFEQ F03
+020800990302     C           KEY       OREQ F12
+020900990204     C                     LEAVE
+021000990204     C                     ENDIF
+021100990204      *
+021200990204      * Execute the data validation subroutine.
+021300990121     C           KEY       IFNE F04
+021400990108     C                     EXSR VALID
+021500990302     C*          KEY       IFEQ F10
+021600990302     C           *IN73     IFEQ *OFF
+021700990125     C                     ITER
+021800990125     C                     ENDIF
+021900990125     C                     MOVE *OFF      *IN73
+022000990118     C                     ENDIF
+022100990108      *
+022200990108     C           KEY       IFEQ F04
+022300990112     C                     EXSR PRMT
+022400990111     C                     ITER
+022500990108     C                     ENDIF
+022600990111      *
+022700990302     C*          KEY       IFEQ F10
+022800990108     C                     EXSR CONF
+022900990126     C*                    ITER
+023000990126     C                     LEAVE
+023100990302     C*                    ENDIF
+023200990108      *
+023300990108      *
+023400990108     C                     ENDDO
+023500990126      *
+023600990107     C                     SETON                         LR
+023700990108     C                     RETRN
+023800990107      *
+023900990108      *-----------------------------------------------------------
+024000990108      *                  SUBROUTINES
+024100990108      *-----------------------------------------------------------
+024200990112      *-----------------------------------------------------------
+024300990108      *
+024400990112      *
+024500990112      * ----------------------------------------------------------
+024600990302      * VALID Subroutine validate input data.
+024700990112      * ----------------------------------------------------------
+024800990108     C           VALID     BEGSR
+024900990112      * -----------------
+025000990129     C           *IN73     DOWEQ*OFF
+025100990216      *
+025200990216      * Reset error indicators....
+025300000728     C                     MOVEAXZEROE    *IN,32
+025400000728     C                     MOVEAXZEROE    *IN,49
+025500990216      *
+025600990121      * Error message preventing a 'From' Product Code being added
+025700990121      * which does not exist on the Product master file.
+025800990121      * A blank entry is allowed.
+025900990121      *
+026000000728     C                     MOVE XPROD     NPROD
+026100990121     C           NPROD     CHAINHSLPRODA             94
+026200000728     C           XPROD     IFNE *BLANKS
+026300990121     C           *IN94     IFEQ *ON
+026400990121     C           NDELT     OREQ 'D'
+026500990216     C                     MOVE *ON       *IN32
+026600990122     C                     MOVELPAC       WRK1      P
+026700000728     C                     MOVELXPROD     WRK2      P
+026800990121     C                     MOVEL'HSV0048' P0MSID
+026900990121     C                     EXSR SNDMSG
+027000990121     C                     LEAVE
+027100990121     C                     ENDIF
+027200990122     C                     ENDIF
+027300990121      *
+027400990121      * Error message preventing a 'To' Product Code being added
+027500990121      * which does not exist on the Product master file.
+027600990121      * A blank entry is allowed.
+027700990121      *
+027800000728     C                     MOVE XPROD1    NPROD
+027900990121     C           NPROD     CHAINHSLPRODA             94
+028000000728     C           XPROD1    IFNE *BLANKS
+028100990121     C           *IN94     IFEQ *ON
+028200990121     C           NDELT     OREQ 'D'
+028300990216     C                     MOVE *ON       *IN33
+028400990122     C                     MOVELPAC       WRK1      P
+028500000728     C                     MOVELXPROD1    WRK2      P
+028600990121     C                     MOVEL'HSV0048' P0MSID
+028700990121     C                     EXSR SNDMSG
+028800990121     C                     LEAVE
+028900990122     C                     ENDIF
+029000990121     C                     ENDIF
+029100990121      *
+029200990121      * Error message preventing a 'To' Product code being entered
+029300990121      * which is less than the 'From' Product code.
+029400990121      *
+029500000728     C           XPROD     IFGT XPROD1
+029600000728     C           XPROD1    ANDNE*BLANKS
+029700990216     C                     MOVE *ON       *IN32
+029800990216     C                     MOVE *ON       *IN33
+029900990121     C                     MOVEL'HSV0069' P0MSID
+030000990121     C                     EXSR SNDMSG
+030100990121     C                     LEAVE
+030200990121     C                     ENDIF
+030300990216      *
+030400990216      * Error message preventing a 'From' Customer code being added
+030500990216      * which does not exist on the Customer codes file.
+030600990216      * A blank entry is allowed.
+030700990216      *
+030800000728     C                     MOVE XCUST     ECUST
+030900990216     C           ECUST     CHAINHSLCUSTA             95
+031000000728     C           XCUST     IFNE *BLANKS
+031100990216     C           *IN95     IFEQ *ON
+031200990216     C           ECUST     OREQ 'D'
+031300990216     C                     MOVE *ON       *IN34
+031400990216     C                     MOVELCAT       WRK1      P
+031500000728     C                     MOVELXCUST     WRK2      P
+031600990216     C                     MOVEL'HSV0096' P0MSID
+031700990216     C                     EXSR SNDMSG
+031800990216     C                     LEAVE
+031900990216     C                     ENDIF
+032000990216     C                     ENDIF
+032100990216      *
+032200990216      * Error message preventing a 'To' Customer code being added
+032300990216      * which does not exist on the Customer code file.
+032400990216      * A blank entry is allowed.
+032500990216      *
+032600000728     C                     MOVE XCUST1    ECUST
+032700990216     C           ECUST     CHAINHSLCUSTA             95
+032800000728     C           XCUST1    IFNE *BLANKS
+032900990216     C           *IN95     IFEQ *ON
+033000990216     C           EDELT     OREQ 'D'
+033100990216     C                     MOVE *ON       *IN35
+033200990216     C                     MOVELCAT       WRK1      P
+033300000728     C                     MOVELXCUST1    WRK2      P
+033400990216     C                     MOVEL'HSV0096' P0MSID
+033500990216     C                     EXSR SNDMSG
+033600990216     C                     LEAVE
+033700990216     C                     ENDIF
+033800990216     C                     ENDIF
+033900990216      *
+034000990216      * Error message preventing a 'To' Customer code being entered
+034100990216      * which is less than the 'From' Customer code.
+034200990216      *
+034300000728     C           XCUST     IFGT XCUST1
+034400000728     C           XCUST1    ANDNE*BLANKS
+034500990216     C                     MOVE *ON       *IN34
+034600990216     C                     MOVE *ON       *IN35
+034700990216     C                     MOVEL'HSV0097' P0MSID
+034800990216     C                     EXSR SNDMSG
+034900990216     C                     LEAVE
+035000990216     C                     ENDIF
+035100990128      *
+035200990128      * Error message preventing a 'To' Series code being entered
+035300990128      * which is less than the 'From' Series code.
+035400990128      *
+035500000728     C           XSERC     IFGT XSERC1
+035600000728     C           XSERC1    ANDNE*BLANKS
+035700990216     C                     MOVE *ON       *IN36
+035800990216     C                     MOVE *ON       *IN37
+035900990128     C                     MOVEL'HSV0076' P0MSID
+036000990128     C                     EXSR SNDMSG
+036100990128     C                     LEAVE
+036200990128     C                     ENDIF
+036300990128      *
+036400990128      * Error message preventing a 'To' Serial number being entered
+036500990128      * which is less than the 'From' Serial number.
+036600990128      *
+036700990128     C                     Z-ADD0         TSERN   90
+036800000728     C           XSERN     IFGT XSERN1
+036900000728     C           XSERN1    ANDNETSERN
+037000990216     C                     MOVE *ON       *IN38
+037100990216     C                     MOVE *ON       *IN39
+037200990128     C                     MOVEL'HSV0077' P0MSID
+037300990128     C                     EXSR SNDMSG
+037400990128     C                     LEAVE
+037500990128     C                     ENDIF
+037600990128      *
+037700990128      * Error message preventing a 'To' Element number being entered
+037800990128      * which is less than the 'From' Element number.
+037900990128      *
+038000990128     C                     Z-ADD0         TELEM   30
+038100000728     C           XELEM     IFGT XELEM1
+038200000728     C           XELEM1    ANDNETELEM
+038300990216     C                     MOVE *ON       *IN40
+038400990216     C                     MOVE *ON       *IN41
+038500990128     C                     MOVEL'HSV0078' P0MSID
+038600990128     C                     EXSR SNDMSG
+038700990128     C                     LEAVE
+038800990128     C                     ENDIF
+038900990121      *
+039000990128      * Error message preventing a 'To' Delivery Note No. being entered
+039100990128      * which is less than the 'From' Delivery Note No.
+039200990121      *
+039300000728     C           XDELN     IFGT XDELN1
+039400000728     C           XDELN1    ANDNE*BLANKS
+039500990216     C                     MOVE *ON       *IN42
+039600990216     C                     MOVE *ON       *IN43
+039700990128     C                     MOVEL'HSV0095' P0MSID
+039800990121     C                     EXSR SNDMSG
+039900990121     C                     LEAVE
+040000990121     C                     ENDIF
+040100990121      *
+040200990128      * Error message preventing a Delivery date being entered which is
+040300990121      * not leap year compliant.
+040400990121      *
+040500990122     C                     Z-ADD0         TYY     40
+040600990122     C                     Z-ADD0         TMM     20
+040700990122     C                     Z-ADD0         TDD     20
+040800990122      *
+040900000728     C           XDYY      IFNE TYY
+041000000728     C           XDMM      ANDNETMM
+041100000728     C           XDDD      ANDNETDD
+041200990122      *
+041300000728     C           XDYY      DIV  4         Y       20
+041400990121     C                     MVR            X       20
+041500990121     C                     SELEC
+041600990121     C           X         WHEQ 0
+041700000728     C           XDDD      ANDGTLPY,XDMM
+041800990216     C                     MOVE *ON       *IN44
+041900990128     C                     MOVEL'HSV0102' P0MSID
+042000990121     C                     EXSR SNDMSG
+042100990121     C                     LEAVE
+042200990121     C           X         WHNE 0
+042300000728     C           XDDD      ANDGTNLY,XDMM
+042400990216     C                     MOVE *ON       *IN44
+042500990128     C                     MOVEL'HSV0102' P0MSID
+042600990121     C                     EXSR SNDMSG
+042700990121     C                     LEAVE
+042800990121     C                     ENDSL
+042900990122     C                     ENDIF
+043000990121      *
+043100000728     C           XDYY1     IFNE TYY
+043200000728     C           XDMM1     ANDNETMM
+043300000728     C           XDDD1     ANDNETDD
+043400990122      *
+043500000728     C           XDYY1     DIV  4         Y       20
+043600990121     C                     MVR            X       20
+043700990121     C                     SELEC
+043800990121     C           X         WHEQ 0
+043900000728     C           XDDD1     ANDGTLPY,XDMM1
+044000990216     C                     MOVE *ON       *IN45
+044100990128     C                     MOVEL'HSV0103' P0MSID
+044200990121     C                     EXSR SNDMSG
+044300990121     C                     LEAVE
+044400990121     C           X         WHNE 0
+044500000728     C           XDDD1     ANDGTNLY,XDMM1
+044600990216     C                     MOVE *ON       *IN45
+044700990128     C                     MOVEL'HSV0103' P0MSID
+044800990121     C                     EXSR SNDMSG
+044900990121     C                     LEAVE
+045000990121     C                     ENDSL
+045100990122     C                     ENDIF
+045200990121      *
+045300990128      * Error message preventing a 'To' Delivery Date being entered
+045400990128      * which is less than the 'From' Delivery Date.
+045500990121      *
+045600990122     C                     Z-ADD0         TDAT    80
+045700000728     C           XDDAT     IFGT XDDAT1
+045800000728     C           XDDAT1    ANDNETDAT
+045900990216     C                     MOVE *ON       *IN44
+046000990216     C                     MOVE *ON       *IN45
+046100990128     C                     MOVEL'HSV0101' P0MSID
+046200990121     C                     EXSR SNDMSG
+046300990121     C                     LEAVE
+046400990121     C                     ENDIF
+046500990128      *
+046600990128      * Error message preventing a 'To' Supplier A/C No. being entered
+046700990128      * which is less than the 'From' Supplier A/C No.
+046800990128      *
+046900000728     C           XSUPP     IFGT XSUPP1
+047000000728     C           XSUPP1    ANDNE*BLANKS
+047100990128     C                     MOVEL'HSV0098' P0MSID
+047200990216     C                     MOVE *ON       *IN46
+047300990216     C                     MOVE *ON       *IN47
+047400990128     C                     EXSR SNDMSG
+047500990128     C                     LEAVE
+047600990128     C                     ENDIF
+047700990121      *
+047800990128      * Error message preventing a 'To' Sales Order Number being
+047900990128      * entered which is less than the 'From' Sales Order Number.
+048000990121      *
+048100990128     C                     Z-ADD0         TSORD   80
+048200000728     C           XSORD     IFGT XSORD1
+048300000728     C           XSORD1    ANDNETSORD
+048400990216     C                     MOVE *ON       *IN48
+048500990216     C                     MOVE *ON       *IN49
+048600990128     C                     MOVEL'HSV0099' P0MSID
+048700990121     C                     EXSR SNDMSG
+048800990121     C                     LEAVE
+048900990121     C                     ENDIF
+049000990121      *
+049100990128      * Error message preventing a 'To' Dispatch Batch No.
+049200990128      * being entered which is less than the 'From' Dispatch Batch No.
+049300990121      *
+049400990128     C                     Z-ADD0         TDSPB   50
+049500000728     C           XDSPB     IFGT XDSPB1
+049600000728     C           XDSPB1    ANDNETDSPB
+049700990216     C                     MOVE *ON       *IN50
+049800990216     C                     MOVE *ON       *IN51
+049900990128     C                     MOVEL'HSV0100' P0MSID
+050000990121     C                     EXSR SNDMSG
+050100990121     C                     LEAVE
+050200990121     C                     ENDIF
+050300990128      *
+050400990128      * Error message preventing a Shipped Date being entered which is
+050500990128      * not leap year compliant.
+050600990128      *
+050700000728     C           XSYY      IFNE TYY
+050800000728     C           XSMM      ANDNETMM
+050900000728     C           XSDD      ANDNETDD
+051000990128      *
+051100000728     C           XSYY      DIV  4         Y       20
+051200990128     C                     MVR            X       20
+051300990128     C                     SELEC
+051400990128     C           X         WHEQ 0
+051500000728     C           XSDD      ANDGTLPY,XSMM
+051600990216     C                     MOVE *ON       *IN52
+051700990128     C                     MOVEL'HSV0105' P0MSID
+051800990128     C                     EXSR SNDMSG
+051900990128     C                     LEAVE
+052000990128     C           X         WHNE 0
+052100000728     C           XSDD      ANDGTNLY,XSMM
+052200990216     C                     MOVE *ON       *IN52
+052300990128     C                     MOVEL'HSV0105' P0MSID
+052400990128     C                     EXSR SNDMSG
+052500990128     C                     LEAVE
+052600990128     C                     ENDSL
+052700990128     C                     ENDIF
+052800990128      *
+052900000728     C           XSYY1     IFNE TYY
+053000000728     C           XSMM1     ANDNETMM
+053100000728     C           XSDD1     ANDNETDD
+053200990128      *
+053300000728     C           XSYY1     DIV  4         Y       20
+053400990128     C                     MVR            X       20
+053500990128     C                     SELEC
+053600990128     C           X         WHEQ 0
+053700000728     C           XSDD1     ANDGTLPY,XSMM1
+053800990216     C                     MOVE *ON       *IN53
+053900990128     C                     MOVEL'HSV0106' P0MSID
+054000990128     C                     EXSR SNDMSG
+054100990128     C                     LEAVE
+054200990128     C           X         WHNE 0
+054300000728     C           XSDD1     ANDGTNLY,XSMM1
+054400990216     C                     MOVE *ON       *IN53
+054500990128     C                     MOVEL'HSV0106' P0MSID
+054600990128     C                     EXSR SNDMSG
+054700990128     C                     LEAVE
+054800990128     C                     ENDSL
+054900990128     C                     ENDIF
+055000990128      *
+055100990128      * Error message preventing a 'To' Shipped Date being entered
+055200990128      * which is less than the 'From' Shipped Date.
+055300990128      *
+055400000728     C           XSDAT     IFGT XSDAT1
+055500000728     C           XSDAT1    ANDNETDAT
+055600990216     C                     MOVE *ON       *IN52
+055700990216     C                     MOVE *ON       *IN53
+055800990128     C                     MOVEL'HSV0104' P0MSID
+055900990128     C                     EXSR SNDMSG
+056000990128     C                     LEAVE
+056100990128     C                     ENDIF
+056200990128      *
+056300990128      * Error message preventing a 'To' Redemtion Batch No. being
+056400990128      * entered which is less than the 'From' Redemption Batch No.
+056500990128      *
+056600990128     C                     Z-ADD0         TREDB   50
+056700000728     C           XREDB     IFGT XREDB1
+056800000728     C           XREDB1    ANDNETREDB
+056900990216     C                     MOVE *ON       *IN54
+057000990216     C                     MOVE *ON       *IN55
+057100990128     C                     MOVEL'HSV0110' P0MSID
+057200990128     C                     EXSR SNDMSG
+057300990128     C                     LEAVE
+057400990128     C                     ENDIF
+057500990128      *
+057600990128      * Error message preventing a Redemption Date being entered which
+057700990128      * is not leap year compliant.
+057800990128      *
+057900000728     C           XRYY      IFNE TYY
+058000000728     C           XRMM      ANDNETMM
+058100000728     C           XRDD      ANDNETDD
+058200990128      *
+058300000728     C           XRYY      DIV  4         Y       20
+058400990128     C                     MVR            X       20
+058500990128     C                     SELEC
+058600990128     C           X         WHEQ 0
+058700000728     C           XRDD      ANDGTLPY,XRMM
+058800990216     C                     MOVE *ON       *IN56
+058900990128     C                     MOVEL'HSV0108' P0MSID
+059000990128     C                     EXSR SNDMSG
+059100990128     C                     LEAVE
+059200990128     C           X         WHNE 0
+059300000728     C           XRDD      ANDGTNLY,XRMM
+059400990216     C                     MOVE *ON       *IN56
+059500990128     C                     MOVEL'HSV0108' P0MSID
+059600990128     C                     EXSR SNDMSG
+059700990128     C                     LEAVE
+059800990128     C                     ENDSL
+059900990128     C                     ENDIF
+060000990128      *
+060100000728     C           XRYY1     IFNE TYY
+060200000728     C           XRMM1     ANDNETMM
+060300000728     C           XRDD1     ANDNETDD
+060400990128      *
+060500000728     C           XRYY1     DIV  4         Y       20
+060600990128     C                     MVR            X       20
+060700990128     C                     SELEC
+060800990128     C           X         WHEQ 0
+060900000728     C           XRDD1     ANDGTLPY,XRMM1
+061000990216     C                     MOVE *ON       *IN57
+061100990128     C                     MOVEL'HSV0109' P0MSID
+061200990128     C                     EXSR SNDMSG
+061300990128     C                     LEAVE
+061400990128     C           X         WHNE 0
+061500000728     C           XRDD1     ANDGTNLY,XRMM1
+061600990216     C                     MOVE *ON       *IN57
+061700990128     C                     MOVEL'HSV0109' P0MSID
+061800990128     C                     EXSR SNDMSG
+061900990128     C                     LEAVE
+062000990128     C                     ENDSL
+062100990128     C                     ENDIF
+062200990128      *
+062300990128      * Error message preventing a 'To' Redemption Date being
+062400990128      * entered which is less than the 'From' Redemption Date.
+062500990128      *
+062600000728     C           XRDAT     IFGT XRDAT1
+062700000728     C           XRDAT1    ANDNETDAT
+062800990216     C                     MOVE *ON       *IN56
+062900990216     C                     MOVE *ON       *IN57
+063000990128     C                     MOVEL'HSV0107' P0MSID
+063100990128     C                     EXSR SNDMSG
+063200990128     C                     LEAVE
+063300990128     C                     ENDIF
+063400990128      *
+063500990216      * Error message preventing a 'To' AS400 Redemp batch No.
+063600990216      * being entered which is less than the 'From' AS400
+063700990216      * Redemp batch No.
+063800990128      *
+063900000728     C           XHSVB     IFGT XHSVB1
+064000000728     C           XHSVB1    ANDNETREDB
+064100990216     C                     MOVE *ON       *IN58
+064200990216     C                     MOVE *ON       *IN59
+064300990216     C                     MOVEL'HSV0154' P0MSID
+064400990128     C                     EXSR SNDMSG
+064500990128     C                     LEAVE
+064600990128     C                     ENDIF
+064700990128      *
+064800990128      * Error message preventing a 'To' Redeemer A/C No. being entered
+064900990128      * which is less than the 'From' Redeemer A/C No.
+065000990128      *
+065100000728     C           XREDC     IFGT XREDC1
+065200000728     C           XREDC1    ANDNE*BLANKS
+065300990216     C                     MOVE *ON       *IN60
+065400990216     C                     MOVE *ON       *IN61
+065500990129     C                     MOVEL'HSV0117' P0MSID
+065600990128     C                     EXSR SNDMSG
+065700990128     C                     LEAVE
+065800990128     C                     ENDIF
+065900990128      *
+066000990128      * Error message preventing a 'To' Redeemer Branch being entered
+066100990128      * which is less than the 'From' Redeemer Branch.
+066200990128      *
+066300000728     C           XREDR     IFGT XREDR1
+066400000728     C           XREDR1    ANDNE*BLANKS
+066500990216     C                     MOVE *ON       *IN62
+066600990216     C                     MOVE *ON       *IN63
+066700990128     C                     MOVEL'HSV0112' P0MSID
+066800990128     C                     EXSR SNDMSG
+066900990128     C                     LEAVE
+067000990128     C                     ENDIF
+067100990128      *
+067200990128      * Error message preventing a 'To' Redeemer Invoice No. being
+067300990128      * entered which is less than the 'From' Redeemer Invoice No.
+067400990128      *
+067500000728     C           XREDI     IFGT XREDI1
+067600000728     C           XREDI1    ANDNE*BLANKS
+067700990216     C                     MOVE *ON       *IN64
+067800990216     C                     MOVE *ON       *IN65
+067900990128     C                     MOVEL'HSV0113' P0MSID
+068000990128     C                     EXSR SNDMSG
+068100990128     C                     LEAVE
+068200990128     C                     ENDIF
+068300990128      *
+068400990128     C                     MOVE *ON       *IN73
+068500990121      *
+068600990121      * Reset chaining indicators.
+068700990121      *
+068800990121     C                     MOVE *OFF      *IN94
+068900990121     C                     MOVE *OFF      *IN95
+069000990121      *
+069100990121      * Message: Data is valid, press F10 to process.
+069200990121      *
+069300990302     C*          KEY       IFNE F10
+069400990121     C                     MOVEL'HSV9011' P0MSID
+069500990121     C                     EXSR SNDMSG
+069600990302     C*                    ENDIF
+069700990125     C                     MOVE *ON       *IN73
+069800990122     C                     ENDDO
+069900990108     C                     ENDSR
+070000990112      *
+070100990112      * ---------------------------------------------------
+070200990108      * SNDMSG Subroutine to send message to subfile.
+070300990112      * ---------------------------------------------------
+070400990108     C           SNDMSG    BEGSR
+070500990112      * -----------------
+070600990114     C                     CALL 'SNDMSGC'
+070700990114     C                     PARM           P0PGMQ
+070800990108     C                     PARM           P0PGRL
+070900990114     C                     PARM           P0MSID
+071000990108     C                     PARM           P0MSGF
+071100990108     C                     PARM           P0MSDA
+071200990108     C                     PARM           P0MSTP
+071300990108     C                     ENDSR
+071400990112      * --------------------------------------------------
+071500990108      * CONF Subroutine to update file
+071600990112      * --------------------------------------------------
+071700990108     C           CONF      BEGSR
+071800990112      * -------------
+071900990121      *
+072000000728     C                     MOVE XPROD     XPROD
+072100990121      *
+072200000728     C           XPROD1    IFEQ *BLANKS
+072300000728     C                     MOVE XPROD     XPROD1 13
+072400990121     C                     ELSE
+072500000728     C                     MOVE XPROD1    XPROD1
+072600990121     C                     ENDIF
+072700990128      *
+072800000728     C                     MOVE XSERC     XSERC
+072900990128      *
+073000000728     C           XSERC1    IFEQ *BLANKS
+073100000728     C                     MOVE XSERC     XSERC1  3
+073200990128     C                     ELSE
+073300000728     C                     MOVE XSERC1    XSERC1
+073400990128     C                     ENDIF
+073500990128      *
+073600000728     C           XSERN     IFEQ TSERN
+073700000728     C                     MOVE *ZEROS    XSERN   90P
+073800990128     C                     ELSE
+073900000728     C                     MOVE XSERN     XSERN
+074000990128     C                     ENDIF
+074100990128      *
+074200000728     C           XSERN1    IFEQ TSERN
+074300000728     C                     MOVE XSERN     XSERN1  90
+074400990128     C                     ELSE
+074500000728     C                     MOVE XSERN1    XSERN1
+074600990128     C                     ENDIF
+074700990128      *
+074800000728     C           XELEM     IFEQ TELEM
+074900000728     C                     MOVE *ZEROS    XELEM   30P
+075000990128     C                     ELSE
+075100000728     C                     MOVE XELEM     XELEM
+075200990128     C                     ENDIF
+075300990128      *
+075400000728     C           XELEM1    IFEQ TELEM
+075500000728     C                     MOVE XELEM     XELEM1  30
+075600990128     C                     ELSE
+075700000728     C                     MOVE XELEM1    XELEM1
+075800990128     C                     ENDIF
+075900990128      *
+076000000728     C                     MOVE XDELN     XDELN
+076100990128      *
+076200000728     C           XDELN1    IFEQ *BLANKS
+076300000728     C                     MOVE XDELN     XDELN1 20
+076400990128     C                     ELSE
+076500000728     C                     MOVE XDELN1    XDELN1
+076600990128     C                     ENDIF
+076700990128      *
+076800000728     C                     MOVE XSUPP     XSUPP
+076900990128      *
+077000000728     C           XSUPP1    IFEQ *BLANKS
+077100000728     C                     MOVE XSUPP     XSUPP1  8
+077200990128     C                     ELSE
+077300000728     C                     MOVE XSUPP1    XSUPP1
+077400990128     C                     ENDIF
+077500990128      *
+077600000728     C                     MOVE XCUST     XCUST
+077700990128      *
+077800000728     C           XCUST1    IFEQ *BLANKS
+077900000728     C                     MOVE XCUST     XCUST1  8
+078000990128     C                     ELSE
+078100000728     C                     MOVE XCUST1    XCUST1
+078200990128     C                     ENDIF
+078300990121      *
+078400000728     C           XDDAT     IFEQ TDAT
+078500000728     C                     MOVE *ZEROS    XDDAT   80P
+078600990122     C                     ELSE
+078700000728     C                     MOVE XDDAT     XDDAT
+078800990122     C                     ENDIF
+078900990122      *
+079000000728     C           XDDAT1    IFEQ TDAT
+079100000728     C                     MOVE XDDAT     XDDAT1  80
+079200990122     C                     ELSE
+079300000728     C                     MOVE XDDAT1    XDDAT1
+079400990122     C                     ENDIF
+079500990128      *
+079600000728     C           XSDAT     IFEQ TDAT
+079700000728     C                     MOVE *ZEROS    XSDAT   80P
+079800990128     C                     ELSE
+079900000728     C                     MOVE XSDAT     XSDAT
+080000990128     C                     ENDIF
+080100990128      *
+080200000728     C           XSDAT1    IFEQ TDAT
+080300000728     C                     MOVE XSDAT     XSDAT1  80
+080400990128     C                     ELSE
+080500000728     C                     MOVE XSDAT1    XSDAT1
+080600990128     C                     ENDIF
+080700990128      *
+080800000728     C           XRDAT     IFEQ TDAT
+080900000728     C                     MOVE *ZEROS    XRDAT   80P
+081000990128     C                     ELSE
+081100000728     C                     MOVE XSDAT     XRDAT
+081200990128     C                     ENDIF
+081300990128      *
+081400000728     C           XRDAT1    IFEQ TDAT
+081500000728     C                     MOVE XRDAT     XRDAT1  80
+081600990128     C                     ELSE
+081700000728     C                     MOVE XRDAT1    XRDAT1
+081800990128     C                     ENDIF
+081900990122      *
+082000000728     C           XREDB     IFEQ TREDB
+082100000728     C                     MOVE *ZEROS    XREDB   50P
+082200990128     C                     ELSE
+082300000728     C                     MOVE XREDB     XREDB
+082400990128     C                     ENDIF
+082500990128      *
+082600000728     C           XREDB1    IFEQ TREDB
+082700000728     C                     MOVE XREDB     XREDB1  50
+082800990128     C                     ELSE
+082900000728     C                     MOVE XREDB1    XREDB1
+083000990128     C                     ENDIF
+083100990129      *
+083200000728     C           XDSPB     IFEQ TDSPB
+083300000728     C                     MOVE *ZEROS    XDSPB   50P
+083400990129     C                     ELSE
+083500000728     C                     MOVE XDSPB     XDSPB
+083600990129     C                     ENDIF
+083700990129      *
+083800000728     C           XDSPB1    IFEQ TDSPB
+083900000728     C                     MOVE XDSPB     XDSPB1  50
+084000990129     C                     ELSE
+084100000728     C                     MOVE XDSPB1    XDSPB1
+084200990129     C                     ENDIF
+084300990129      *
+084400000728     C           XSORD     IFEQ TSORD
+084500000728     C                     MOVE *ZEROS    XSORD   80P
+084600990129     C                     ELSE
+084700000728     C                     MOVE XSORD     XSORD
+084800990129     C                     ENDIF
+084900990129      *
+085000000728     C           XSORD1    IFEQ TSORD
+085100000728     C                     MOVE XSORD     XSORD1  80
+085200990129     C                     ELSE
+085300000728     C                     MOVE XSORD1    XSORD1
+085400990129     C                     ENDIF
+085500990128      *
+085600000728     C           XHSVB     IFEQ TREDB
+085700000728     C                     MOVE *ZEROS    XHSVB   50P
+085800990128     C                     ELSE
+085900000728     C                     MOVE XHSVB     XHSVB
+086000990128     C                     ENDIF
+086100990128      *
+086200000728     C           XHSVB1    IFEQ TREDB
+086300000728     C                     MOVE XHSVB     XHSVB1  50
+086400990128     C                     ELSE
+086500000728     C                     MOVE XHSVB1    XHSVB1
+086600990128     C                     ENDIF
+086700990126      *
+086800000728     C                     MOVE XREDC     XREDC
+086900990128      *
+087000000728     C           XREDC1    IFEQ *BLANKS
+087100000728     C                     MOVE XREDC     XREDC1  8
+087200990128     C                     ELSE
+087300000728     C                     MOVE XREDC1    XREDC1
+087400990128     C                     ENDIF
+087500990128      *
+087600000728     C                     MOVE XREDR     XREDR
+087700990128      *
+087800000728     C           XREDR1    IFEQ *BLANKS
+087900000728     C                     MOVE XREDR     XREDR1  5
+088000990128     C                     ELSE
+088100000728     C                     MOVE XREDR1    XREDR1
+088200990128     C                     ENDIF
+088300990128      *
+088400000728     C                     MOVE XREDI     XREDI
+088500990128      *
+088600000728     C           XREDI1    IFEQ *BLANKS
+088700000728     C                     MOVE XREDI     XREDI1 20
+088800990128     C                     ELSE
+088900000728     C                     MOVE XREDI1    XREDI1
+089000990128     C                     ENDIF
+089100990126      *
+089200000728     C                     MOVELXDDAT     ADDAT
+089300000728     C                     MOVELXDDAT1    ADDAT1
+089400000728     C                     MOVELXSDAT     ASDAT
+089500000728     C                     MOVELXSDAT1    ASDAT1
+089600000728     C                     MOVELXRDAT     ARDAT
+089700000728     C                     MOVELXRDAT1    ARDAT1
+089800000728     C                     MOVELXSERN     ASERN
+089900000728     C                     MOVELXSERN1    ASERN1
+090000000728     C                     MOVELXELEM     AELEM
+090100000728     C                     MOVELXELEM1    AELEM1
+090200000728     C                     MOVELXSORD     ASORD
+090300000728     C                     MOVELXSORD1    ASORD1
+090400000728     C                     MOVELXDSPB     ADSPB
+090500000728     C                     MOVELXDSPB1    ADSPB1
+090600000728     C                     MOVELXREDB     AREDB
+090700000728     C                     MOVELXREDB1    AREDB1
+090800000728     C                     MOVELXHSVB     AHSVB
+090900000728     C                     MOVELXHSVB1    AHSVB1
+091000990204      *
+091100990204      * Submit Job command.
+091200990204      *
+091300990204     C                     MOVELCMA       CMD       P
+091400990204     C                     CALL 'QCMDEXC'                85
+091500990204     C                     PARM           CMD
+091600990204     C                     PARM 600       LEN    155
+091700990125      *
+091800990122     C                     ENDSR
+091900990113      * -------------------------------------------------------
+092000990113      * CLEAR MESSAGE Subroutine to clear out the message queue.
+092100990113      * -------------------------------------------------------
+092200990108     C           CLRMSG    BEGSR
+092300990108     C                     CALL 'RMVMSGC'
+092400990108     C                     ENDSR
+092500990112      *
+092600990112      * ----------------------------------------------------
+092700990112      * Search Window Subroutine
+092800990112      * ----------------------------------------------------
+092900990112      *
+093000990112     C           PRMT      BEGSR
+093100990113      * ----------------
+093200990118      *
+093300990129     C                     SELEC
+093400000728     C           CSRFLD    WHEQ 'XPROD'
+093500000728     C                     MOVEL'HSLPRODA'FILEY     P
+093600000728     C                     MOVEL'NDESC'   NAMEY     P
+093700000728     C                     MOVEL'NPROD'   NUMBRY    P
+093800000728     C                     Z-ADD10        LINY
+093900000728     C                     Z-ADD07        COLY
+094000990118     C                     CALL 'HSR341'  PL341
+094100000728     C           YRTNC     IFEQ *OFF
+094200000728     C                     MOVELYNUMBR    XPROD     P
+094300990118     C                     ENDIF
+094400990121      *
+094500000728     C           CSRFLD    WHEQ 'XPROD1'
+094600000728     C                     MOVEL'HSLPRODA'FILEY     P
+094700000728     C                     MOVEL'NDESC'   NAMEY     P
+094800000728     C                     MOVEL'NPROD'   NUMBRY    P
+094900000728     C                     Z-ADD10        LINY
+095000000728     C                     Z-ADD07        COLY
+095100990121     C                     CALL 'HSR341'  PL341
+095200000728     C           YRTNC     IFEQ *OFF
+095300000728     C                     MOVELYNUMBR    XPROD1    P
+095400990121     C                     ENDIF
+095500990122      *
+095600000728     C           CSRFLD    WHEQ 'XCUST'
+095700000728     C                     MOVEL'HSLCUSTA'FILEY     P
+095800000728     C                     MOVEL'ENAM2'   NAMEY     P
+095900000728     C                     MOVEL'ECUST'   NUMBRY    P
+096000000728     C                     Z-ADD10        LINY
+096100000728     C                     Z-ADD07        COLY
+096200990121     C                     CALL 'HSR341'  PL341
+096300000728     C           YRTNC     IFEQ *OFF
+096400000728     C                     MOVELYNUMBR    XCUST     P
+096500990121     C                     ENDIF
+096600990121      *
+096700000728     C           CSRFLD    WHEQ 'XCUST1'
+096800000728     C                     MOVEL'HSLCUSTA'FILEY     P
+096900000728     C                     MOVEL'ENAM2'   NAMEY     P
+097000000728     C                     MOVEL'ECUST'   NUMBRY    P
+097100000728     C                     Z-ADD10        LINY
+097200000728     C                     Z-ADD07        COLY
+097300990121     C                     CALL 'HSR341'  PL341
+097400000728     C           YRTNC     IFEQ *OFF
+097500000728     C                     MOVELYNUMBR    XCUST1    P
+097600990121     C                     ENDIF
+097700990121     C                     ENDSL
+097800990113      *
+097900990113     C           PL341     PLIST
+098000000728     C                     PARM           YRTNC   1
+098100000728     C                     PARM           YNUMBR 15
+098200000728     C                     PARM           FILEY  10
+098300000728     C                     PARM           NAMEY   6
+098400000728     C                     PARM           NUMBRY  6
+098500000728     C                     PARM           LINY    30
+098600000728     C                     PARM           COLY    30
+098700990209     C                     ENDSR
+098800990125      *
+098900990112      * ----------------------------------------------------
+099000990108      * Initialisation Subroutine
+099100990112      * ----------------------------------------------------
+099200990108     C           *INZSR    BEGSR
+099300990112      *----------------
+099400000728     C                     Z-ADD0         XSYY1
+099500000728     C                     Z-ADD0         XSYY
+099600000728     C                     Z-ADD0         XRYY1
+099700000728     C                     Z-ADD0         XRYY
+099800000728     C                     Z-ADD0         XDYY
+099900000728     C                     Z-ADD0         XDYY1
+100000000728     C                     Z-ADD0         XSMM
+100100000728     C                     Z-ADD0         XSMM1
+100200000728     C                     Z-ADD0         XRMM
+100300000728     C                     Z-ADD0         XRMM1
+100400000728     C                     Z-ADD0         XDMM
+100500000728     C                     Z-ADD0         XDMM1
+100600000728     C                     Z-ADD0         XSDD
+100700000728     C                     Z-ADD0         XSDD1
+100800000728     C                     Z-ADD0         XRDD
+100900000728     C                     Z-ADD0         XRDD1
+101000000728     C                     Z-ADD0         XDDD
+101100000728     C                     Z-ADD0         XDDD1
+101200000728     C                     Z-ADD0         XSERN
+101300000728     C                     Z-ADD0         XSERN1
+101400000728     C                     Z-ADD0         XELEM
+101500000728     C                     Z-ADD0         XELEM1
+101600000728     C                     Z-ADD0         XSORD
+101700000728     C                     Z-ADD0         XSORD1
+101800000728     C                     Z-ADD0         XDSPB
+101900000728     C                     Z-ADD0         XDSPB1
+102000000728     C                     Z-ADD0         XREDB
+102100000728     C                     Z-ADD0         XREDB1
+102200000728     C                     Z-ADD0         XHSVB
+102300000728     C                     Z-ADD0         XHSVB1
+102400000728     C                     MOVE APGMID    XPGMID
+102500000728     C                     MOVE AUSRID    XUSRID
+102600000728     C                     MOVE AJOBNO    XJOBNO
+102700990111     C                     MOVE *ON       *IN79
+102800000728     C                     MOVEL'HSR711'  XPGMID
+102900000728     C                     MOVE XPGMID    P0PGMQ 10        PGM queue
+103000990111     C                     MOVEL'*PRV'    P0PGRL  5        Rel queue
+103100990108     C                     MOVE *BLANKS   P0MSID  7        Message ID
+103200990108     C                     MOVEL'HSM001'  P0MSGF 10        Message File
+103300990108     C                     MOVE *BLANKS   P0MSDA132        Message Data
+103400990108     C                     MOVEL'*INFO'   P0MSTP  7        Message Type
+103500990108     C                     ENDSR
+103600990126      *
+103700990121**         LEAP YEARS
+103800990121312931303130313130313031
+103900990121**          NON-LEAP YEARS
+104000990121312831303130313130313031
+104100990204**
+104200990204SBMJOB CMD(CALL HSR713 PARM('1234567890123' '1234567890123'
+104300990301'123' '123' '123456789' '123456789' '123' '123' '12345678901
+104400990301234567890' '12345678901234567890'
+104500990204         '12345678' '12345678' '12345678' '12345678' '123456
+10460099020478' '12345678' '12345678' '12345678' '12345' '12345' '123456
+10470099020478' '12345678' '12345' '12345' '12345678' '12345678' '12345'
+104800990204 '12345' '12345678' '12345678' '12345' '12345' '123456789012
+10490099020434567890' '12345678901234567890' '1234567890' '1234567890' '
+1050009902041234567890'))
+105100990204JOB(HSR711B) JOBD(MNJL0000)

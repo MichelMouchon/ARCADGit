@@ -1,0 +1,16 @@
+000100000000      **************************************************************
+000200000000      *                                                            *
+000300990119      *  File Name  :  HSPSUBC                                     *
+000400000000      *                                                            *
+000500990119      *  Description:  Product Sub-codes                           *
+000600000000      *                                                            *
+000700981229      *  Date       :  December 1998                               *
+000800000000      *                                                            *
+000900000000      **************************************************************
+001000990115     A                                      REF(*LIBL/HSPREF)
+001100990119     A          R HSFSUBC
+001200990119      *  Description:  Product Sub-codes
+001300990119     A            NASUBC    R               REFFLD(SUBC)
+001400990119     A            NADESC    R               REFFLD(DESC)
+001500990119     A            NADELT    R               REFFLD(A1)
+001600990115     A                                      COLHDG('Deletion Flag')

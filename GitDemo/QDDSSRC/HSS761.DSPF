@@ -1,0 +1,108 @@
+000100990210     A*%%TS  SD  19990210  164941  SARLLO      REL-V3R7M0  5716-PW1
+000200000000     A*****************************************************************
+000300000000     A*                                                               *
+000400990210     A*  Display File  : HSS761                                       *
+000500000000     A*                                                               *
+000600990210     A*  Description . : Sales Order Details Report Parameters        *
+000700000000     A*                                                               *
+000800990105     A*  System  . . . : HSV Control & Tracking                       *
+000900000000     A*                                                               *
+001000000727     A*  Author  . . . : Owen Sarll                                   *
+001100000000     A*                                                               *
+001200990105     A*  Date Written  : January 1999                                 *
+001300000000     A*                                                               *
+001400000000     A*****************************************************************
+001500000000     A*
+001600990210     A*%%EC
+001700990210     A                                      DSPSIZ(24 80 *DS3)
+001800990210     A                                      REF(*LIBL/HSP999)
+001900990210     A                                      PRINT
+002000990210     A                                      HELP
+002100990210     A          R HSS761A
+002200990210     A*%%TS  SD  19990210  164941  SARLLO      REL-V3R7M0  5716-PW1
+002300990210     A                                      OVERLAY
+002400990302     A*                                     CA03(03)
+002500990210     A                                      CF04
+002600990302     A*                                     CF10
+002700990302     A                                      CA12
+002800990210     A                                      RTNCSRLOC(&CSRRCD &CSRFLD)
+002900990210     A            CSRRCD        10A  H
+003000990210     A            CSRFLD        10A  H
+003100000728     A            XPGMID        10A  O  1  2COLOR(WHT)
+003200990210     A                                  1 31'HIGH STREET VOUCHERS'
+003300990210     A                                      COLOR(WHT)
+003400990210     A                                  1 72SYSNAME
+003500990210     A                                      COLOR(WHT)
+003600000728     A            XUSRID        10A  O  2  2COLOR(WHT)
+003700990210     A                                  2 72DATE
+003800990210     A                                      EDTCDE(Y)
+003900990210     A                                      COLOR(WHT)
+004000000728     A            XJOBNO        10A  O  3  2COLOR(WHT)
+004100990210     A                                  3 72TIME
+004200990210     A                                      COLOR(WHT)
+004300990302     A*                                23  3'F3-Exit '
+004400990302     A*                                     COLOR(WHT)
+004500990210     A                                 23 12'F4-Search '
+004600990210     A                                      COLOR(WHT)
+004700990302     A*                                23 23'F10-Confirm '
+004800990302     A*                                     COLOR(WHT)
+004900990302     A                                 23 68'F12-Return'
+005000990302     A                                      COLOR(WHT)
+005100990210     A                                  5 27'From'
+005200990210     A                                      DSPATR(UL)
+005300990210     A                                  5 51'To'
+005400990210     A                                      DSPATR(UL)
+005500990210     A                                  2 28'Sales Order Details Report'
+005600990210     A                                      COLOR(WHT)
+005700990210     A                                  6  2'Customer'
+005800990210     A                                 10  2'Order No.'
+005900990210     A                                  8  2'Product Code'
+006000990210     A                                 11  2'Order Value'
+006100000728     A            XCUST          8A  B  6 27COLOR(BLU)
+006200990216     A  32                                  DSPATR(PC)
+006300990216     A  32                                  DSPATR(RI)
+006400000728     A            XCUST1         8A  B  6 51COLOR(BLU)
+006500990216     A  33                                  DSPATR(PC)
+006600990216     A  33                                  DSPATR(RI)
+006700000728     A            XSORD          8Y 0B 10 27COLOR(BLU)
+006800990216     A  36                                  DSPATR(PC)
+006900990216     A  36                                  DSPATR(RI)
+007000990210     A                                      RANGE(0 99999999)
+007100990210     A                                      EDTCDE(4)
+007200000728     A            XSORD1         8Y 0B 10 51COLOR(BLU)
+007300990216     A  37                                  DSPATR(PC)
+007400990216     A  37                                  DSPATR(RI)
+007500990210     A                                      RANGE(0 99999999)
+007600990210     A                                      EDTCDE(4)
+007700000728     A            XPROD         13A  B  8 27COLOR(BLU)
+007800990216     A  34                                  DSPATR(PC)
+007900990216     A  34                                  DSPATR(RI)
+008000000728     A            XPROD1        13A  B  8 51COLOR(BLU)
+008100990216     A  35                                  DSPATR(PC)
+008200990216     A  35                                  DSPATR(RI)
+008300000728     A            XVALU         20Y 5B 11 27COLOR(BLU)
+008400990216     A  38                                  DSPATR(PC)
+008500990216     A  38                                  DSPATR(RI)
+008600990210     A                                      RANGE(0 999999999999999.99999)
+008700990210     A                                      EDTCDE(4)
+008800000728     A            XVALU1        20Y 5B 11 51COLOR(BLU)
+008900990216     A  39                                  DSPATR(PC)
+009000990216     A  39                                  DSPATR(RI)
+009100990210     A                                      RANGE(0 999999999999999.99999)
+009200990210     A                                      EDTCDE(4)
+009300000000     A*****************************************************************
+009400990106     A          R MSGRCD                    TEXT('Program messages')
+009500990106     A                                      SFL SFLMSGRCD(24)
+009600990106     A            MSGKEY                    SFLMSGKEY
+009700000728     A            XPGMID                    SFLPGMQ
+009800990106     A*****************************************************************
+009900990106     A          R MSGCTL                    SFLCTL(MSGRCD)
+010000990106     A*%%TS  SD  19980328  123253  EDISUPP     REL-V3R1M0  5763-PW1
+010100990106     A                                      TEXT('Program messages')
+010200990111     A  79                                  SFLDSP
+010300990111     A  79                                  SFLDSPCTL
+010400990111     A  79                                  SFLINZ
+010500990111     A  79                                  SFLEND
+010600990106     A                                      SFLSIZ(0010)
+010700990106     A                                      SFLPAG(0001)
+010800000728     A            XPGMID                    SFLPGMQ

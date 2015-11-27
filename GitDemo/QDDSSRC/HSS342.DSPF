@@ -1,0 +1,91 @@
+000100990105     A*****************************************************************
+000200990105     A*                                                               *
+000300990303     A*  Display File  : HSS342                                       *
+000400990105     A*                                                               *
+000500990303     A*  Description . : Window for Allocations                       *
+000600990105     A*                                                               *
+000700990105     A*  System  . . . : HSV Control & Tracking                       *
+000800990105     A*                                                               *
+000900000727     A*  Author  . . . : Bob Lee                                      *
+001000990105     A*                                                               *
+001100990303     A*  Date Written  : March 1999                                   *
+001200990105     A*                                                               *
+001300990105     A*****************************************************************
+001400990105     A                                      DSPSIZ(24 80 *DS3)
+001500990303     A                                      REF(*LIBL/HSPREF)
+001600990303     A                                      PRINT(*LIBL/QSYSPRT)
+001700990105     A          R FMTA
+001800990105     A                                      ASSUME
+001900990105     A                                  1  2' '
+002000990105     A          R SFLB                      SFL
+002100990303     A*           SELC           1A  B  6  2COLOR(BLU)
+002200990303     A*                                     DSPATR(UL)
+002300990303     A*                                     COMP(EQ '1')
+002400990303     A*                                     CHECK(ER)
+002500990303     A*           NAM           40A  O  6 20
+002600990303     A*           NBR           15A  O  6  4
+002700990303     A*           ID             3  0H
+002800000728     A            XPROD     R        O  2  4REFFLD(PROD)
+002900000728     A            XSERCC    R        O  2 18REFFLD(SERC)
+003000000728     A            XSERNS    R        O  2 22REFFLD(SERN)
+003100000728     A            XSERNE    R        O  2 34REFFLD(SERN)
+003200990105     A          R SFLCB                     SFLCTL(SFLB)
+003300990105     A                                      SFLSIZ(0005)
+003400990105     A                                      SFLPAG(0004)
+003500990105     A                                      WINDOW(FMTC)
+003600990105     A                                      CA12(12 'Previous')
+003700990105     A                                      ROLLUP(27)
+003800990105     A                                      BLINK
+003900990105     A                                      OVERLAY
+004000990105     A N74                                  ERASE(SFLB)
+004100990105     A                                      PUTOVR
+004200990105     A  74                                  SFLDSP
+004300990105     A  73                                  SFLDSPCTL
+004400990105     A N73                                  SFLCLR
+004500990105     A  75                                  SFLEND(*MORE)
+004600990105     A            RECNO          4S 0H      SFLRCDNBR
+004700990303     A*                                 2  8'Search value:'
+004800990303     A*                                     COLOR(WHT)
+004900990303     A*           DFNAME        15A  B  2 22OVRDTA
+005000990303     A*                                     COLOR(BLU)
+005100990303     A                                  1  4'Product'
+005200990303     A                                      COLOR(WHT)
+005300990303     A                                      DSPATR(UL)
+005400990303     A                                  1 18'Srs'
+005500990303     A                                      COLOR(WHT)
+005600990303     A                                      DSPATR(UL)
+005700990303     A                                  1 22'Start Ser.'
+005800990303     A                                      COLOR(WHT)
+005900990303     A                                      DSPATR(UL)
+006000990303     A                                  1 34'End Serial'
+006100990105     A                                      COLOR(WHT)
+006200990105     A                                      DSPATR(UL)
+006300990303     A*                                 4  2'1=Select'
+006400990303     A*                                     COLOR(WHT)
+006500990105     A          R FMTC
+006600000728     A                                      WINDOW(&YLIN &YCOL 07 48 *MSGLIN)
+006700990105     A                                      CLRL(*NO)
+006800990105     A                                      OVERLAY
+006900990105     A                                      PROTECT
+007000990105     A                                      PUTOVR
+007100990105     A                                      WDWBORDER((*COLOR BLU) (*DSPATR RI)-
+007200990105     A                                       (*CHAR '        ')        )
+007300000728     A            YLIN           3S 0P
+007400000728     A            YCOL           3S 0P
+007500990303     A                                  6 35'F12-Return'
+007600990105     A                                      COLOR(WHT)
+007700990303     A*****************************************************************
+007800990303     A          R MSGSFL                    TEXT('Program messages')
+007900990303     A                                      SFL SFLMSGRCD(06)
+008000990303     A            MSGKEY                    SFLMSGKEY
+008100000728     A            XPGMID                    SFLPGMQ
+008200990303     A*****************************************************************
+008300990303     A          R MSGCTL                    SFLCTL(MSGSFL)
+008400990303     A                                      TEXT('Program messages')
+008500990303     A  79                                  SFLDSP
+008600990303     A  79                                  SFLDSPCTL
+008700990303     A  79                                  SFLINZ
+008800990303     A  79                                  SFLEND
+008900990303     A                                      SFLSIZ(0010)
+009000990303     A                                      SFLPAG(0001)
+009100000728     A            XPGMID                    SFLPGMQ

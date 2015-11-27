@@ -1,0 +1,61 @@
+000100990105     A*****************************************************************
+000200990105     A*                                                               *
+000300990105     A*  Display File  : HSS341                                       *
+000400990105     A*                                                               *
+000500990105     A*  Description . : F4 Window Search                             *
+000600990105     A*                                                               *
+000700990105     A*  System  . . . : HSV Control & Tracking                       *
+000800990105     A*                                                               *
+000900990105     A*  Date Written  : January 1999                                 *
+001000990105     A*                                                               *
+001100990105     A*****************************************************************
+001200990105     A                                      DSPSIZ(24 80 *DS3)
+001300990105     A                                      PRINT(*LIBL/QSYSPRT        )
+001400990105     A          R FMTA
+001500990105     A                                      ASSUME
+001600990105     A                                  1  2' '
+001700990105     A          R SFLB                      SFL
+001800990105     A            SELC           1A  B  6  2COLOR(BLU)
+001900990105     A                                      DSPATR(UL)
+002000990105     A                                      COMP(EQ '1')
+002100990105     A                                      CHECK(ER)
+002200990106     A            NAM           40A  O  6 20
+002300990106     A            NBR           15A  O  6  4
+002400990105     A            ID             3  0H
+002500990105     A          R SFLCB                     SFLCTL(SFLB)
+002600990105     A                                      SFLSIZ(0005)
+002700990105     A                                      SFLPAG(0004)
+002800990105     A                                      WINDOW(FMTC)
+002900990105     A                                      CA12(12 'Previous')
+003000990105     A                                      ROLLUP(27)
+003100990105     A                                      BLINK
+003200990105     A                                      OVERLAY
+003300990105     A N74                                  ERASE(SFLB)
+003400990105     A                                      PUTOVR
+003500990105     A  74                                  SFLDSP
+003600990105     A  73                                  SFLDSPCTL
+003700990105     A N73                                  SFLCLR
+003800990105     A  75                                  SFLEND(*MORE)
+003900990105     A            RECNO          4S 0H      SFLRCDNBR
+004000990105     A                                  2  8'Search value:'
+004100990105     A                                      COLOR(WHT)
+004200990105     A            DFNAME        15A  B  2 22OVRDTA
+004300990105     A                                      COLOR(BLU)
+004400990222     A                                  5  1'Sl Code            Description    -
+004500990105     A                                                '
+004600990105     A                                      COLOR(WHT)
+004700990105     A                                      DSPATR(UL)
+004800990105     A                                  4  2'1=Select'
+004900990105     A                                      COLOR(WHT)
+005000990105     A          R FMTC
+005100000728     A                                      WINDOW(&YLIN &YCOL 11 69 *NOMSGLIN)
+005200990105     A                                      CLRL(*NO)
+005300990105     A                                      OVERLAY
+005400990105     A                                      PROTECT
+005500990105     A                                      PUTOVR
+005600990105     A                                      WDWBORDER((*COLOR BLU) (*DSPATR RI)-
+005700990105     A                                       (*CHAR '        ')        )
+005800000728     A            YLIN           3S 0P
+005900000728     A            YCOL           3S 0P
+006000990105     A                                 11  2'F12=No Selection'
+006100990105     A                                      COLOR(WHT)

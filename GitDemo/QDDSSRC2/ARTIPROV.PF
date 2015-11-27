@@ -1,0 +1,9 @@
+000100000717                                            UNIQUE
+000200000714                                            REF(SMPREF)
+000300000714                R FARPR
+000400000714                  PROVID    R
+000500000714                  ARTIID    R
+000600000714                  ARTIBP    R               REFFLD(ARTIPR)
+000700000714                                            COLHDG('BUY PRICE')
+000800000714                K PROVID
+000900000714                K ARTIID

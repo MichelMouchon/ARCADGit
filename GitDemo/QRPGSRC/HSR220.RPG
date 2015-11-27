@@ -1,0 +1,335 @@
+000100000000     H        1   Y
+000200000000      *****************************************************************
+000300000000      *                                                               *
+000400990127      *  Program Id. . : HSR220                                       *
+000500000000      *                                                               *
+000600990127      *  Description . : Invoice Print  Processing                    *
+000700000000      *                                                               *
+000800990105      *  System  . . . : High Street Vouchers Control & Tracking      *
+000900000000      *                                                               *
+001000980923      *  Author  . . . : Colin N. Jones   (Intec Systems Limited)     *
+001100000000      *                                                               *
+001200990105      *  Date Written  : January 1999                                 *
+001300000000      *                                                               *
+001400000000      *****************************************************************
+001500990114      * Indicator usage:
+001600990203      *  90 - Main Order Header read result.
+001700990203      *  91 - Order Delivery Details read result.
+001800990203      *  92 - Product Details
+001900990203      *  93 - Order Details lines read result.
+002000990203      *  94 - Customer Details read result.
+002100990216      *  95 - Sales Order Parameters chain result.
+002200990114      *
+002300990114      *****************************************************************
+002400990114      * Maintenance   :
+002500990114      * Fix/Chg Ref. Date       Description.
+002600990114      * ------------ ---------- -----------------------------------
+002700990114      *================================================================
+002800990126      *
+002900990216      * Sales Order Parameters File.
+003000990216     FHSLORDPAIF  E           K        DISK
+003100990216      *
+003200990126      * Sales Order Header File
+003300990216     FHSLORDHCUF  E           K        DISK
+003400990126      *
+003500990126      * Sales Order Detail File
+003600990127     FHSLORDDAIF  E           K        DISK
+003700990126      *
+003800990126      * Sales Order Delivery Detail File
+003900990127     FHSLODELAIF  E           K        DISK
+004000990126      *
+004100990126      * Customer Master File
+004200990126     FHSLCUSTAIF  E           K        DISK
+004300990126      *
+004400990126      * Product Master File
+004500990126     FHSLPRODAIF  E           K        DISK
+004600990219      *
+004700990219      * Sales Ledger Interface file
+004800990219     FHSLSINTAUF  E           K        DISK                      A
+004900990219      * Invoice Print
+005000990129     FHSW220  O   E                    PRINTER
+005100990219      * Interface batch report
+005200990219     FHSW220A O   E                    PRINTER
+005300000000      *
+005400990129     E                    MTH        12  3
+005500000000      *****************************************************************
+005600990114      *----------------------------------------------------------------
+005700990127      *
+005800000728     IXDATE       DS
+005900990127     I                                        1   80CYMD
+006000990127     I                                        1   20CC
+006100990127     I                                        3   80YMD
+006200990219     I                                        1   40CCYY
+006300990127     I                                        3   40YY
+006400990129     I                                        5   60MM
+006500990129     I                                        7   80DD
+006600990127      *
+006700000728     IXXXSDS     SDS                            429
+006800000728     I                                     *PROGRAM XPGMID
+006900000728     I                                      244 253 XJOBNO
+007000000728     I                                      254 263 XUSRID
+007100990219      *************************************************************
+007200990108      *  Main Line Processing
+007300990108      *************************************************************
+007400990126      *
+007500000728     C           ORDX      IFNE '*ALL'
+007600000728     C           ORDERX    SETLLHSFORDH
+007700990216     C                     ENDIF
+007800990216      *
+007900990106b1   C           *INLR     DOUEQ*ON
+008000990119      *
+008100990202     C                     READ HSFORDH                  90
+008200000728     C           ORDX      IFEQ '*ALL'
+008300000728     C                     MOVE JSORD     ORDERX
+008400990222     C                     MOVE JSORD     INVOIC
+008500990216     C                     ENDIF
+008600990126      *
+008700990216      * If Order number not found then quit program
+008800990129      * otherwise process Order record.
+008900990126      *
+009000000728     C           ORDX      IFNE '*ALL'
+009100000728     C           ORDERX    IFNE JSORD
+009200990202     C                     MOVE *ON       *INLR
+009300990202     C                     LEAVE
+009400990202     C                     ENDIF
+009500990216     C                     ENDIF
+009600990202      *
+009700990127     C           *IN90     IFEQ *ON
+009800990126     C                     MOVE *ON       *INLR
+009900990126     C                     ELSE
+010000990216      *
+010100000728     C                     MOVE JTYPE     XTYPE   3
+010200000728     C                     MOVE XTYPE     MOTYP   3
+010300990216     C           MOTYP     CHAINHSLORDPA             95
+010400990219     C           *IN92     IFNE *ON
+010500990225      ***************************************************
+010600990225     C                     Z-ADD17.5      MVATP   52
+010700990225      ***************************************************
+010800990219     C                     MOVE MVATP     VATP
+010900990219     C                     ENDIF
+011000990216     C           MSALE     IFEQ 'S'
+011100990216      *
+011200990129     C                     MOVE INVOIC    JINVN
+011300990129     C                     MOVE CYMD      JINVD
+011400990219BL   C                     MOVE 'S'       JSTAT
+011500990217      *
+011600000728     C                     TIME           XXTME   60
+011700000728     C                     MOVE XXTME     JCRTT
+011800990217     C                     MOVE CYMD      JCRTD
+011900000728     C                     MOVE XPGMID    JCRTP
+012000000728     C                     MOVE XJOBNO    JCRTS
+012100000728     C                     MOVE XUSRID    JCRTU
+012200990129     C                     UPDATHSFORDH
+012300990105     C                     EXSR SR01
+012400990216      *
+012500990216     C           JSORD     IFNE TSORD
+012600990216     C                     EXSR TOT
+012700990216     C                     ENDIF
+012800990216     C                     MOVE JSORD     TSORD   80
+012900990216      *
+013000990216     C                     ENDIF
+013100990126     C                     ENDIF
+013200990106      *
+013300990126e1   C                     ENDDO
+013400990219      * Interface batch report totals
+013500990219     C                     WRITEDTL1
+013600990219     C                     WRITEFTR
+013700990219      *
+013800990106      ****************************************************************
+013900990126      *  Process Record
+014000990107      *****************************************************************
+014100990126     C           SR01      BEGSR
+014200990107      *          ***************
+014300990126      *
+014400990129      * Get Delivery Address Details
+014500990129      * and write delivery details
+014600990126      *
+014700000728     C           ORDERX    CHAINHSLODELA             91
+014800990203     C           JCUST     CHAINHSLCUSTA             94
+014900990203     C           *IN94     IFEQ *OFF
+015000990129     C                     MOVE DD        JINDD
+015100990202     C                     MOVE MM        JINMM
+015200990129     C                     MOVE YY        JINYY
+015300990129     C                     WRITEHEADER1
+015400990202     C                     WRITEDETL
+015500990129     C                     ENDIF
+015600990126      *
+015700990129      * Get Order Detail lines & print. Only quit if no more order line
+015800990129      * exist.
+015900990126      *
+016000990129     C                     MOVE *OFF      *IN93
+016100990129      *
+016200000728     C           ORDERX    SETLLHSLORDDA
+016300990202     C           *IN93     DOWNE*ON
+016400990202     C                     READ HSLORDDA                 93
+016500990202      *
+016600000728     C           ORDERX    IFNE KSORD
+016700990202     C                     MOVE *ON       *IN93
+016800990202     C                     LEAVE
+016900990202     C                     ENDIF
+017000990202      *
+017100990127     C           *IN93     IFNE *ON
+017200990129      *
+017300990129      * Get product description.
+017400990129      *
+017500990129     C           KPROD     CHAINHSLPRODA             92
+017600000728     C                     MOVELKPROD     PRODX   4
+017700990218     C           *IN92     IFEQ *ON
+017800000728     C                     MOVELKDESC     PDESCX 40
+017900990218     C                     ELSE
+018000000728     C                     MOVELNDESC     PDESCX 40
+018100990218     C                     ENDIF
+018200990219      * Cost calculations
+018300990219      *
+018400990219     C                     Z-ADD0         WRKDIS
+018500990219     C                     Z-ADD0         WKDISA
+018600990219     C                     Z-ADD0         WKCST
+018700000728     C           VATP      DIV  100       YVAT    53
+018800990219      *
+018900990219     C           KVALU     MULT KDISP     WRKDIS 152H
+019000990219     C           WRKDIS    DIV  100       WKDISA 152H
+019100990219     C           KVALU     SUB  WKDISA    WKCST  152
+019200000728     C           WKCST     MULT YVAT      VATX   152H
+019300000728     C                     Z-ADDKVALU     PCOSTX 152
+019400000728     C                     Z-ADDKPRIC     PPRICX 152
+019500990219      * Accumulate final totals for invoice
+019600990219      *
+019700000728     C                     ADD  PCOSTX    NETA   202
+019800990219     C                     ADD  WKDISA    DSCA   202
+019900000728     C                     ADD  VATX      VATA   202
+020000990218      * Text lines only.
+020100990218     C           KLTYP     IFEQ 'T'
+020200990218     C                     WRITEDETLT
+020300990218     C                     ENDIF
+020400990218      * Non Stock line only
+020500990218     C           KLTYP     IFEQ 'N'
+020600990218     C                     WRITEDETL1
+020700990218     C           KSERNF    IFGT 0
+020800990218     C           KSERNT    ANDGT0
+020900990218     C                     WRITEDETL2
+021000990218     C                     ENDIF
+021100990218     C                     ENDIF
+021200990218      * Stock line only
+021300990218     C           KLTYP     IFEQ 'S'
+021400990202     C                     WRITEDETL1
+021500990202     C                     WRITEDETL2
+021600990218     C                     ENDIF
+021700990218      *
+021800990202     C                     ELSE
+021900990202     C                     LEAVE
+022000990202     C                     ENDIF
+022100990129      *
+022200990129      *
+022300990129     C                     ENDDO
+022400990219      *
+022500990107      *          ***************
+022600990107     C                     ENDSR
+022700990216      *****************************************************************
+022800990216      *  Print Totals Subroutine.
+022900990216      *****************************************************************
+023000990216     C           TOT       BEGSR
+023100990216      *          ***************
+023200990216      *
+023300990216      * Write Totals values to Invoice.
+023400990216      *
+023500000728     C                     ADD  1         XINV    50
+023600000728     C                     Z-ADD0         XERR    50
+023700990216     C**         NETA      MULT £DISC     DISC
+023800990219     C           NETA      SUB  DSCA      SUBT   152
+023900990216     C           VATA      ADD  SUBT      TOTA
+024000990219      * Accumulate final totals for interface report
+024100990219      *
+024200000728     C                     ADD  DSCA      XDSC   152
+024300000728     C                     ADD  NETA      XVAL   152
+024400000728     C                     ADD  SUBT      XNET   152
+024500000728     C                     ADD  VATA      XVAT   152
+024600000728     C                     ADD  TOTA      XTOT   152
+024700990219      *
+024800990216     C                     MOVE *ON       *IN01
+024900990216     C                     WRITEFOOTER
+025000990219BL   C           MUPSL     IFEQ 'Y'
+025100000728     C                     EXSR YIFACE
+025200990217     C                     MOVE *BLANKS   VDIN1
+025300990217     C                     MOVE *BLANKS   VDIN2
+025400990217     C                     MOVE *BLANKS   VDIN3
+025500990217     C                     MOVE *ZEROS    DSCA
+025600990217     C                     MOVE *ZEROS    NETA
+025700990217     C                     MOVE *ZEROS    VATA
+025800990217     C                     MOVE *ZEROS    TOTA
+025900990219BL   C                     ENDIF
+026000990216      *          ***************
+026100990216     C                     ENDSR
+026200990219      *****************************************************************
+026300990219      *  Interface File processing.
+026400990219      *****************************************************************
+026500000728     C           YIFACE    BEGSR
+026600990219      *          ***************
+026700990219      *
+026800990219      * Write values to I/Face file.
+026900990219      *
+027000990219     C           JINVN     CHAINHSLSINTA             54
+027100990219     C           *IN54     IFEQ *ON
+027200990219     C                     MOVE JCOMP     TCOMP
+027300990219     C                     MOVE JCUST     TCUST
+027400990219     C                     MOVE JCUSB     TCUSB
+027500990219     C                     MOVE JINVN     TINVN
+027600990219     C                     MOVE JINVD     TINVD
+027700990219     C                     ADD  TOTA      TVALU
+027800990219     C                     ADD  VATA      TVATA
+027900990219     C                     MOVE KDISP     TDISP
+028000990219     C                     MOVE BATCH     TBATC
+028100990219     C                     WRITEHSFSINT
+028200990219      *
+028300990219     C                     ENDIF
+028400990219      *
+028500990219     C                     WRITEDTL
+028600990219      *
+028700990219     C                     MOVE *ZEROS    TVALU
+028800990219     C                     MOVE *ZEROS    TVATA
+028900990219      *          ***************
+029000990219     C                     ENDSR
+029100990126      *****************************************************************
+029200990126      *  Initial Subroutine.
+029300990126      *****************************************************************
+029400990126     C           *INZSR    BEGSR
+029500990126      *
+029600990126      * Prepare message subfile.
+029700990126      *
+029800990127     C           *ENTRY    PLIST
+029900000728     C                     PARM           ORDX    8
+030000990219      *
+030100990219     C           *LIKE     DEFN MVATP     VATP
+030200990219      *
+030300000728     C           ORDX      IFNE '*ALL'
+030400000728     C                     MOVE ORDX      ORDERX  80
+030500000728     C                     MOVE ORDX      INVOIC  8
+030600990216     C                     ENDIF
+030700990126      *
+030800990129      * Get Invoice Number & increment by 1.
+030900990218     C*          *NAMVAR   DEFN HSAINVN   INVOIC  8
+031000990218     C*          *LOCK     IN   INVOIC
+031100990218     C*                    MOVE INVOIC    INV#    80
+031200990218     C*                    ADD  1         INV#
+031300990218     C*                    MOVE INV#      INVOIC
+031400990218     C*                    OUT  INVOIC
+031500990219      *
+031600990219      * Get batch number & increment by 1.
+031700990219     C           *NAMVAR   DEFN HSAINVB   BATCH   50
+031800990219     C           *LOCK     IN   BATCH
+031900000728     C                     MOVE BATCH     XBATCH  50
+032000000728     C                     ADD  1         XBATCH
+032100000728     C                     MOVE XBATCH    BATCH
+032200990219     C                     OUT  BATCH
+032300990219      *
+032400990126      * Set up current CCYYMMDD
+032500990126     C                     MOVE UDATE     YMD     60
+032600990126     C           YY        IFGE 40
+032700990126     C           YY        ANDLE99
+032800990126     C                     Z-ADD19        CC
+032900990126     C                     ELSE
+033000990126     C                     Z-ADD20        CC
+033100990126     C                     ENDIF
+033200990126      *
+033300990219     C                     WRITEHDR1
+033400990219     C                     WRITEHDR2
+033500990126     C                     ENDSR

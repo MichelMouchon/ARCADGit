@@ -1,0 +1,6 @@
+000100000713                                            REF(SMPREF)
+000200000713                                            UNIQUE
+000300000713                R FFAMI
+000400000713                  FAMIID    R
+000500000713                  FAMIDE    R
+000600000713                K FAMIID
