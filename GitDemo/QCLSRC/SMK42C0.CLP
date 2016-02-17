@@ -1,5 +1,6 @@
-000100051123             PGM        PARM(&ACTION &PCKNBR &PCK1 &PCK2 &PCK3 &PCK4 +
-000200051123                          &PCKRET)
+000100160217             /* demo*/
+000200160217             PGM        PARM(&ACTION &PCKNBR &PCK1 &PCK2 &PCK3 &PCK4 +
+000201160217                          &PCKRET) /* demo*/
 000300051123             DCL        VAR(&ACTION) TYPE(*CHAR) LEN(1)
 000400051123             DCL        VAR(&PCKNBR) TYPE(*DEC) LEN(5 0)
 000500051123             DCL        VAR(&PCK1) TYPE(*DEC) LEN(15 5)
