@@ -38,3 +38,5 @@
 002000990215     A            PDISC     R               REFFLD(DISP)
 002100990219     A            PDELT     R               REFFLD(A1)
 002200990219     A                                      COLHDG('Deletion Flag')
+002201160219     A            PDEMO     R               REFFLD(A1)
+002202160219     A                                      COLHDG('Demo Flag')
