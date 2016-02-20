@@ -88,3 +88,6 @@
 007002160218     A                                      COLHDG('Deletion Flag')
 007100160218     A            EDEMO     R               REFFLD(A1)
 007200160218     A                                      COLHDG('Demo Flag')
+007201160220     A            EDEMG     R               REFFLD(A1)
+007202160220     A                                      COLHDG('Demo Git')
+007203160220
